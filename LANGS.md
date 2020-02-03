@@ -2,3 +2,4 @@
 * [Deutsch](de)
 * [Español](es)
 * [Français](fr)
+* [Русский](ru)
