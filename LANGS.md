@@ -1,6 +1,4 @@
 # Languages
-* [English](en)
-* [Deutsch](de)
-* [Español](es)
-* [Français](fr)
-* [Русский](ru)
+
+* [Deutsch](de/)
+* [Русский](ru/)
