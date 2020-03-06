@@ -1,0 +1,4 @@
+synchronize:
+  paths:
+    -exclude: 
+      - "SUM*.md"
