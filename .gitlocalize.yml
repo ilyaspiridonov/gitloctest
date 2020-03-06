@@ -1,5 +1,5 @@
 synchronize:
-  paths:
-    - source: .
-    exclude: 
-      - "README.md"
+paths:
+- source: .
+exclude:
+- "ru/*.*"
