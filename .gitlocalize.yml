@@ -2,4 +2,4 @@ synchronize:
   paths:
     - source: .
     exclude: 
-      - "ru/*.*"
+      - README.md
