@@ -1,4 +1,5 @@
 synchronize:
   paths:
-    -exclude: 
+    - source: .
+    exclude: 
       - "SUMMARY.md"
