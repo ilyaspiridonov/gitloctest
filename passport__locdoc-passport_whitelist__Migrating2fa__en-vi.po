@@ -1,0 +1,60 @@
+# passport locdoc-passport_whitelist Migrating2fa en vi
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Dialect: smartcat\n"
+"Files: MDS\n"
+"Tracker: https://st.yandex-team.ru/TRANSLATE-26060\n"
+
+# https://jing.yandex-team.ru/files/malyamar/Upravlenie_dostupom_2016-01-25_17-58-53.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.change-device"
+msgid "Device replacement"
+msgstr ""
+
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.finish-btn"
+msgid "Finish"
+msgstr ""
+
+# https://jing.yandex-team.ru/files/malyamar/Dvuhfaktornaya_autentifikatsiya_podklyuchenie_novogo_ustroistva_2016-01-25_17-59-43.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.last-step"
+msgid ""
+"To finish the settings, enter the PIN code you chose when first setting up two-factor authentification in Yandex.Key, and enter the one-time password in "
+"the field below."
+msgstr ""
+
+# https://jing.yandex-team.ru/files/malyamar/Dvuhfaktornaya_autentifikatsiya_podklyuchenie_novogo_ustroistva_2016-01-25_18-00-45.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.main-text"
+msgid "Install Yandex.Key on the new device and use it to read the QR-code to add an account. To create one-time passwords, use your previous PIN code."
+msgstr ""
+
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.page-title"
+msgid "Two-factor authentification: connecting a new device"
+msgstr ""
+
+# https://jing.yandex-team.ru/files/malyamar/Upravlenie_dostupom_2016-01-25_18-06-20.png
+#, fuzzy
+msgctxt ""
+"https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.promo.success.description"
+msgid "Yandex.Key has been installed on the new device. Passwords created on previously configured devices will no longer be valid. "
+msgstr ""
+
+# https://jing.yandex-team.ru/files/malyamar/Dvuhfaktornaya_autentifikatsiya_podklyuchenie_novogo_ustroistva_2016-01-25_18-02-45.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.restoration-link"
+msgid "I forgot my PIN code"
+msgstr ""
+
+# https://jing.yandex-team.ru/files/malyamar/Dvuhfaktornaya_autentifikatsiya_podklyuchenie_novogo_ustroistva_2016-01-25_18-03-21.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.warning"
+msgid ""
+"<strong>Please note:</strong> After configuring your settings, passwords received on previously-configured devices will no longer be valid. If you want to"
+" receive one-time passwords on several devices, install and open Yandex.Key on them, and use them all to read the QR code below before continuing to the "
+"next step."
+msgstr ""
