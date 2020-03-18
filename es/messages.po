@@ -4,678 +4,678 @@ msgstr "Скриншот сайта, который использует AMP"
 
 #: /views/partials/format-visuals/websites.j2:10
 msgid "A screenshot showing amp-sidebar."
-msgstr ""
+msgstr "Una captura de pantalla que muestra la barra lateral del amplificador".
 
 #: /views/partials/format-visuals/websites.j2:7
 msgid "A website screenshot."
-msgstr ""
+msgstr "Una captura de pantalla del sitio web".
 
 #: /views/partials/footer.j2:74
 msgid "AMP Brand Materials"
-msgstr ""
+msgstr "Materiales de la marca AMP"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/learn/amp-caches-and-cors/_blueprint.yaml
 msgid "AMP Caches & CORS"
-msgstr ""
+msgstr "Cachés de AMP y CORS"
 
 #: /views/partials/footer.j2:71
 msgid "AMP Conf 2019"
-msgstr ""
+msgstr "AMP Conf 2019"
 
 #: /views/partials/footer.j2:72
 msgid "AMP Contributor Summit 2019"
-msgstr ""
+msgstr "Cumbre de Colaboradores de AMP 2019"
 
 #: /views/partials/banner.j2:5
 msgid "AMP Contributor Summit 2019 Applications Now Open"
-msgstr ""
+msgstr "Las aplicaciones AMP contributor Summit 2019 ya están abiertas"
 
 #: /views/partials/footer.j2:43
 msgid "AMP Framework"
-msgstr ""
+msgstr "Marco AMP"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/learn/spec/_blueprint.yaml
 msgid "AMP HTML Specification"
-msgstr ""
+msgstr "Especificación HTML de AMP"
 
 #: /content/amp-dev/support/faq/overview.md
 msgid "AMP Overview"
-msgstr ""
+msgstr "Descripción general de AMP"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/learn/email-spec/_blueprint.yaml
 msgid "AMP for Email Specification"
-msgstr ""
+msgstr "AMP para la especificación de correo electrónico"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/learn/amp-html-layout/_blueprint.yaml
 msgid "AMP's Layout System"
-msgstr ""
+msgstr "Sistema de diseño de AMP"
 
 #: /content/amp-dev/about/_blueprint.yaml
 msgid "About"
-msgstr ""
+msgstr "Acerca de"
 
 #: /views/partials/consent.j2:36
 msgid "Accept use of cookies"
-msgstr ""
+msgstr "Aceptar el uso de cookies"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/start/add_advanced/_blueprint.yaml
 msgid "Add advanced AMP features"
-msgstr ""
+msgstr "Agregar funciones avanzadas de AMP"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/develop/interactivity_data/_blueprint.yaml
 msgid "Add interactivity & dynamic data (TBD)"
-msgstr ""
+msgstr "Agregar interactividad y datos dinámicos (TBD)"
 
 #: /content/amp-dev/documentation/courses/advanced-course/_blueprint.yaml
 msgid "Advanced Course"
-msgstr ""
+msgstr "Curso avanzado"
 
 #: /views/partials/search.j2:130
 msgid "Although there are {hits} hits in total we cannot show more than 100."
-msgstr ""
+msgstr "Aunque hay {hits} hits en total, no podemos mostrar más de 100".
 
 #: /views/examples/documentation.j2:212
 msgid "An unexplained feature?"
-msgstr ""
+msgstr "¿Una característica inexplicable?"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/develop/animations/_blueprint.yaml
 msgid "Animate & Transition"
-msgstr ""
+msgstr "Animación y transición"
 
 #: /content/amp-dev/about/stories.html
 msgid "App Install"
-msgstr ""
+msgstr "Instalación de la aplicación"
 
 #: /content/amp-dev/about/stories.html:244
 msgid "Animations and interactions"
-msgstr ""
+msgstr "Animaciones e interacciones"
 
 #: /content/amp-dev/about/stories.html:255
 msgid "Check out AMP stories on the web"
-msgstr ""
+msgstr "Echa un vistazo a las historias de AMP en la web"
 
 #: /content/amp-dev/about/stories.html:327
 msgid "Story Ads are full screen, single page ads that appear within AMP Stories. Advertisers/ Publishers can invite users to a web page, an AMP page or an App with a single tap. A story ad has a rich, flexible canvas that allows images, videos, animations or a combination of all those elements.<br>  Story ads are supported by Google Ad Manager and Google DV360 (Beta) with additional ad server support coming soon!"
-msgstr ""
+msgstr "Los anuncios de historia son anuncios de pantalla completa de una sola página que aparecen dentro de las historias de AMP. Los anunciantes / editores pueden invitar a los usuarios a una página web, una página de AMP o una aplicación con un solo toque. Un anuncio de historia tiene un lienzo rico y flexible que permite imágenes, videos, animaciones o una combinación de todos esos elementos. ¡Los anuncios de Story son compatibles con Google Ad Manager y Google DV360 (Beta) con soporte adicional para el servidor de anuncios próximamente! "
 
 #: /content/amp-dev/about/stories.html:415
 msgid "Discover All Templates"
-msgstr ""
+msgstr "Descubre todas las plantillas"
 
 #: /content/amp-dev/404.html:18 /content/amp-dev/500.html:18
 msgid "Back to home"
-msgstr ""
+msgstr "Volver a casa"
 
 #: /views/examples/preview.j2:28
 msgid "Back to sample"
-msgstr ""
+msgstr "Volver a la muestra"
 
 #: /views/partials/case-grid.j2:30
 msgid "Band Page in AMP"
-msgstr ""
+msgstr "Página de banda en AMP"
 
 #: /content/amp-dev/documentation/courses/beginning-course/_blueprint.yaml
 msgid "Beginning Course"
-msgstr ""
+msgstr "Curso de inicio"
 
 #: /views/partials/burger-menu.j2:24 /views/partials/header.j2:38
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: /views/partials/burger-menu.j2:8
 msgid "Burger Menu"
-msgstr ""
+msgstr "Menú de hamburguesas"
 
 #: /content/amp-dev/community/_blueprint.yaml /views/partials/footer.j2:61
 msgid "Community"
-msgstr ""
+msgstr "Comunidad"
 
 #: /content/amp-dev/documentation/components/_blueprint.yaml
 #: /content/amp-dev/documentation/components/reference/_blueprint.yaml
 #: /views/partials/footer.j2:54 /views/partials/search.j2:84
 msgid "Components"
-msgstr ""
+msgstr "Componentes"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/contribute/_blueprint.yaml
 #: /views/partials/footer.j2:64
 msgid "Contribute"
-msgstr ""
+msgstr "Contribuir"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/contribute/contribute-documentation/_blueprint.yaml
 msgid "Contribute documentation"
-msgstr ""
+msgstr "Documentación de contribución"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/start/converting/_blueprint.yaml
 msgid "Convert HTML to AMP"
-msgstr ""
+msgstr "Convertir HTML a AMP"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/develop/interactive_widget/_blueprint.yaml
 msgid "Create a custom interactive widget with amp-script"
-msgstr ""
+msgstr "Crear un widget interactivo personalizado con amp-script"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/develop/login_requiring/_blueprint.yaml
 msgid "Create a login-requiring AMP page"
-msgstr ""
+msgstr "Crear una página AMP que requiere inicio de sesión"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/develop/interactivity/_blueprint.yaml
 msgid "Create interactive AMP pages"
-msgstr ""
+msgstr "Crear páginas AMP interactivas"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/start/create/_blueprint.yaml
 msgid "Create your first AMP Page"
-msgstr ""
+msgstr "Crea tu primera página AMP"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/start/visual_story/_blueprint.yaml
 msgid "Create your first AMP Story"
-msgstr ""
+msgstr "Crea tu primera historia de AMP"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/start/create_amphtml_ad/_blueprint.yaml
 msgid "Create your first AMPHTML ad"
-msgstr ""
+msgstr "Cree su primer anuncio AMPHTML"
 
 #: /views/partials/structured-data.j2:56
 msgid "Demo: "
-msgstr ""
+msgstr "Demo:"
 
 #: /views/partials/footer.j2:56
 msgid "Design Templates"
-msgstr ""
+msgstr "Plantillas de diseño"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/develop/_blueprint.yaml
 msgid "Develop"
-msgstr ""
+msgstr "Desarrollar"
 
 #: /views/partials/consent.j2:28
 msgid "Dismiss consent"
-msgstr ""
+msgstr "Descartar consentimiento"
 
 #: /views/partials/footer.j2:50
 msgid "Docs"
-msgstr ""
+msgstr "Documentos"
 
 #: /content/amp-dev/documentation/_blueprint.yaml /views/partials/breadcrumbs.j2:10
 #: /views/partials/breadcrumbs.j2:39 /views/partials/breadcrumbs.j2:52
 #: /views/partials/breadcrumbs.j2:65 /views/partials/breadcrumbs.j2:92
 msgid "Documentation"
-msgstr ""
+msgstr "Documentación"
 
 #: /views/partials/structured-data.j2:58
 msgid "Documentation: "
-msgstr ""
+msgstr "Documentación:"
 
 #: /views/detail/template-detail.j2:91
 msgid "Download ZIP"
-msgstr ""
+msgstr "Descargar ZIP"
 
 #: /content/amp-dev/documentation/templates/index.html:20
 msgid "Easily build user first websites with our templates"
-msgstr ""
+msgstr "Cree fácilmente los primeros sitios web de los usuarios con nuestras plantillas"
 
 #: /views/examples/documentation.j2:216
 msgid "Edit sample on GitHub"
-msgstr ""
+msgstr "Editar muestra en GitHub"
 
 #: /views/partials/case-grid.j2:22
 msgid "Editorial AMP Article"
-msgstr ""
+msgstr "Artículo editorial de AMP"
 
 #: /content/amp-dev/events/_blueprint.yaml /views/partials/footer.j2:69
 msgid "Events"
-msgstr ""
+msgstr "Eventos"
 
 #: /content/tests/examples/_blueprint.yaml
 msgid "Example Source Code"
-msgstr ""
+msgstr "Código fuente de ejemplo"
 
 #: /views/partials/structured-data.j2:54
 msgid "Example: "
-msgstr ""
+msgstr "Ejemplo:"
 
 #: /content/amp-dev/documentation/examples/_blueprint.yaml
 #: /views/partials/component-examples-list.j2:10 /views/partials/footer.j2:55
 msgid "Examples"
-msgstr ""
+msgstr "Ejemplos"
 
 #: /content/amp-dev/about/stories.html
 msgid "Expansion"
-msgstr ""
+msgstr "Expansión"
 
 #: /content/amp-dev/support/faq/_blueprint.yaml
 msgid "FAQ"
-msgstr ""
+msgstr "Preguntas frecuentes"
 
 #: /views/partials/footer.j2:12
 msgid "Follow us"
-msgstr ""
+msgstr "Síguenos"
 
 #: /views/detail/component-detail.j2:39
 msgid "Found a bug or missing a feature?"
-msgstr ""
+msgstr "¿Encontró un error o falta una característica?"
 
 #: /views/partials/footer.j2:46
 msgid "Functionality"
-msgstr ""
+msgstr "Funcionalidad"
 
 #: /views/partials/footer.j2:52
 msgid "Get Started"
-msgstr ""
+msgstr "Comenzar"
 
 #: /views/detail/docs-detail.j2:39
 msgid "Get started"
-msgstr ""
+msgstr "Comenzar"
 
 #: /content/amp-dev/documentation/courses/teachers.md:9
 msgid "Get the courses"
-msgstr ""
+msgstr "Obtén los cursos"
 
 #: /views/detail/component-detail.j2:43
 msgid "Go to GitHub"
-msgstr ""
+msgstr "Ir a GitHub"
 
 #: /views/detail/component-detail.j2:36 /views/examples/documentation.j2:209
 msgid "Go to Stack Overflow"
-msgstr ""
+msgstr "Ir al desbordamiento de pila"
 
 #: /views/partials/consent.j2:36
 msgid "Got it!"
-msgstr ""
+msgstr "¡Lo tengo!"
 
 #: /views/partials/footer.j2:53
 msgid "Guides and Tutorials"
-msgstr ""
+msgstr "Guías y tutoriales"
 
 #: /content/amp-dev/documentation/templates/index.html:19
 msgid "How to build AMP without knowing how to code?"
-msgstr ""
+msgstr "¿Cómo construir AMP sin saber cómo codificar?"
 
 #: /views/partials/search.j2:186
 msgid "Important Components"
-msgstr ""
+msgstr "Componentes importantes"
 
 #: /views/partials/content.j2:24
 msgid "Important: this component does not support your currently selected format"
-msgstr ""
+msgstr "Importante: este componente no es compatible con el formato seleccionado actualmente"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/develop/media_iframes_3p/_blueprint.yaml
 msgid "Include media, iframes & third-party content"
-msgstr ""
+msgstr "Incluir medios, iframes y contenido de terceros"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/integrate/_blueprint.yaml
 msgid "Integrate"
-msgstr ""
+msgstr "Integrar"
 
 #: /content/amp-dev/documentation/courses/intermediate-course/_blueprint.yaml
 msgid "Intermediate Course"
-msgstr ""
+msgstr "Curso intermedio"
 
 #: /content/amp-dev/events/amp-roadshow.html:28
 msgid "Jump to:"
-msgstr ""
+msgstr "Saltar a:"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/learn/_blueprint.yaml
 msgid "Learn"
-msgstr ""
+msgstr "Aprender"
 
 #: /content/amp-dev/events/amp-conf-2019.html:30
 #: /content/amp-dev/events/amp-conf-2019@ja.html:30
 #: /content/amp-dev/events/amp-cs-2019.html:23
 msgid "Learn more about:"
-msgstr ""
+msgstr "Más información sobre:"
 
 #: /views/partials/search.j2:139
 msgid "Load more"
-msgstr ""
+msgstr "Cargar más"
 
 #: /views/partials/footer.j2:77
 msgid "Logos"
-msgstr ""
+msgstr "Logos"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/develop/monetization/_blueprint.yaml
 msgid "Monetize your AMP page with ads"
-msgstr ""
+msgstr "Monetice su página AMP con anuncios"
 
 #: /content/amp-dev/about/stories.html
 msgid "Multiple Image"
-msgstr ""
+msgstr "Imagen múltiple"
 
 #: /views/examples/documentation.j2:205
 msgid "Need further explanation?"
-msgstr ""
+msgstr "¿Necesita más explicaciones?"
 
 #: /views/detail/component-detail.j2:32
 msgid "Need more help?"
-msgstr ""
+msgstr "¿Necesitas más ayuda?"
 
 #: /views/detail/docs-detail.j2:54
 msgid "Next chapter"
-msgstr ""
+msgstr "Capítulo siguiente"
 
 #: /views/partials/search.j2:162
 msgid "No results found."
-msgstr ""
+msgstr "No se encontraron resultados".
 
 #: /content/amp-dev/about/stories.html
 msgid "Nueve hoteles en los que tienes que dormir antes de morir"
-msgstr ""
+msgstr "Nueve hoteles en los que tienes que dormir antes de morir"
 
 #: /views/partials/footer.j2:9
 msgid "Of course, this site is made with AMP!"
-msgstr ""
+msgstr "¡Por supuesto, este sitio está hecho con AMP!"
 
 #: /views/partials/case-grid.j2:50
 msgid "Open Use Case"
-msgstr ""
+msgstr "Caso de uso abierto"
 
 #: /views/partials/search.j2:99 /views/partials/search.j2:200
 msgid "Open example"
-msgstr ""
+msgstr "Abrir ejemplo"
 
 #: /views/examples/documentation.j2:144 /views/partials/search.j2:106
 #: /views/partials/search.j2:207
 msgid "Open in playground"
-msgstr ""
+msgstr "Abierto en el patio de recreo"
 
 #: /views/examples/documentation.j2:194
 #: /views/partials/code-preview/code-preview.j2:146
 msgid "Open this snippet in playground"
-msgstr ""
+msgstr "Abrir este fragmento en el patio de recreo"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/optimize-measure/_blueprint.yaml
 msgid "Optimize & Measure"
-msgstr ""
+msgstr "Optimizar y medir"
 
 #: /views/partials/footer.j2:41
 msgid "Overview"
-msgstr ""
+msgstr "Descripción general"
 
 #: /content/amp-dev/about/stories.html
 #: /views/partials/case-grid.j2:14
 msgid "Parallax Storytelling in AMP"
-msgstr ""
+msgstr "Parallax Storytelling en AMP"
 
 #: /content/amp-dev/support/faq/platform-involvement.md
 msgid "Platform and Technology Company Involvement"
-msgstr ""
+msgstr "Plataforma y participación de la empresa tecnológica"
 
 #: /views/partials/footer.j2:63
 msgid "Platform and Vendor Partners"
-msgstr ""
+msgstr "Plataforma y socios proveedores"
 
 #: /content/shared/experiments.html:21
 msgid "Please reload the page."
-msgstr ""
+msgstr "Vuelva a cargar la página".
 
 #: /views/partials/search.j2:146 /views/partials/search.j2:155
 msgid "Please try again later."
-msgstr ""
+msgstr "Inténtalo de nuevo más tarde".
 
 #: /views/partials/search.j2:216
 msgid "Popular Articles"
-msgstr ""
+msgstr "Artículos populares"
 
 #: /views/examples/preview.j2:19
 msgid "Preview"
-msgstr ""
+msgstr "Vista previa"
 
 #: /views/detail/docs-detail.j2:48
 msgid "Previous chapter"
-msgstr ""
+msgstr "Capítulo anterior"
 
 #: /views/partials/footer.j2:83
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Política de privacidad"
 
 #: /content/amp-dev/about/stories.html
 msgid "Protecting the Antarctic - A journey to a continent in distress"
-msgstr ""
+msgstr "Protección de la Antártida: un viaje a un continente en peligro"
 
 #: /content/amp-dev/support/faq/publisher-monetization.md
 msgid "Publisher Monetization"
-msgstr ""
+msgstr "Monetización del editor"
 
 #: /views/partials/search.j2:116
 msgid "Results"
-msgstr ""
+msgstr "Resultados"
 
 #: /views/partials/footer.j2:65
 msgid "Roadmap"
-msgstr ""
+msgstr "Hoja de ruta"
 
 #: /content/amp-dev/about/stories.html
 msgid "SF Chronicle"
-msgstr ""
+msgstr "SF Chronicle"
 
 #: /views/partials/case-grid.j2:53
 msgid "Screenshot of use case:"
-msgstr ""
+msgstr "Captura de pantalla del caso de uso:"
 
 #: /views/partials/search.j2:59
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: /views/partials/case-grid.j2:66
 msgid "See all use cases"
-msgstr ""
+msgstr "Ver todos los casos de uso"
 
 #: /views/partials/teaser-grid.j2:135 /views/partials/teaser.j2:137
 msgid "See example"
-msgstr ""
+msgstr "Ver ejemplo"
 
 #: /content/amp-dev/about/success-stories/index.html:14
 msgid "See what others have built"
-msgstr ""
+msgstr "Mira lo que otros han construido"
 
 #: /views/partials/header.j2:99
 msgid "Select a language"
-msgstr ""
+msgstr "Seleccione un idioma"
 
 #: /views/partials/rolling-formats.j2:3
 msgid "websites"
-msgstr ""
+msgstr "sitios web"
 
 #: /views/partials/rolling-formats.j2:3
 msgid "stories"
-msgstr ""
+msgstr "historias"
 
 #: /views/partials/rolling-formats.j2:3
 msgid "ads"
-msgstr ""
+msgstr "anuncios"
 
 #: /views/partials/rolling-formats.j2:3
 msgid "emails"
-msgstr ""
+msgstr "correos electrónicos"
 
 #: /views/partials/rolling-formats.j2:3
 msgid "email"
-msgstr ""
+msgstr "correo electrónico"
 
 #: /content/amp-dev/index.html:65
 msgid "AMP is a web component framework to easily create <span style=\"white-space: nowrap;\">user-first</span><br>"
-msgstr ""
+msgstr "AMP es un marco de componentes web para crear fácilmente <span style = \" white-space: nowrap; \ "> user-first </span> <br>"
 
 #: /content/amp-dev/index.html:257
 msgid "Show everything"
-msgstr ""
+msgstr "Mostrar todo"
 
 #: /views/partials/search.j2:337
 msgid "Open in AMP Playground"
-msgstr ""
+msgstr "Abrir en el patio de juegos de AMP"
 
 #: /content/amp-dev/index.html:431
 msgid "Build anything with AMP."
-msgstr ""
+msgstr "Construye cualquier cosa con AMP".
 
 #: /content/amp-dev/about/stories.html
 msgid "Single Image"
-msgstr ""
+msgstr "Imagen única"
 
 #: /content/amp-dev/about/stories.html
 msgid "Single video"
-msgstr ""
+msgstr "Video único"
 
 #: /content/amp-dev/offline.html:14
 msgid "Something cut the line."
-msgstr ""
+msgstr "Algo cortó la línea".
 
 #: /content/amp-dev/500.html:15
 msgid "Something went terribly wrong. Why don't you browse around?"
-msgstr ""
+msgstr "Algo salió terriblemente mal. ¿Por qué no navegas?"
 
 #: /views/partials/search.j2:144
 msgid "Something went wrong while trying to load more search results."
-msgstr ""
+msgstr "Algo salió mal al intentar cargar más resultados de búsqueda".
 
 #: /views/partials/search.j2:151
 msgid "Something went wrong…"
-msgstr ""
+msgstr "Algo salió mal ..."
 
 #: /content/amp-dev/documentation/guides-and-tutorials/start/_blueprint.yaml
 msgid "Start"
-msgstr ""
+msgstr "Inicio"
 
 #: /views/partials/footer.j2:76
 msgid "Styleguide"
-msgstr ""
+msgstr "Styleguide"
 
 #: /content/amp-dev/about/success-stories/_blueprint.yaml
 #: /content/amp-dev/about/success-stories/index.html
 msgid "Success Stories"
-msgstr ""
+msgstr "Historias de éxito"
 
 #: /views/partials/structured-data.j2:60
 msgid "Success Story: "
-msgstr ""
+msgstr "Historia de éxito:"
 
 #: /content/amp-dev/about/success-stories/index.html:15
 #: /views/partials/footer.j2:45
 msgid "Success stories"
-msgstr ""
+msgstr "Historias de éxito"
 
 #: /content/amp-dev/support/_blueprint.yaml /views/partials/breadcrumbs.j2:104
 msgid "Support"
-msgstr ""
+msgstr "Soporte"
 
 #: /content/amp-dev/support/faq/supported-browsers.md
 msgid "Supported Browsers"
-msgstr ""
+msgstr "Navegadores compatibles"
 
 #: /content/amp-dev/support/faq/platform-and-vendor-partners.md
 msgid "Supported Platforms"
-msgstr ""
+msgstr "Plataformas compatibles"
 
 #: /views/examples/documentation.j2:88
 msgid "Table of contents"
-msgstr ""
+msgstr "Tabla de contenido"
 
 #: /content/amp-dev/about/stories.html
 msgid "The Amazon Gold Rush"
-msgstr ""
+msgstr "La fiebre del oro de Amazon"
 
 #: /content/amp-dev/about/stories.html
 msgid "The Atlantic"
-msgstr ""
+msgstr "El Atlántico"
 
 #: /content/amp-dev/about/stories.html
 msgid "The Ice Cream Factory and the Rise of the Made-for-Instagram Museum | WIRED"
-msgstr ""
+msgstr "La fábrica de helados y el auge del museo hecho para Instagram | WIRED"
 
 #: /content/amp-dev/about/stories.html
 msgid "The Washington Post"
-msgstr ""
+msgstr "El Washington Post"
 
 #: /content/amp-dev/about/stories.html
 msgid "The best battle royale games on PC"
-msgstr ""
+msgstr "Los mejores juegos de Battle Royale para PC"
 
 #: /content/amp-dev/404.html:15
 msgid "The page you've requested can't be found. Why don't you browse around?"
-msgstr ""
+msgstr "No se puede encontrar la página que ha solicitado. ¿Por qué no navega?"
 
 #: /views/partials/experiments/experiments.j2:4
 msgid "This example uses the following experimental feature:"
-msgstr ""
+msgstr "Este ejemplo usa la siguiente característica experimental:"
 
 #: /views/partials/sidebar-toggle-button.j2:6
 #: /views/partials/sidebar-toggle-button.j2:10
 msgid "Toggle Sidebar"
-msgstr ""
+msgstr "Alternar barra lateral"
 
 #: /views/partials/case-grid.j2:6
 msgid "Too much choice"
-msgstr ""
+msgstr "Demasiada elección"
 
 #: /views/partials/footer.j2:57
 msgid "Tools"
-msgstr ""
+msgstr "Herramientas"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/optimize-measure/configure-analytics/_blueprint.yaml
 msgid "Track engagement with analytics"
-msgstr ""
+msgstr "Seguimiento del compromiso con la analítica"
 
 #: /content/amp-dev/about/stories.html
 msgid "USA Today"
-msgstr ""
+msgstr "USA Today"
 
 #: /content/amp-dev/404.html:14 /content/amp-dev/500.html:14
 msgid "Uh oh! That's an error."
-msgstr ""
+msgstr "¡Uh, oh! Eso es un error".
 
 #: /views/partials/footer.j2:44
 msgid "Use Cases"
-msgstr ""
+msgstr "Casos de uso"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/learn/validation-workflow/_blueprint.yaml
 msgid "Validation Workflow"
-msgstr ""
+msgstr "Flujo de trabajo de validación"
 
 #: /content/amp-dev/documentation/guides-and-tutorials/contribute/vendor-contributions/_blueprint.yaml
 msgid "Vendor contributions"
-msgstr ""
+msgstr "Contribuciones de proveedores"
 
 #: /views/detail/template-detail.j2:102
 msgid "View Demo"
-msgstr ""
+msgstr "Ver demostración"
 
 #: /views/detail/template-detail.j2:113
 msgid "View code on GitHub"
-msgstr ""
+msgstr "Ver código en GitHub"
 
 #: /views/examples/documentation.j2:139
 msgid "View demo"
-msgstr ""
+msgstr "Ver demostración"
 
 #: /views/partials/search.j2:145 /views/partials/search.j2:154
 msgid "We apologize for the inconvenience caused."
-msgstr ""
+msgstr "Disculpe las molestias causadas".
 
 #: /views/partials/search.j2:163
 msgid "We could not find any results matching your search query."
-msgstr ""
+msgstr "No pudimos encontrar ningún resultado que coincida con su consulta de búsqueda".
 
 #: /content/amp-dev/documentation/courses/_blueprint.yaml
 msgid "Web Development With AMP"
-msgstr ""
+msgstr "Desarrollo web con AMP"
 
 #: /views/partials/search.j2:55
 msgid "What are you looking for?"
-msgstr ""
+msgstr "¿Qué estás buscando?"
 
 #: /content/amp-dev/about/stories.html
 msgid "What's left behind on the Moon?"
-msgstr ""
+msgstr "¿Qué queda atrás en la Luna?"
 
 #: /content/amp-dev/about/stories.html
 msgid "Who runs the world? ... Beyoncé over the years."
-msgstr ""
+msgstr "¿Quién dirige el mundo? ... Beyoncé a lo largo de los años".
 
 #: /content/amp-dev/about/stories.html
 #: /content/amp-dev/community/working-groups/_blueprint.yaml
 msgid "Working Groups"
-msgstr ""
+msgstr "Grupos de trabajo"
 
 #: /content/amp-dev/offline.html:15
 msgid "You're currently not connected to the internet."
-msgstr ""
+msgstr "Actualmente no estás conectado a Internet".
 
 #: /content/amp-dev/documentation/components/reference/amp-ad-exit-v0.1.md
 #: /content/amp-dev/documentation/components/reference/amp-ad-v0.1.md
@@ -743,7 +743,7 @@ msgstr ""
 #: /content/amp-dev/documentation/components/reference/amp-sticky-ad-v1.0.md
 #: /content/amp-dev/documentation/components/reference/amp-user-location-v0.1.md
 msgid "ads-analytics"
-msgstr "Advertising & Analytics"
+msgstr "ads-analytics"
 
 #: /content/amp-dev/documentation/components/reference/amp-access-laterpay-v0.2.md
 #: /content/amp-dev/documentation/components/reference/amp-access-laterpay-v0.2@ar.md
@@ -852,7 +852,7 @@ msgstr "Advertising & Analytics"
 #: /content/amp-dev/documentation/components/reference/amp-viewer-assistance-v0.1.md
 #: /content/amp-dev/documentation/components/reference/amp-web-push-v0.1.md
 msgid "dynamic-content"
-msgstr "Dynamic Content"
+msgstr "contenido dinámico"
 
 #: /content/amp-dev/documentation/components/reference/amp-accordion-v0.1.md
 #: /content/amp-dev/documentation/components/reference/amp-accordion-v0.1@ar.md
@@ -938,7 +938,7 @@ msgstr "Dynamic Content"
 #: /content/amp-dev/documentation/components/reference/amp-sidebar-v0.1@zh_cn.md
 #: /content/amp-dev/documentation/components/reference/amp-sidebar-v1.0.md
 msgid "layout"
-msgstr "Layout"
+msgstr "diseño"
 
 #: /content/amp-dev/documentation/components/reference/amp-3d-gltf-v0.1.md
 #: /content/amp-dev/documentation/components/reference/amp-3d-gltf-v0.1@ar.md
@@ -1023,7 +1023,7 @@ msgstr "Layout"
 #: /content/amp-dev/documentation/components/reference/amp-youtube-v0.1@tr.md
 #: /content/amp-dev/documentation/components/reference/amp-youtube-v0.1@zh_cn.md
 msgid "media"
-msgstr "Media"
+msgstr "medios"
 
 #: /content/amp-dev/documentation/components/reference/amp-animation-v0.1.md
 #: /content/amp-dev/documentation/components/reference/amp-animation-v0.1@ar.md
@@ -1054,7 +1054,7 @@ msgstr "Media"
 #: /content/amp-dev/documentation/components/reference/amp-truncate-text-v0.1.md
 #: /content/amp-dev/documentation/components/reference/amp-viz-vega-v0.1.md
 msgid "presentation"
-msgstr "Presentation"
+msgstr "presentación"
 
 #: /content/amp-dev/documentation/components/reference/amp-addthis-v0.1.md
 #: /content/amp-dev/documentation/components/reference/amp-addthis-v0.1@ar.md
@@ -1082,1638 +1082,1638 @@ msgstr "Presentation"
 #: /content/amp-dev/documentation/components/reference/amp-vine-v0.1.md
 #: /content/amp-dev/documentation/components/reference/amp-vk-v0.1.md
 msgid "social"
-msgstr "Social"
+msgstr "social"
 
 #: /views/partials/search.j2:153
 msgid "…while trying to load the search results."
-msgstr ""
+msgstr "... al intentar cargar los resultados de búsqueda".
 
 #: frontend/templates/layouts/default.j2:129
 msgid "Sadly this page isn't translated yet, but we could use some help doing so. See the <a href=\"/documentation/guides-and-tutorials/contribute/translations\">translation guide</a> on how you can contribute."
-msgstr ""
+msgstr "Lamentablemente, esta página aún no está traducida, pero podríamos necesitar ayuda para hacerlo. Consulte la <a href=\"/documentation/guides-and-tutorials/contribute/translations\"> guía de traducción </a> en Cómo puedes contribuir."
 
 #: frontend/templates/views/examples/documentation.j2:206
 msgid "If the explanations on this page don't cover all of your questions feel free to reach out to other AMP users to discuss your exact use case."
-msgstr ""
+msgstr "Si las explicaciones en esta página no cubren todas sus preguntas, no dude en comunicarse con otros usuarios de AMP para discutir su caso de uso exacto".
 
 #: frontend/templates/views/examples/documentation.j2:213
 msgid "The AMP project strongly encourages your participation and contributions! We hope you'll become an ongoing participant in our open source community but we also welcome one-off contributions for the issues you're particularly passionate about."
-msgstr ""
+msgstr "¡El proyecto AMP alienta vivamente su participación y contribuciones! Esperamos que se convierta en un participante continuo en nuestra comunidad de código abierto, pero también agradecemos contribuciones únicas para los temas que le apasionan particularmente".
 
 #: frontend/templates/views/detail/component-detail.j2:33
 msgid "You've read this document a dozen times but it doesn't really cover all of your questions? Maybe other people felt the same  reach out to them on Stack Overflow."
-msgstr ""
+msgstr "¿Has leído este documento una docena de veces pero en realidad no cubre todas tus preguntas? Tal vez otras personas sintieron la misma comunicación con Stack Overflow".
 
 #: frontend/templates/views/partials/experiments/experiments.j2:4
 msgid "Enable the experiment via the button below. Some components require the AMP Dev Channel to be enabled as well."
-msgstr ""
+msgstr "Habilite el experimento a través del botón a continuación. Algunos componentes requieren que el canal AMP Dev esté habilitado también".
 
 #: frontend/templates/views/partials/structured-data.j2:54
 msgid "Example  "
-msgstr ""
+msgstr "Ejemplo"
 
 #: frontend/templates/views/partials/structured-data.j2:56
 msgid "Demo  "
-msgstr ""
+msgstr "Demo"
 
 #: frontend/templates/views/partials/structured-data.j2:58
 msgid "Documentation  "
-msgstr ""
+msgstr "Documentación"
 
 #: frontend/templates/views/partials/structured-data.j2:60
 msgid "Success Story  "
-msgstr ""
+msgstr "Historia de éxito"
 
 #: frontend/templates/views/partials/search.j2:140
 msgid "Although there are {hits} hits in total we cannot show more than 100.', hits='{'+'{result.totalResults}'+'}"
-msgstr ""
+msgstr "Aunque hay {hits} hits en total, no podemos mostrar más de 100. ', hits =' {'+' {result.totalResults} '+'}"
 
 #: frontend/templates/views/partials/content.j2:24
 msgid "Important  this component does not support your currently selected format"
-msgstr ""
+msgstr "Importante: este componente no es compatible con el formato seleccionado actualmente"
 
 #: /content/amp-dev/documentation/templates/index.html:112
 msgid "Get started quickly with a ready-made design. Templates designed to work with all devices - mobile, tablet and desktop."
-msgstr ""
+msgstr "Comience rápidamente con un diseño listo para usar. Plantillas diseñadas para funcionar con todos los dispositivos: móviles, tabletas y computadoras de escritorio".
 
 #: /content/amp-dev/index.html:14
 msgid "Use AMP to build great experiences across the web"
-msgstr ""
+msgstr "Use AMP para crear grandes experiencias en la web"
 
 #: /content/amp-dev/index.html:20
 msgid "Use AMP to create visual stories on the web."
-msgstr ""
+msgstr "Use AMP para crear historias visuales en la web".
 
 #: /content/amp-dev/index.html:25
 msgid "Use AMP to build and serve lightning fast, safe ads to pages and stories."
-msgstr ""
+msgstr "Use AMP para crear y publicar anuncios rápidos y seguros en páginas e historias".
 
 #: /content/amp-dev/index.html:30
 msgid "Use AMP to send interactive, dynamic emails."
-msgstr ""
+msgstr "Use AMP para enviar correos electrónicos interactivos y dinámicos".
 
 #: /content/amp-dev/index.html:31
 msgid "Whether you are a publisher, e-commerce company, storyteller, advertiser or email sender, AMP makes it easy to create great experiences on the web. Use AMP to build:"
-msgstr ""
+msgstr "Ya sea que sea un editor, una empresa de comercio electrónico, un narrador de historias, un anunciante o un remitente de correo electrónico, AMP facilita la creación de excelentes experiencias en la web. Use AMP para crear:"
 
 #: /content/amp-dev/index.html:91
 msgid "The latest news"
-msgstr ""
+msgstr "Las últimas noticias"
 
 #: /content/amp-dev/index.html:92
 msgid "Don't want to miss any of the great stuff that happens around AMP? Then always be first in line and subscribe to our newsletter!"
-msgstr ""
+msgstr "¿No quieres perderte ninguna de las grandes cosas que ocurren alrededor de AMP? ¡Siempre sé el primero en la fila y suscríbete a nuestro boletín!"
 
 #: /content/amp-dev/index.html:99
 msgid "Subscribe"
-msgstr ""
+msgstr "Suscribirse"
 
 #: /content/amp-dev/index.html:244
 msgid "Learn more about AMP {{ format.name }}"
-msgstr ""
+msgstr "Obtenga más información sobre AMP {{format.name}}"
 
 #: /content/amp-dev/index.html:283
 msgid "AMP in action"
-msgstr ""
+msgstr "AMP en acción"
 
 #: /content/amp-dev/index.html:350
 msgid "Business Benefits"
-msgstr ""
+msgstr "Beneficios comerciales"
 
 #: /content/amp-dev/index.html:394
 msgid "Get started with AMP"
-msgstr ""
+msgstr "Comience con AMP"
 
 #: /content/amp-dev/index.html:414
 msgid "As a source for breaking news and information, AMP stories allows us to showcase our quality journalism when there are multiple elements we want to bring together. Combining reporting, photography, videos and motion graphics, this gives readers a more visual entry point when they are searching for our coverage."
-msgstr ""
+msgstr "Como fuente de noticias e información de última hora, las historias de AMP nos permiten mostrar nuestro periodismo de calidad cuando hay varios elementos que queremos reunir. Combinando informes, fotografías, videos y gráficos en movimiento, esto les brinda a los lectores un punto de entrada más visual cuando están buscando nuestra cobertura ".
 
 #: /content/amp-dev/index.html:416
 msgid "Greg Manifold, Design Director of The Washington Post"
-msgstr ""
+msgstr "Greg Manifold, director de diseño de The Washington Post"
 
 #: /content/amp-dev/index.html:462
 msgid "Explore AMP<br/> success stories"
-msgstr ""
+msgstr "Explore AMP <br/> historias de éxito"
 
 #: /content/amp-dev/index.html:463
 msgid "Don't take our word for it - read case studies from your industry and see how AMP has produced positive results."
-msgstr ""
+msgstr "No confíe en nuestra palabra: lea los estudios de caso de su industria y vea cómo AMP ha producido resultados positivos".
 
 #: /content/amp-dev/index.html:470
 msgid "See all success stories"
-msgstr ""
+msgstr "Ver todas las historias de éxito"
 
 #: /content/amp-dev/index.html:478
 msgid "By the community,<br/>for the community"
-msgstr ""
+msgstr "Por la comunidad, <br/> para la comunidad"
 
 #: /content/amp-dev/index.html:494
 msgid "Many ways for you to contribute"
-msgstr ""
+msgstr "Muchas formas de contribuir"
 
 #: /content/amp-dev/index.html:495
 msgid "The AMP Project would not be possible without help from all members of the community whether you are a developer, content creator or provider of services relevant to AMP."
-msgstr ""
+msgstr "El Proyecto AMP no sería posible sin la ayuda de todos los miembros de la comunidad si usted es un desarrollador, creador de contenido o proveedor de servicios relevantes para AMP".
 
 #: /content/amp-dev/index.html:510
 msgid "Reporting issues with AMP"
-msgstr ""
+msgstr "Informar problemas con AMP"
 
 #: /content/amp-dev/index.html:511
 msgid "If you have feedback or are experiencing technical issues with AMP, please file it using the issue tracker."
-msgstr ""
+msgstr "Si tiene comentarios o está experimentando problemas técnicos con AMP, archívelo utilizando el rastreador de problemas".
 
 #: /content/amp-dev/index.html:521
 msgid "Build your first AMP page now"
-msgstr ""
+msgstr "Cree su primera página AMP ahora"
 
 #: /content/amp-dev/index.html:522
 msgid "You don’t need to download AMP and no installation is required.<br/> Because it is a open-source project, it is free!"
-msgstr ""
+msgstr "No necesita descargar AMP y no se requiere instalación. <br/> Debido a que es un proyecto de código abierto, ¡es gratis!"
 
 #: /content/amp-dev/about/stories.html:90
 msgid "AMP Stories"
-msgstr ""
+msgstr "Historias de AMP"
 
 #: /content/amp-dev/about/stories.html:94
 msgid "Start developing"
-msgstr ""
+msgstr "Comienza a desarrollar"
 
 #: /content/amp-dev/about/stories.html:95
 msgid "Tell a story"
-msgstr ""
+msgstr "Cuenta una historia"
 
 #: /content/amp-dev/about/stories.html:106
 msgid "AMP<br> Stories"
-msgstr ""
+msgstr "AMP <br> Historias"
 
 #: /content/amp-dev/about/stories.html:107
 msgid "visual storytelling for the open web"
-msgstr ""
+msgstr "narración visual para la web abierta"
 
 #: /content/amp-dev/about/stories.html:108
 msgid "AMP stories immerse your readers in fast-loading full-screen experiences. Easily create visual narratives, with engaging animations and tappable interactions. The AMP story format is free and part of the open web and are available for everyone to try on their websites. They can be shared and embedded across the web without being confined to a closed ecosystem or platform."
-msgstr ""
+msgstr "Las historias AMP sumergen a sus lectores en experiencias de pantalla completa de carga rápida. Cree fácilmente narraciones visuales, con animaciones atractivas e interacciones que se pueden tocar. El formato de historias AMP es gratuito y forma parte de la web abierta y está disponible para que todos lo prueben en sus sitios web . Se pueden compartir e incrustar en la web sin limitarse a un ecosistema o plataforma cerrados ".
 
 #: /content/amp-dev/about/stories.html:109
 msgid "AMP stories provides content publishers with a mobile-focused format for delivering news and information as visually rich, tap-through stories. AMP Stories offers a robust set of advertising opportunities for advertisers and publishers to reach a unique audience on the web with immersive experiences."
-msgstr ""
+msgstr "AMP stories ofrece a los editores de contenido un formato centrado en los dispositivos móviles para entregar noticias e información como historias visualmente enriquecedoras y táctiles. AMP Stories ofrece un sólido conjunto de oportunidades publicitarias para que los anunciantes y editores lleguen a una audiencia única en la web con una experiencia inmersiva experiencias."
 
 #: /content/amp-dev/about/stories.html:119
 msgid "Build your first story"
-msgstr ""
+msgstr "Construye tu primera historia"
 
 #: /content/amp-dev/about/stories.html:128
 msgid "Learn about story ads"
-msgstr ""
+msgstr "Aprenda sobre anuncios de historias"
 
 #: /content/amp-dev/about/stories.html:159
 msgid "Read Success Story"
-msgstr ""
+msgstr "Leer historia de éxito"
 
 #: /content/amp-dev/about/stories.html:175
 msgid "The benefits of AMP stories"
-msgstr ""
+msgstr "Los beneficios de las historias AMP"
 
 #: /content/amp-dev/about/stories.html:223
 msgid "Read on how AMP works"
-msgstr ""
+msgstr "Lea sobre cómo funciona AMP"
 
 #: /content/amp-dev/about/stories.html:235
 msgid "AMP stories are built with visually rich media, and whether you utilize pictures, videos or GIF assets is up to you. Images and videos expand to visually fill the readers’ screens, providing a smooth and fully engaging experience. AMP allows you to specify the file type to account for the user’s network connection and browser capabilities."
-msgstr ""
+msgstr "Las historias de AMP se crean con medios visualmente ricos, y si utiliza imágenes, videos o recursos GIF depende de usted. Las imágenes y los videos se expanden para llenar visualmente las pantallas de los lectores, proporcionando una experiencia fluida y totalmente atractiva. AMP le permite especifique el tipo de archivo para tener en cuenta la conexión de red del usuario y las capacidades del navegador ".
 
 #: /content/amp-dev/about/stories.html:234
 msgid "Images, videos and GIFs"
-msgstr ""
+msgstr "Imágenes, videos y GIF"
 
 #: /content/amp-dev/about/stories.html:239
 msgid "Text and audio"
-msgstr ""
+msgstr "Texto y audio"
 
 #: /content/amp-dev/about/stories.html:240
 msgid "Convey facts and figures via bite-sized chunks of one or two sentences – ideal for mobile devices. Choose from different font colors for basic readability. Or add visual elements like subtle black transparent gradient overlays to ensure readability even on random background imagery, for example user generated content. On top of this, you can use short audio files on every page to provide spoken information or background music."
-msgstr ""
+msgstr "Transmita hechos y cifras a través de fragmentos de una o dos frases, ideales para dispositivos móviles. Elija entre diferentes colores de fuente para una legibilidad básica. O agregue elementos visuales como sutiles superposiciones de gradiente transparente negro para garantizar la legibilidad incluso en imágenes de fondo aleatorias, por ejemplo, contenido generado por el usuario. Además de esto, puede usar archivos de audio cortos en cada página para proporcionar información hablada o música de fondo ".
 
 #: /content/amp-dev/about/stories.html:245
 msgid "It’s easy to create visual effects and tappable interactions that keep readers engaged. Titles can fly  drop, fade in, or animate onto the page. Configure your story to automatically progress to the next page when a video snippet is finished. Provide social sharing and related links at the end of your story, so users can share it or dive further into other content on your site."
-msgstr ""
+msgstr "Es fácil crear efectos visuales e interacciones que se pueden tocar para mantener a los lectores interesados. Los títulos pueden volar, desaparecer o animarse en la página. Configure su historia para avanzar automáticamente a la página siguiente cuando finalice un fragmento de video. y enlaces relacionados al final de su historia, para que los usuarios puedan compartirla o profundizar en otro contenido de su sitio ".
 
 #: /content/amp-dev/about/stories.html:325
 msgid "AMP Stories <br />Monetization Options"
-msgstr ""
+msgstr "Historias de AMP <br /> Opciones de monetización"
 
 #: /content/amp-dev/about/stories.html:326
 msgid "Single Page Story Ad"
-msgstr ""
+msgstr "Anuncio de historia de una sola página"
 
 #: /content/amp-dev/about/stories.html:408
 msgid "Get Started with our Story Ads Templates"
-msgstr ""
+msgstr "Comience con nuestras plantillas de anuncios de historia"
 
 #: /content/amp-dev/about/stories.html:421
 msgid "Affliate Links"
-msgstr ""
+msgstr "Enlaces afiliados"
 
 #: /content/amp-dev/about/stories.html:422
 msgid "Publishers can use affiliate links as a form of monetization by placing outlinks in organic story pages."
-msgstr ""
+msgstr "Los editores pueden usar enlaces de afiliados como una forma de monetización colocando enlaces externos en páginas de historias orgánicas".
 
 #: /content/amp-dev/about/stories.html:428
 msgid "Read Best Practices Guide"
-msgstr ""
+msgstr "Lea la Guía de mejores prácticas"
 
 #: /content/amp-dev/about/ads.html:41
 msgid "AMP Ads"
-msgstr ""
+msgstr "Anuncios AMP"
 
 #: /content/amp-dev/about/ads.html:46
 msgid "Explore tools"
-msgstr ""
+msgstr "Explorar herramientas"
 
 #: /content/amp-dev/about/ads.html:58
 msgid "These days, if it isn’t instant - it’s not fast enough. Even the most memorable creative won’t serve its purpose if the ad is slow and disruptive for a user."
-msgstr ""
+msgstr "En estos días, si no es instantáneo, no es lo suficientemente rápido. Incluso la creatividad más memorable no cumplirá su propósito si el anuncio es lento y perjudicial para un usuario".
 
 #: /content/amp-dev/about/ads.html:60
 msgid "Advertising continues to be the cornerstone of every publisher’s business model; AMP is fundamentally changing the way ads are built and delivered on the web by supporting ads that are fast, safe, compelling and effective for users."
-msgstr ""
+msgstr "La publicidad sigue siendo la piedra angular del modelo de negocio de todos los editores; AMP está cambiando fundamentalmente la forma en que los anuncios se crean y se entregan en la web al admitir anuncios que son rápidos, seguros, atractivos y efectivos para los usuarios".
 
 #: /content/amp-dev/about/ads.html:77
 msgid "A faster way to grow your business"
-msgstr ""
+msgstr "Una forma más rápida de hacer crecer su negocio"
 
 #: /content/amp-dev/about/ads.html:78
 msgid "A growing number of publishers and advertisers are adopting AMP to deliver faster and more engaging content to their users. As your clients embrace the speed of AMP and more users consume content on AMP pages, ensure that your business is positioned for the future and integrate your technology with AMP. Speeding up ads is the fastest way to boost performance."
-msgstr ""
+msgstr "Un número creciente de editores y anunciantes están adoptando AMP para ofrecer contenido más rápido y más atractivo a sus usuarios. A medida que sus clientes adopten la velocidad de AMP y más usuarios consuman contenido en las páginas de AMP, asegúrese de que su empresa esté posicionada para el futuro y integre su tecnología con AMP. Acelerar los anuncios es la forma más rápida de aumentar el rendimiento ".
 
 #: /content/amp-dev/about/ads.html:79
 msgid "AMP ads greatly improve the mobile internet through their intelligent design and pre-loading features. This leads to increased traffic, higher sales conversion rates and more pages per visit - delivering the value you’re looking for in your ads."
-msgstr ""
+msgstr "Los anuncios AMP mejoran enormemente la Internet móvil a través de su diseño inteligente y funciones de precarga. Esto lleva a un mayor tráfico, mayores tasas de conversión de ventas y más páginas por visita, entregando el valor que está buscando en sus anuncios".
 
 #: /content/amp-dev/about/ads.html:80
 msgid "Although AMP pages support traditional HTML ads, these ads can be slow to load. To make ads themselves as fast as the rest of the AMP page, you can build ads in AMPHTML."
-msgstr ""
+msgstr "Aunque las páginas AMP admiten anuncios HTML tradicionales, estos anuncios pueden tardar en cargarse. Para crear anuncios tan rápido como el resto de la página AMP, puede crear anuncios en AMPHTML".
 
 #: /content/amp-dev/about/ads.html:81
 msgid "AMPHTML ads load as fast as content, increasing viewability and enticing engagement. AMPHTML ads are only delivered after being validated, ensuring that the ads are free of malware."
-msgstr ""
+msgstr "Los anuncios AMPHTML se cargan tan rápido como el contenido, lo que aumenta la visibilidad y la participación atractiva. Los anuncios AMPHTML solo se entregan después de ser validados, asegurando que los anuncios estén libres de malware".
 
 #: /content/amp-dev/about/ads.html:82
 msgid "Ads created with AMPHTML are served on both AMP and non-AMP pages. By building an ad with AMP, you can deliver a memorable brand experience everywhere without worrying about speed and platform compatibility."
-msgstr ""
+msgstr "Los anuncios creados con AMPHTML se sirven en páginas AMP y no AMP. Al crear un anuncio con AMP, puede ofrecer una experiencia de marca memorable en todas partes sin preocuparse por la velocidad y la compatibilidad de la plataforma".
 
 #: /content/amp-dev/about/ads.html:125
 msgid "The benefits of AMP ads"
-msgstr ""
+msgstr "Los beneficios de los anuncios AMP"
 
 #: /content/amp-dev/about/ads.html:171
 msgid "Read on about AMP ads"
-msgstr ""
+msgstr "Siga leyendo sobre los anuncios AMP"
 
 #: /content/amp-dev/about/ads.html:188
 msgid "They load way faster. Users pick up on every small delay, and when the ads load fast, this has a very positive impact on their perception and advertiser performance."
-msgstr ""
+msgstr "Se cargan mucho más rápido. Los usuarios se dan cuenta de cada pequeño retraso, y cuando los anuncios se cargan rápido, esto tiene un impacto muy positivo en su percepción y el rendimiento del anunciante".
 
 #: /content/amp-dev/about/ads.html:190
 msgid "Shaun Zacharia, President & Co-Founder, Triplelift."
-msgstr ""
+msgstr "Shaun Zacharia, presidente y cofundador de Triplelift".
 
 #: /content/amp-dev/about/ads.html:208
 msgid "The average mobile site takes 19 seconds to load over a 3G connection. Coupled with the fact that conversions fall by 12% for every additional second a webpage takes to load, you can safely assume two things  speed equals performance, and most advertiser campaigns have room to improve. That’s where you come in. As an SSP, DSP, analytics provider, or anything in between, embracing speed means improving campaign performance, delivering quality user experiences, and establishing yourself as the adtech platform for the fast web. Join the hundreds of technology platforms currently supporting the open source AMP ecosystem. "
-msgstr ""
+msgstr "El sitio móvil promedio tarda 19 segundos en cargarse a través de una conexión 3G. Junto con el hecho de que las conversiones caen un 12% por cada segundo adicional que tarda una página web en cargarse, puede asumir con seguridad que dos cosas la velocidad es igual al rendimiento, y la mayoría de las campañas de anunciantes tener espacio para mejorar. Ahí es donde entras tú. Como SSP, DSP, proveedor de análisis o cualquier otra cosa, abrazar la velocidad significa mejorar el rendimiento de la campaña, ofrecer experiencias de usuario de calidad y establecerte como la plataforma adtech para la web rápida. Únete los cientos de plataformas tecnológicas que actualmente admiten el ecosistema AMP de código abierto ".
 
 #: /content/amp-dev/about/ads.html:209
 msgid "AMP offers a way for you to give users a faster experience everywhere  on ads, landing pages or on your entire website. AMP ads help users engage with your brand and improve the performance of your campaigns. When your target audience lands on an AMP page, they get what they’re looking for in the moment they’re looking for it. The net result – they’re more likely to be engaged with and receptive to your brand’s messages, and more likely to take the actions you’re guiding them towards like completing a purchase."
-msgstr ""
+msgstr "AMP ofrece una manera de brindar a los usuarios una experiencia más rápida en todos los anuncios, páginas de destino o en todo su sitio web. Los anuncios AMP ayudan a los usuarios a interactuar con su marca y mejorar el rendimiento de sus campañas. Cuando su público objetivo llega a un AMP página, obtienen lo que están buscando en el momento en que lo están buscando. El resultado neto: es más probable que se involucren y sean receptivos a los mensajes de su marca, y es más probable que tomen las medidas guiándolos hacia como completar una compra ".
 
 #: /content/amp-dev/about/ads.html:228
 msgid "What’s the difference between an AMPHTML ad and a regular ad? Seconds."
-msgstr ""
+msgstr "¿Cuál es la diferencia entre un anuncio AMPHTML y un anuncio normal? Segundos".
 
 #: /content/amp-dev/about/ads.html:234
 msgid "AMPHTML Ad"
-msgstr ""
+msgstr "Anuncio AMPHTML"
 
 #: /content/amp-dev/about/websites.html:17
 msgid "More overall traffic"
-msgstr ""
+msgstr "Más tráfico general"
 
 #: /content/amp-dev/about/websites.html:18
 msgid "India Today delights readers and boosts revenue with AMP"
-msgstr ""
+msgstr "India Today deleita a los lectores y aumenta los ingresos con AMP"
 
 #: /content/amp-dev/about/websites.html:21
 msgid "Increase in returning users from mobile search"
-msgstr ""
+msgstr "Aumento de usuarios que regresan de la búsqueda móvil"
 
 #: /content/amp-dev/about/websites.html:22
 msgid "AMP helps the Washington Post increase returning users from mobile search by 23%"
-msgstr ""
+msgstr "AMP ayuda al Washington Post a aumentar los usuarios que regresan de la búsqueda móvil en un 23%"
 
 #: /content/amp-dev/about/websites.html:24
 msgid "Faster page load time"
-msgstr ""
+msgstr "Tiempo de carga de página más rápido"
 
 #: /content/amp-dev/about/websites.html:25
 msgid "AMP makes Gizmodo 3x faster on mobile"
-msgstr ""
+msgstr "AMP hace que Gizmodo sea 3 veces más rápido en dispositivos móviles"
 
 #: /content/amp-dev/about/websites.html:40
 msgid "Compelling, smooth and instant"
-msgstr ""
+msgstr "convincente, suave e instantáneo"
 
 #: /content/amp-dev/about/websites.html:41
 msgid "Easily create user first websites with AMP."
-msgstr ""
+msgstr "Cree fácilmente los primeros sitios web de los usuarios con AMP".
 
 #: /content/amp-dev/about/websites.html:55
 msgid "What is<br> AMP?"
-msgstr ""
+msgstr "¿Qué es el AMP?"
 
 #: /content/amp-dev/about/websites.html:56
 msgid "Web pages that are compelling, smooth, and load near instantaneously"
-msgstr ""
+msgstr "Páginas web que son atractivas, suaves y se cargan casi instantáneamente"
 
 #: /content/amp-dev/about/websites.html:64
 msgid "AMP is a simple and robust format to ensure your website is fast, user-first, and makes money. AMP provides long-term success for your web strategy with distribution across popular platforms and reduced operating and development costs."
-msgstr ""
+msgstr "AMP es un formato simple y robusto para garantizar que su sitio web sea rápido, el primero sea el usuario y gane dinero. AMP proporciona éxito a largo plazo para su estrategia web con distribución en plataformas populares y costos operativos y de desarrollo reducidos".
 
 #: /content/amp-dev/about/websites.html:101
 msgid "Create great web experiences for users across the open web"
-msgstr ""
+msgstr "Cree excelentes experiencias web para los usuarios en la web abierta"
 
 #: /content/amp-dev/about/websites.html:102
 msgid "AMP enables the creation of websites and ads that are consistently fast, beautiful and high-performing across devices and distribution platforms. Publishers and advertisers can decide how to present their content that emphasizes a user-first experience."
-msgstr ""
+msgstr "AMP permite la creación de sitios web y anuncios que son consistentemente rápidos, hermosos y de alto rendimiento en dispositivos y plataformas de distribución. Los editores y anunciantes pueden decidir cómo presentar su contenido que enfatiza la experiencia del usuario".
 
 #: /content/amp-dev/about/websites.html:188
 msgid "We are committed to improving speed across the board. If our site takes a long time to load, it doesn’t matter how great our journalism is, some people will leave the page before they see what’s there."
-msgstr ""
+msgstr "Estamos comprometidos a mejorar la velocidad en todos los ámbitos. Si nuestro sitio tarda mucho en cargar, no importa cuán grande sea nuestro periodismo, algunas personas abandonarán la página antes de ver lo que hay allí".
 
 #: /content/amp-dev/about/websites.html:190
 msgid "David Merrell, Senior Product Manager"
-msgstr ""
+msgstr "David Merrell, Gerente de Producto Senior"
 
 #: /content/amp-dev/about/websites.html:204
 msgid "What AMP HTML is made of"
-msgstr ""
+msgstr "De qué está hecho el AMP HTML"
 
 #: /content/amp-dev/about/websites.html:226
 msgid "Though most tags in an AMP HTML page are regular HTML tags, some HTML tags are replaced with AMP-specific tags (see also HTML Tags in the AMP spec). These custom elements,  called AMP HTML  components, make common patterns easy to implement in a performant way."
-msgstr ""
+msgstr "Aunque la mayoría de las etiquetas en una página HTML de AMP son etiquetas HTML normales, algunas etiquetas HTML se reemplazan con etiquetas específicas de AMP (consulte también Etiquetas HTML en la especificación AMP). Estos elementos personalizados, llamados componentes HTML AMP, hacen que los patrones comunes sean fáciles de implementar de manera eficiente ".
 
 #: /content/amp-dev/about/websites.html:223
 msgid "Built-in components"
-msgstr ""
+msgstr "Componentes integrados"
 
 #: /content/amp-dev/about/websites.html:224
 msgid "AMP HTML is HTML with some restrictions for reliable performance."
-msgstr ""
+msgstr "AMP HTML es HTML con algunas restricciones para un rendimiento confiable".
 
 #: /content/amp-dev/about/websites.html:228
 msgid "For example, the amp-img tag provides full srcset support even in browsers that don’t support it yet. Learn how to create your first AMP HTML page."
-msgstr ""
+msgstr "Por ejemplo, la etiqueta amp-img proporciona compatibilidad total con srcset incluso en navegadores que aún no la admiten. Aprenda a crear su primera página HTML de AMP".
 
 #: /content/amp-dev/about/websites.html:230
 msgid "AMP pages are discovered by search engines and other platforms through the HTML tag. You can choose to have a non-AMP version and an AMP version of your page, or just an AMP version. "
-msgstr ""
+msgstr "Los motores de búsqueda y otras plataformas descubren páginas AMP a través de la etiqueta HTML. Puede elegir tener una versión que no sea AMP y una versión AMP de su página, o simplemente una versión AMP".
 
 #: /content/amp-dev/about/websites.html:237
 msgid "Learn more in Make Your Page Discoverable."
-msgstr ""
+msgstr "Obtenga más información en Hacer que su página sea reconocible".
 
 #: /content/amp-dev/about/websites.html:245
 msgid "AMP pages can be cached for near instantaneous loading on the web. Platforms like Google run AMP caches to enable fast loading of your content from their service."
-msgstr ""
+msgstr "Las páginas AMP se pueden almacenar en caché para una carga casi instantánea en la web. Las plataformas como Google ejecutan cachés AMP para permitir la carga rápida de su contenido desde su servicio".
 
 #: /content/amp-dev/about/websites.html:247
 msgid "The Google AMP Cache is a proxy-based content delivery network for delivering all valid AMP documents. It fetches AMP HTML pages, caches them, and improves page performance automatically. When using the Google AMP Cache, the document, all JS files and all images load from the same origin that is using HTTP 2.0 for maximum efficiency. <br> The cache also comes with a built-in validation system which confirms that the page is guaranteed to work, and that it doesn't depend on external resources. The validation system runs a series of  assertions confirming the page’s markup meets the AMP HTML specification."
-msgstr ""
+msgstr "Google AMP Cache es una red de entrega de contenido basada en proxy para entregar todos los documentos AMP válidos. Obtiene páginas HTML de AMP, las almacena en caché y mejora el rendimiento de la página automáticamente. Cuando se usa Google AMP Cache, el documento, todos los archivos JS y todas las imágenes se cargan desde el mismo origen que está utilizando HTTP 2.0 para obtener la máxima eficacia. <br> La memoria caché también viene con un sistema de validación incorporado que confirma que la página está garantizada para funcionar y que no depende de recursos externos. . El sistema de validación ejecuta una serie de afirmaciones que confirman que el marcado de la página cumple con la especificación HTML de AMP ".
 
 #: /content/amp-dev/about/websites.html:250
 msgid "Another version of the validator comes bundled with every AMP page. This version can log validation errors directly to the browser’s console when the page is rendered, allowing you to see how complex changes in your code might impact performance and user experience."
-msgstr ""
+msgstr "Otra versión del validador viene incluida con cada página AMP. Esta versión puede registrar errores de validación directamente en la consola del navegador cuando se procesa la página, lo que le permite ver cómo los cambios complejos en su código pueden afectar el rendimiento y la experiencia del usuario".
 
 #: /content/amp-dev/about/websites.html:258
 msgid "Learn more about caching in AMP"
-msgstr ""
+msgstr "Obtenga más información sobre el almacenamiento en caché en AMP"
 
 #: /content/amp-dev/about/websites.html:268
 msgid "Explore use cases of AMP websites"
-msgstr ""
+msgstr "Explore casos de uso de sitios web de AMP"
 
 #: pages/shared/data/benefits.yaml:3
 msgid "Web page speed improves the user experience and core business metrics"
-msgstr ""
+msgstr "La velocidad de la página web mejora la experiencia del usuario y las métricas empresariales principales"
 
 #: pages/shared/data/benefits.yaml:6
 msgid "Building AMP pages is easy and reduces developer overhead"
-msgstr ""
+msgstr "Crear páginas AMP es fácil y reduce la sobrecarga del desarrollador"
 
 #: pages/shared/data/benefits.yaml:27
 msgid "Building AMP pages is easy"
-msgstr ""
+msgstr "Crear páginas AMP es fácil"
 
 #: pages/shared/data/benefits.yaml:30
 msgid "AMP can be applied across various web touch points"
-msgstr ""
+msgstr "AMP se puede aplicar en varios puntos de contacto web"
 
 #: pages/shared/data/benefits.yaml:34
 msgid "Maintain flexibility and control and reduce complexity in your code"
-msgstr ""
+msgstr "Mantenga flexibilidad y control y reduzca la complejidad en su código"
 
 #: pages/shared/data/benefits.yaml:37
 msgid "Building blocks that ensure performance"
-msgstr ""
+msgstr "Bloques de construcción que aseguran el rendimiento"
 
 #: pages/shared/data/benefits.yaml:40
 msgid "Build for a sustainable future in the open web for everyone"
-msgstr ""
+msgstr "Construir para un futuro sostenible en la web abierta para todos"
 
 #: pages/shared/data/benefits.yaml:45
 msgid "Track and measure"
-msgstr ""
+msgstr "Rastrear y medir"
 
 #: pages/shared/data/benefits.yaml:48
 msgid "Fast loading times"
-msgstr ""
+msgstr "Tiempos de carga rápidos"
 
 #: pages/shared/data/benefits.yaml:51
 msgid "Immersive storytelling"
-msgstr ""
+msgstr "Narración inmersiva"
 
 #: pages/shared/data/benefits.yaml:54
 msgid "Robust Advertising Support"
-msgstr ""
+msgstr "Soporte publicitario robusto"
 
 #: pages/shared/data/benefits.yaml:58
 msgid "Create beautiful and engaging content easily"
-msgstr ""
+msgstr "Cree contenido atractivo y atractivo fácilmente"
 
 #: pages/shared/data/benefits.yaml:61
 msgid "Creative flexibility for editorial freedom and branding"
-msgstr ""
+msgstr "Flexibilidad creativa para la libertad editorial y la marca"
 
 #: pages/shared/data/benefits.yaml:64
 msgid "Sharable and linkable on the open web"
-msgstr ""
+msgstr "Compartible y enlazable en la web abierta"
 
 #: pages/shared/data/benefits.yaml:69
 msgid "Measurable viewability"
-msgstr ""
+msgstr "Visibilidad medible"
 
 #: pages/shared/data/benefits.yaml:72
 msgid "Maximize your revenue"
-msgstr ""
+msgstr "Maximiza tus ingresos"
 
 #: pages/shared/data/benefits.yaml:75
 msgid "Maximize your ROI"
-msgstr ""
+msgstr "Maximiza tu ROI"
 
 #: pages/shared/data/benefits.yaml:79
 msgid "End to end experience is controlled"
-msgstr ""
+msgstr "La experiencia de extremo a extremo está controlada"
 
 #: pages/shared/data/benefits.yaml:82
 msgid "Reduce complexity in your operations"
-msgstr ""
+msgstr "Reduzca la complejidad en sus operaciones"
 
 #: pages/shared/data/benefits.yaml:85
 msgid "Collaborative community"
-msgstr ""
+msgstr "Comunidad colaborativa"
 
 #: pages/shared/data/benefits.yaml:89
 msgid "Increased personalization"
-msgstr ""
+msgstr "Mayor personalización"
 
 #: pages/shared/data/benefits.yaml:90
 msgid "Interactive customer experience"
-msgstr ""
+msgstr "Experiencia interactiva del cliente"
 
 #: pages/shared/data/benefits.yaml:93
 msgid "Improved and smarter services"
-msgstr ""
+msgstr "Servicios mejorados e inteligentes"
 
 #: pages/shared/data/benefits.yaml:96
 msgid "Increased in-mail capabilities"
-msgstr ""
+msgstr "Aumento de las capacidades de correo electrónico"
 
 #: pages/shared/data/benefits.yaml:100
 msgid "Safe and secure"
-msgstr ""
+msgstr "Seguro y protegido"
 
 #: pages/shared/data/benefits.yaml:106
 msgid "Consistency and scalability"
-msgstr ""
+msgstr "Consistencia y escalabilidad"
 
 msgid "AMP pages load near instantly, enabling you to offer a consistently fast experience across all devices and platforms."
-msgstr ""
+msgstr "Las páginas AMP se cargan casi al instante, lo que le permite ofrecer una experiencia rápida y consistente en todos los dispositivos y plataformas".
 
 msgid "You can often convert your entire archive in days especially if you use a popular CMS such as Wordpress or Drupal."
-msgstr ""
+msgstr "A menudo puede convertir todo su archivo en días, especialmente si utiliza un CMS popular como Wordpress o Drupal".
 
 msgid "Used by popular and global platforms like Google, Bing and Twitter, AMP allows you to ensure users from all these surfaces get an unparalleled, often instantaneous and native-feeling experience by defaulting to AMP pages when available."
-msgstr ""
+msgstr "Utilizado por plataformas populares y globales como Google, Bing y Twitter, AMP le permite garantizar que los usuarios de todas estas superficies obtengan una experiencia incomparable, a menudo instantánea y nativa, por defecto en las páginas AMP cuando estén disponibles".
 
 msgid "You can use CSS to customize your styling, dynamic data to fetch the freshest data where needed, to build the best possible userexperience for your customers."
-msgstr ""
+msgstr "Puede usar CSS para personalizar su estilo, datos dinámicos para obtener los datos más frescos donde sea necesario, para construir la mejor experiencia de uso posible para sus clientes".
 
 msgid "The AMP Project is an open source initiative to protect the future of the web helping everyone deliver a better, faster more user-friendly experience."
-msgstr ""
+msgstr "El Proyecto AMP es una iniciativa de código abierto para proteger el futuro de la web y ayudar a todos a ofrecer una experiencia mejor, más rápida y fácil de usar".
 
 msgid "AMP pages load near instantly – across all devices and platforms."
-msgstr ""
+msgstr "Las páginas AMP se cargan casi al instante, en todos los dispositivos y plataformas".
 
 msgid "Used by global platforms like Google, Bing and Twitter, AMP allows users a native-feeling experience across all platforms by defaulting to AMP pages when available."
-msgstr ""
+msgstr "Utilizado por plataformas globales como Google, Bing y Twitter, AMP permite a los usuarios una experiencia de sensación nativa en todas las plataformas, por defecto en las páginas AMP cuando están disponibles".
 
 msgid "You can use CSS to customize your styling and dynamic data to fetch the freshest data where needed."
-msgstr ""
+msgstr "Puede usar CSS para personalizar su estilo y datos dinámicos para obtener los datos más frescos donde sea necesario".
 
 msgid "It takes a lot of time and effort to build a great website. AMP components are already optimized for the best performance."
-msgstr ""
+msgstr "Se necesita mucho tiempo y esfuerzo para crear un sitio web excelente. Los componentes de AMP ya están optimizados para obtener el mejor rendimiento".
 
 msgid "The AMP Project is an open source initiative to protect the future of the web by delivering a better, faster and more user-friendly experience."
-msgstr ""
+msgstr "El Proyecto AMP es una iniciativa de código abierto para proteger el futuro de la web al ofrecer una experiencia mejor, más rápida y más fácil de usar".
 
 msgid "Supports analytics and bookend capabilities for viral sharing and monetization."
-msgstr ""
+msgstr "Admite capacidades de análisis y sujetalibros para el intercambio viral y la monetización".
 
 msgid "AMP stories are lightening fast so that your audience stays engaged and entertained."
-msgstr ""
+msgstr "Las historias de AMP se alivianan rápidamente para que su audiencia se mantenga comprometida y entretenida".
 
 msgid "AMP stories is a new and modern way to reach existing readers."
-msgstr ""
+msgstr "Las historias de AMP son una forma nueva y moderna de llegar a los lectores existentes".
 
 msgid "AMP Stories enables monetization capability for publishers using full-screen immersive story ads and using affiliate links. For advertisers, Stories is a way to reach a unique audience within a new storytelling experience."
-msgstr ""
+msgstr "AMP Stories habilita la capacidad de monetización para los editores que usan anuncios de historias inmersivas a pantalla completa y usan enlaces de afiliados. Para los anunciantes, Stories es una forma de llegar a un público único dentro de una nueva experiencia de narración de historias".
 
 msgid "AMP stories make the production of stories as easy as possible from a technical perspective."
-msgstr ""
+msgstr "Las historias de AMP hacen que la producción de historias sea lo más fácil posible desde una perspectiva técnica".
 
 msgid "The AMP stories format comes with preset but flexible layout templates, standardized UI controls, and components for sharing and adding follow-on content."
-msgstr ""
+msgstr "El formato de historias AMP viene con plantillas de diseño predefinidas pero flexibles, controles de interfaz de usuario estandarizados y componentes para compartir y agregar contenido de seguimiento".
 
 msgid "AMP stories are part of the open web and can be shared and embedded across sites and apps without being confined to a single ecosystem."
-msgstr ""
+msgstr "Las historias de AMP son parte de la web abierta y pueden compartirse e integrarse entre sitios y aplicaciones sin limitarse a un solo ecosistema".
 
 msgid "AMPHTML ads are 6x faster than regular ads on AMP pages, making them more viewable, more effective and more likely to perform well. You can monitor performance and adjust pricing accordingly, and offer the most engaging ad products to optimize your ad placements. In AMP, tweaking your pages to drive higher viewability rate or views is easy for publishers using the ‘data-loading-strategy’ attribute on the `amp-ad` component."
-msgstr ""
+msgstr "Los anuncios AMPHTML son 6 veces más rápidos que los anuncios normales en las páginas AMP, lo que los hace más visibles, más efectivos y tienen más probabilidades de tener un buen rendimiento. Puede controlar el rendimiento y ajustar los precios en consecuencia, y ofrecer los productos publicitarios más atractivos para optimizar sus ubicaciones de anuncios. En AMP, ajustar las páginas para generar una mayor tasa de visualización o vistas es fácil para los editores que utilizan el atributo 'estrategia de carga de datos' en el componente 'amp-ad' ".
 
 msgid "In order to engage with your brand and improve the performance of your campaigns, you have to speed things up. AMP ads load on average 5x faster than the non-AMP version, leading to higher conversion rates. Because AMPHTML ads are 3x lighter, the AMP framework guarantees that these ads only behave as intended so users always have a positive experience with your brand."
-msgstr ""
+msgstr "Para interactuar con su marca y mejorar el rendimiento de sus campañas, debe acelerar las cosas. Los anuncios AMP se cargan en promedio 5 veces más rápido que la versión que no es AMP, lo que lleva a tasas de conversión más altas. Debido a que los anuncios AMPHTML son 3 veces más ligeros , el marco de AMP garantiza que estos anuncios solo se comporten según lo previsto para que los usuarios siempre tengan una experiencia positiva con su marca ".
 
 msgid "AMP ads are safe from malware because AMPHTML ads are verified before being served, thus, advertisers can ensure a safe user experience and building trust in the brands users are engaging with. Establish yourself as the adtech platform for the fast web and join the hundreds of technology platforms currently supporting the open source AMP ecosystem."
-msgstr ""
+msgstr "Los anuncios AMP están a salvo del malware porque los anuncios AMPHTML se verifican antes de ser servidos, por lo tanto, los anunciantes pueden garantizar una experiencia de usuario segura y generar confianza en las marcas con las que los usuarios se están involucrando. Establecerse como la plataforma adtech para la web rápida y unirse al cientos de plataformas tecnológicas que actualmente admiten el ecosistema AMP de código abierto ".
 
 msgid "As the owner of your AMP websites and ads, no other parties can modify or add things, ensuring you are in control of the user experience and there won’t be any unexpected surprises. AMP ads are part of a user-first ecosystem and function the way a reasonable user would expect them to. Optimized AMP ads don’t drain the battery life of mobile devices, and clicking on them will lead to AMP pages, which are equally as fast and streamlined."
-msgstr ""
+msgstr "Como propietario de sus sitios web y anuncios de AMP, ninguna otra parte puede modificar o agregar cosas, lo que garantiza que usted tenga el control de la experiencia del usuario y que no habrá sorpresas inesperadas. Los anuncios de AMP son parte de un ecosistema de primer usuario y funcionan de la manera en que un usuario razonable esperaría que lo hagan. Los anuncios AMP optimizados no agotan la duración de la batería de los dispositivos móviles, y al hacer clic en ellos se abrirán páginas AMP, que son igualmente rápidas y optimizadas ".
 
 msgid "AMP is simple and straightforward and quickly becoming the turnkey solution for building pages. AMP supports both traditional ads, and the faster, more secure AMPHTML ads. Ads on AMP pages are like any external resource and must play within the same constraints placed on all resources in AMP."
-msgstr ""
+msgstr "AMP es simple y directo y se está convirtiendo rápidamente en la solución llave en mano para crear páginas. AMP admite tanto los anuncios tradicionales como los anuncios AMPHTML más rápidos y seguros. Los anuncios en las páginas AMP son como cualquier recurso externo y deben jugar dentro de las mismas restricciones impuestas en todos los recursos en AMP ".
 
 msgid "The AMP Project has a vast network of resources for getting started in the Documentation section including great-looking ad templates, demos and examples. AMPHTML ads are flexible and dynamic, allowing for many creative formats like carousel, parallax, and lightbox, to name a few."
-msgstr ""
+msgstr "El Proyecto AMP tiene una vasta red de recursos para comenzar en la sección de Documentación que incluye plantillas de anuncios, demostraciones y ejemplos de excelente apariencia. Los anuncios AMPHTML son flexibles y dinámicos, permitiendo muchos formatos creativos como carrusel, paralaje y caja de luz, para nombrar unos pocos."
 
 msgid "AMP for email allows exciting smarter and efficient user engagement, as customers can take action directly within their email such as managing their subscriptions, responding to polls, doodles, and bookings. This is possible because the server retrieves fresh content from remote endpoints, keeping email up to date."
-msgstr ""
+msgstr "AMP para correo electrónico permite una interacción del usuario emocionante, más inteligente y eficiente, ya que los clientes pueden tomar medidas directamente dentro de su correo electrónico, como administrar sus suscripciones, responder a encuestas, garabatos y reservas. Esto es posible porque el servidor recupera contenido nuevo de puntos finales remotos, mantener el correo electrónico actualizado ".
 
 msgid "AMP Email’s expanding capabilities allows you to take action right inside your Inbox. This includes carousels and accordions, and taking user input on forms and questionnaires."
-msgstr ""
+msgstr "Las capacidades de expansión del correo electrónico de AMP le permiten tomar medidas directamente desde su Bandeja de entrada. Esto incluye carruseles y acordeones, y recibir comentarios de los usuarios en formularios y cuestionarios".
 
 msgid "AMP email allows an attractive option for promotional and subscriber-list emails. Through smarter engagement you can improve customer satisfaction through hassle-free feedback and subscription management all within their inbox."
-msgstr ""
+msgstr "El correo electrónico de AMP permite una opción atractiva para correos electrónicos promocionales y de lista de suscriptores. A través de un compromiso más inteligente, puede mejorar la satisfacción del cliente a través de comentarios sin complicaciones y administración de suscripciones, todo dentro de su bandeja de entrada".
 
 msgid "Senders can include AMP components inside rich, engaging emails, making them dynamic and interactive. Users can engage with content and quickly take action such as RSVP to events, fill out questionnaires and personalize their content. AMP emails are always up to date and can function like digests, with fewer clicks necessary to achieve efficient results."
-msgstr ""
+msgstr "Los remitentes pueden incluir componentes AMP dentro de correos electrónicos ricos y atractivos, haciéndolos dinámicos e interactivos. Los usuarios pueden interactuar con el contenido y tomar medidas rápidamente, como confirmar su asistencia a eventos, completar cuestionarios y personalizar su contenido. Los correos electrónicos AMP siempre están actualizados y puede funcionar como resúmenes, con menos clics necesarios para lograr resultados eficientes ".
 
 msgid "AMP for email has no arbitrary 3rd party features to limit security issues, and far surpasses the capabilities currently provided by third party providers. Ad components are not allowed in AMP email, keeping users safe. To maintain users’ expectations of security and privacy, only a conservative subset of AMP functionality will be allowed."
-msgstr ""
+msgstr "AMP para correo electrónico no tiene características arbitrarias de terceros para limitar los problemas de seguridad, y supera con creces las capacidades actualmente proporcionadas por proveedores externos. Los componentes de anuncios no están permitidos en el correo electrónico de AMP, lo que mantiene a los usuarios seguros. Para mantener las expectativas de seguridad y privacidad de los usuarios , solo se permitirá un subconjunto conservador de la funcionalidad AMP ".
 
 msgid "Embedding AMP within an email is simple, add a new MIME part with a content type of text/x-amp-html as a descendant of multipart/alternative. It should live alongside the existing text/html or text/plain parts. This ensures that the email message works on all clients."
-msgstr ""
+msgstr "Incrustar AMP en un correo electrónico es simple, agregue una nueva parte MIME con un tipo de contenido de texto / x-amp-html como un descendiente de multiparte / alternativa. Debe vivir junto con el texto / html existente o texto / partes simples. Esto garantiza que el mensaje de correo electrónico funcione en todos los clientes ".
 
 msgid "Start sending AMP Emails"
-msgstr ""
+msgstr "Comience a enviar correos electrónicos AMP"
 
 msgid "Start creating ads"
-msgstr ""
+msgstr "Comience a crear anuncios"
 
 msgid "Start creating stories"
-msgstr ""
+msgstr "Comienza a crear historias"
 
 msgid "Start creating websites"
-msgstr ""
+msgstr "Comienza a crear sitios web"
 
 msgid "Pick one of several editors to start creating ads without any coding involved."
-msgstr ""
+msgstr "Elija uno de varios editores para comenzar a crear anuncios sin ninguna codificación involucrada".
 
 msgid "Pick one of several editors to start creating email without any coding involved."
-msgstr ""
+msgstr "Elija uno de varios editores para comenzar a crear correos electrónicos sin ninguna codificación involucrada".
 
 msgid "Pick one of several editors to start creating stories without any coding involved."
-msgstr ""
+msgstr "Elija uno de varios editores para comenzar a crear historias sin ninguna codificación involucrada".
 
 msgid "Pick one of several editors to start creating websites without any coding involved."
-msgstr ""
+msgstr "Elija uno de varios editores para comenzar a crear sitios web sin ninguna codificación involucrada".
 
 msgid "WYSIWYG Editor"
-msgstr ""
+msgstr "Editor WYSIWYG"
 
 msgid "WYSIWYG drag and drop editor with templates, illustrations, icons, and the ability to upload your own images and videos."
-msgstr ""
+msgstr "Editor de arrastrar y soltar WYSIWYG con plantillas, ilustraciones, iconos y la capacidad de cargar sus propias imágenes y videos".
 
 msgid "Newsroom Studio helps you create engaging, instant loading mobile experiences."
-msgstr ""
+msgstr "Newsroom Studio lo ayuda a crear experiencias móviles atractivas y de carga instantánea".
 
 msgid "Discover all tools"
-msgstr ""
+msgstr "Descubre todas las herramientas"
 
 msgid "Send emails"
-msgstr ""
+msgstr "Enviar correos electrónicos"
 
 msgid "AMP<br> Email"
-msgstr ""
+msgstr "AMP <br> Correo electrónico"
 
 msgid "A whole new world of possibilities for content engagement"
-msgstr ""
+msgstr "Un mundo completamente nuevo de posibilidades para la participación de contenido"
 
 msgid "AMP for email allows senders to include AMP components inside rich engaging emails, making modern app functionality available within email. The AMP email format provides a subset of AMPHTML components for use in email messages, that allows recipients of AMP emails to interact dynamically with content directly in the message."
-msgstr ""
+msgstr "AMP para correo electrónico permite a los remitentes incluir componentes AMP dentro de correos electrónicos enriquecedores, haciendo que la funcionalidad de la aplicación moderna esté disponible dentro del correo electrónico. El formato de correo electrónico AMP proporciona un subconjunto de componentes AMPHTML para usar en mensajes de correo electrónico, que permite a los destinatarios de correos electrónicos AMP interactuar dinámicamente con contenido directamente en el mensaje ".
 
 msgid "More than 270 billion emails are sent every day, it is the pillar of many consumer and enterprise workflows. However the content that is sent in an email message is still limited – messages are static, can become out of date, and are not actionable without opening a browser. AMP email seeks to enhance and modernize the email experience through added support for dynamic content and interactivity while keeping users safe."
-msgstr ""
+msgstr "Cada día se envían más de 270 mil millones de correos electrónicos, es el pilar de muchos flujos de trabajo de consumidores y empresas. Sin embargo, el contenido que se envía en un mensaje de correo electrónico sigue siendo limitado: los mensajes son estáticos, pueden quedar desactualizados y no accionable sin abrir un navegador. El correo electrónico de AMP busca mejorar y modernizar la experiencia del correo electrónico a través del soporte adicional para contenido dinámico e interactividad mientras mantiene a los usuarios seguros ".
 
 msgid "It’s the biggest thing happening to email since the creation of email."
-msgstr ""
+msgstr "Es lo más importante que le sucede al correo electrónico desde la creación del correo electrónico".
 
 msgid "Antony Malone, Senior Product Owner Direct Marketing at Booking.com"
-msgstr ""
+msgstr "Antony Malone, Jefe de Producto Senior de Marketing Directo en Booking.com"
 
 msgid "Modern app functionality for email"
-msgstr ""
+msgstr "Funcionalidad de aplicación moderna para correo electrónico"
 
 msgid "Modernize email with the power of AMP"
-msgstr ""
+msgstr "Modernice el correo electrónico con el poder de AMP"
 
 msgid "AMP email is an expansion of the already existing blazingly fast and high-performing AMP project.   Expand your business through unprecedented features."
-msgstr ""
+msgstr "El correo electrónico AMP es una expansión del proyecto AMP increíblemente rápido y de alto rendimiento ya existente. Expanda su negocio a través de características sin precedentes".
 
 msgid "Supported Email Clients"
-msgstr ""
+msgstr "Clientes de correo electrónico admitidos"
 
 msgid "These email clients currently support receiving AMP Emails"
-msgstr ""
+msgstr "Estos clientes de correo electrónico actualmente admiten recibir correos electrónicos de AMP"
 
 msgid "Read on about AMP email"
-msgstr ""
+msgstr "Siga leyendo sobre el correo electrónico AMP"
 
 msgid "The benefits of AMP email"
-msgstr ""
+msgstr "Los beneficios del correo electrónico AMP"
 
 msgid "AMP for advertisers"
-msgstr ""
+msgstr "AMP para anunciantes"
 
 msgid "Grow engagement and increase conversions with faster experiences"
-msgstr ""
+msgstr "Aumenta el compromiso y aumenta las conversiones con experiencias más rápidas"
 
 msgid "The average mobile site takes 19 seconds to load over a 3G connection. Coupled with the fact that conversions fall by 12% for every additional second a webpage takes to load, you can safely assume two things: speed equals performance, and most advertiser campaigns have room to improve. That’s where you come in. As an SSP, DSP, analytics provider, or anything in between, embracing speed means improving campaign performance, delivering quality user experiences, and establishing yourself as the adtech platform for the fast web. Join the hundreds of technology platforms currently supporting the open source AMP ecosystem. "
-msgstr ""
+msgstr "El sitio móvil promedio tarda 19 segundos en cargarse a través de una conexión 3G. Junto con el hecho de que las conversiones caen un 12% por cada segundo adicional que tarda una página web en cargarse, puede asumir con seguridad dos cosas: la velocidad es igual al rendimiento, y la mayoría de los anunciantes las campañas tienen espacio para mejorar. Ahí es donde entras tú. Como SSP, DSP, proveedor de análisis o cualquier otra cosa, adoptar la velocidad significa mejorar el rendimiento de la campaña, ofrecer experiencias de usuario de calidad y establecerte como la plataforma adtech para la web rápida. Únase a los cientos de plataformas tecnológicas que actualmente admiten el ecosistema AMP de código abierto ".
 
 msgid "AMP offers a way for you to give users a faster experience everywhere: on ads, landing pages or on your entire website. AMP ads help users engage with your brand and improve the performance of your campaigns. When your target audience lands on an AMP page, they get what they’re looking for in the moment they’re looking for it. The net result – they’re more likely to be engaged with and receptive to your brand’s messages, and more likely to take the actions you’re guiding them towards like completing a purchase."
-msgstr ""
+msgstr "AMP ofrece una forma de brindar a los usuarios una experiencia más rápida en todas partes: en anuncios, páginas de destino o en todo su sitio web. Los anuncios AMP ayudan a los usuarios a interactuar con su marca y mejorar el rendimiento de sus campañas. Cuando su público objetivo aterriza en un En la página AMP, obtienen lo que buscan en el momento en que lo buscan. El resultado neto: es más probable que se involucren y sean receptivos a los mensajes de su marca, y más probable que tomen las medidas que usted ' re guiándolos hacia como completar una compra ".
 
 
 msgid "Allows the creation of rich, eye-catching marketing content with Adobe Animate."
-msgstr ""
+msgstr "Permite la creación de contenido de marketing rico y llamativo con Adobe Animate".
 
 msgid "Create AMPHTML-valid and ready to be published individual designs or full sets of static or animated marketing visuals, within minutes."
-msgstr ""
+msgstr "Cree diseños individuales válidos para AMPHTML y listos para ser publicados o conjuntos completos de imágenes de marketing estáticas o animadas, en cuestión de minutos".
 
 msgid "Online AMPHTML banner maker which allows you to easily create AMP ads without prior coding knowledge."
-msgstr ""
+msgstr "Creador de banners AMPHTML en línea que le permite crear fácilmente anuncios AMP sin conocimientos previos de codificación".
 
 msgid "Google Web Designer"
-msgstr ""
+msgstr "Diseñador web de Google"
 
 msgid "Create engaging, interactive AMPHTML Ad compliant designs and motion graphics that can run on any device."
-msgstr ""
+msgstr "Cree atractivos diseños interactivos que cumplan con los anuncios AMPHTML y gráficos en movimiento que puedan ejecutarse en cualquier dispositivo".
 
 msgid "Increase in revenue"
-msgstr ""
+msgstr "Aumento de ingresos"
 
 msgid "Triplelift and Cloudflare boost Time Inc.’s revenue with AMP Ads"
-msgstr ""
+msgstr "Triplelift y Cloudflare aumentan los ingresos de Time Inc. con AMP Ads"
 
 msgid "Increase in average clickthrough rate"
-msgstr ""
+msgstr "Aumento en la tasa promedio de clics"
 
 msgid "Teads brings AMP'd mobile video inventory to nearly 100 publishers"
-msgstr ""
+msgstr "Teads lleva el inventario de video móvil de AMP a casi 100 editores"
 
 msgid "Increase in ad load speed"
-msgstr ""
+msgstr "Aumento de la velocidad de carga de anuncios"
 
 #: pages/content/amp-dev/about/how-amp-works.html:18
 msgid "How AMP works"
-msgstr ""
+msgstr "Cómo funciona AMP"
 
 #: pages/content/amp-dev/about/how-amp-works.html:19
 msgid "The following optimizations combined are the reason AMP pages are so fast they appear to load instantly. There are 7 reasons in total - but if that’s still too much to read, simply watch the explainer video:"
-msgstr ""
+msgstr "Las siguientes optimizaciones combinadas son la razón por la que las páginas AMP son tan rápidas que parecen cargarse instantáneamente. Hay 7 razones en total, pero si eso es demasiado para leer, simplemente mire el video explicativo:"
 
 #: pages/content/amp-dev/about/how-amp-works.html:29
 msgid "Execute all AMP JavaScript asynchronously"
-msgstr ""
+msgstr "Ejecutar todo el AMP JavaScript de forma asincrónica"
 
 #: pages/content/amp-dev/about/how-amp-works.html:31
 msgid "AMP components may have JavaScript under the hood, but they’re carefully designed to make sure they don’t cause performance degradation. "
-msgstr ""
+msgstr "Los componentes de AMP pueden tener JavaScript bajo el capó, pero están diseñados cuidadosamente para asegurarse de que no causen degradación del rendimiento".
 
 #: pages/content/amp-dev/about/how-amp-works.html:32
 msgid "While custom JS is allowed in <a href=\"../documentation/components/reference/amp-script.md\"><code>amp-script</code></a>, and third-party JS is allowed in iframes, it cannot block rendering. For example, if third-party JS uses the <a href=\"http://www.stevesouders.com/blog/2012/04/10/dont-docwrite-scripts/\">super-bad-for-performance <code>document.write</code> API</a>, it does not block rendering the main page."
-msgstr ""
+msgstr "Si bien JS personalizado está permitido en <a href=\"../documentation/components/reference/amp-script.md\"> <code> amp-script </code> </a>, y de terceros JS está permitido en iframes, no puede bloquear la representación. Por ejemplo, si un tercero JS usa <a href = \ "http://www.stevesouders.com/blog/2012/04/10/dont-docwrite-scripts / \ "> API <code> document.write </code> super-bad-for-performance </a>, no bloquea la representación de la página principal".
 
 #: pages/content/amp-dev/about/how-amp-works.html:36
 msgid "Size all resources statically"
-msgstr ""
+msgstr "Tamaño de todos los recursos estáticamente"
 
 #: pages/content/amp-dev/about/how-amp-works.html:37
 msgid "External resources such as images, ads or iframes must state their size in the HTML so that AMP can determine each element’s size and position before resources are downloaded. AMP loads the layout of the page without waiting for any resources to download. "
-msgstr ""
+msgstr "Los recursos externos como imágenes, anuncios o iframes deben indicar su tamaño en el HTML para que AMP pueda determinar el tamaño y la posición de cada elemento antes de que se descarguen los recursos. AMP carga el diseño de la página sin esperar a que se descargue ningún recurso".
 
 #: pages/content/amp-dev/about/how-amp-works.html:42
 msgid "Don’t let extension mechanisms block rendering"
-msgstr ""
+msgstr "No permita que los mecanismos de extensión bloqueen la representación"
 
 #: pages/content/amp-dev/about/how-amp-works.html:43
 msgid "AMP doesn’t let extension mechanisms block page rendering. AMP supports extensions for things like <a href=\"../documentation/components/reference/amp-lightbox.md\">lightboxes</a>, <a href=\"../documentation/components/reference/amp-instagram.md\">instagram embeds</a>, <a href=\"../documentation/components/reference/amp-twitter.md\">tweets</a>, etc. While these require additional HTTP requests, those requests do not block page layout and rendering."
-msgstr ""
+msgstr "AMP no permite que los mecanismos de extensión bloqueen la representación de la página. AMP admite extensiones para cosas como <a href=\"../documentation/components/reference/amp-lightbox.md\"> lightboxes </a>, <a href = \ "../ documentation / components / reference / amp-instagram.md \"> incrustaciones de instagram </a>, <a href = \ "../ documentation / components / reference / amp-twitter.md \" > tweets </a>, etc. Si bien estos requieren solicitudes HTTP adicionales, esas solicitudes no bloquean el diseño y la representación de la página ".
 
 #: pages/content/amp-dev/about/how-amp-works.html:53
 msgid "Keep all third-party JavaScript out of the critical path"
-msgstr ""
+msgstr "Mantenga todos los JavaScript de terceros fuera de la ruta crítica"
 
 #: pages/content/amp-dev/about/how-amp-works.html:54
 msgid "Third-party JS likes to use synchronous JS loading. They also like to <code>document.write</code> more sync scripts. For example, if you have five ads on your page, and each of them cause three synchronous loads, each with a 1 second latency connection, you’re in 15 seconds of load time just for JS loading."
-msgstr ""
+msgstr "A JS de terceros le gusta usar la carga JS sincrónica. También les gusta <code> document.write </code> más scripts de sincronización. Por ejemplo, si tiene cinco anuncios en su página y cada uno de ellos causa tres síncronos cargas, cada una con una conexión de latencia de 1 segundo, tienes 15 segundos de tiempo de carga solo para cargar JS ".
 
 #: pages/content/amp-dev/about/how-amp-works.html:55
 msgid "AMP pages allow third-party JavaScript but only in sandboxed iframes. By restricting them to iframes, they can’t block the execution of the main page. Even if they trigger multiple style re-calculations, their tiny iframes have very little DOM. "
-msgstr ""
+msgstr "Las páginas AMP permiten JavaScript de terceros pero solo en iframes de espacio aislado. Al restringirlas a iframes, no pueden bloquear la ejecución de la página principal. Incluso si desencadenan múltiples cálculos de estilo, sus pequeños iframes tienen muy poco DOM ".
 
 #: pages/content/amp-dev/about/how-amp-works.html:56
 msgid "The time it takes to do style-recalculations and layouts are restricted by DOM size, so the iframe recalculations are very fast compared to recalculating styles and layout for the page."
-msgstr ""
+msgstr "El tiempo que lleva hacer recálculos de estilo y diseños está restringido por el tamaño del DOM, por lo que los recálculos de iframe son muy rápidos en comparación con el recálculo de estilos y diseños para la página".
 
 #: pages/content/amp-dev/about/how-amp-works.html:60
 msgid "All CSS must be inline and size-bound"
-msgstr ""
+msgstr "Todos los CSS deben estar en línea y vinculados por tamaño"
 
 #: pages/content/amp-dev/about/how-amp-works.html:61
 msgid "CSS blocks all rendering, it blocks page load, and it tends to get bloated. In AMP HTML pages, only inline styles are allowed. This removes 1 or often more HTTP requests from the critical rendering path compared to most web pages. "
-msgstr ""
+msgstr "CSS bloquea toda la representación, bloquea la carga de la página y tiende a hincharse. En las páginas HTML de AMP, solo se permiten estilos en línea. Esto elimina 1 o más solicitudes HTTP de la ruta crítica de representación en comparación con la mayoría de las páginas web".
 
 #: pages/content/amp-dev/about/how-amp-works.html:62
 msgid "Also, the inline style sheet has a maximum size of 50 kilobytes. While this size is big enough for very sophisticated pages, it still requires the page author to practice good CSS hygiene."
-msgstr ""
+msgstr "Además, la hoja de estilo en línea tiene un tamaño máximo de 50 kilobytes. Si bien este tamaño es lo suficientemente grande para páginas muy sofisticadas, aún requiere que el autor de la página practique una buena higiene CSS".
 
 #: pages/content/amp-dev/about/how-amp-works.html:66
 msgid "Font triggering must be efficient"
-msgstr ""
+msgstr "La activación de fuentes debe ser eficiente"
 
 #: pages/content/amp-dev/about/how-amp-works.html:67
 msgid "Web fonts are super large, so <a href=\"https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization\">web font optimization</a> is crucial to performance. On a typical page that has a few sync scripts and a few external style sheets, the browser waits and waits to start downloading these huge fonts until all this happens."
-msgstr ""
+msgstr "Las fuentes web son muy grandes, por lo que <a href=\"https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization\"> optimización de fuentes web </a> es crucial para el rendimiento. En una página típica que tiene algunos scripts de sincronización y algunas hojas de estilo externas, el navegador espera y espera comenzar a descargar estas fuentes enormes hasta que todo esto suceda ".
 
 #: pages/content/amp-dev/about/how-amp-works.html:68
 msgid "The AMP system declares zero HTTP requests until fonts start downloading. This is only possible because all JS in AMP has the async attribute and only inline style sheets are allowed; there’s no HTTP requests blocking the browser from downloading fonts."
-msgstr ""
+msgstr "El sistema AMP declara cero solicitudes HTTP hasta que las fuentes comiencen a descargarse. Esto solo es posible porque todos los JS en AMP tienen el atributo asíncrono y solo se permiten hojas de estilo en línea; no hay solicitudes HTTP que bloqueen al navegador de la descarga de fuentes".
 
 #: pages/content/amp-dev/about/how-amp-works.html:72
 msgid "Minimize style recalculations"
-msgstr ""
+msgstr "Minimizar recálculos de estilo"
 
 #: pages/content/amp-dev/about/how-amp-works.html:73
 msgid "Each time you measure something, it triggers style recalculations which are expensive because the browser has to layout the entire page. In AMP pages, all DOM reads happen first before all the writes. This ensures there’s the max of one recalc of styles per frame. "
-msgstr ""
+msgstr "Cada vez que se mide algo, se activan nuevos cálculos de estilo, que son caros porque el navegador tiene que diseñar toda la página. En las páginas AMP, todas las lecturas de DOM ocurren primero antes de todas las escrituras. Esto garantiza que haya un máximo de una recuperación de estilos por marco. "
 
 #: pages/content/amp-dev/about/how-amp-works.html:74
 msgid "Learn more about impact of style and layout recalculations on <a href=\"https://developers.google.com/web/fundamentals/performance/rendering/\">rendering performance</a>."
-msgstr ""
+msgstr "Obtenga más información sobre el impacto de los recálculos de estilo y diseño en <a href=\"https://developers.google.com/web/fundamentals/performance/rendering/\"> rendimiento de representación </a>".
 
 #: pages/content/amp-dev/about/how-amp-works.html:78
 msgid "Only run GPU-accelerated animations"
-msgstr ""
+msgstr "Solo ejecuta animaciones aceleradas por GPU"
 
 #: pages/content/amp-dev/about/how-amp-works.html:79
 msgid "The only way to have fast optimizations is to run them on the GPU. GPU knows about layers, it knows how to perform some things on these layers, it can move them, it can fade them, but it can’t update the page layout; it will hand that task over to the browser, and that’s not good."
-msgstr ""
+msgstr "La única forma de tener optimizaciones rápidas es ejecutarlas en la GPU. GPU conoce las capas, sabe cómo realizar algunas cosas en estas capas, puede moverlas, puede desvanecerlas, pero no puede actualizar el diseño de página; entregará esa tarea al navegador, y eso no es bueno ".
 
 #: pages/content/amp-dev/about/how-amp-works.html:80
 msgid "The rules for animation-related CSS ensure that animations can be GPU-accelerated. Specifically, AMP only allows animating and transitioning on transform and opacity so that page layout isn’t required. Learn more about <a href=\"https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count\">using transform and opacity for animation changes</a>."
-msgstr ""
+msgstr "Las reglas para CSS relacionadas con la animación aseguran que las animaciones pueden ser aceleradas por GPU. Específicamente, AMP solo permite animar y hacer la transición en la transformación y la opacidad para que no se requiera el diseño de la página. Obtenga más información sobre <a href = \" https: //developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count\"> utilizando transformación y opacidad para los cambios de animación </a> ".
 
 #: pages/content/amp-dev/about/how-amp-works.html:84
 msgid "Prioritize resource loading"
-msgstr ""
+msgstr "Priorizar la carga de recursos"
 
 #: pages/content/amp-dev/about/how-amp-works.html:85
 msgid "AMP controls all resource downloads  it prioritizes resource loading, loading only what’s needed, and prefetches lazy-loaded resources."
-msgstr ""
+msgstr "AMP controla todas las descargas de recursos, prioriza la carga de recursos, carga solo lo que se necesita y capta recursos con carga lenta".
 
 #: pages/content/amp-dev/about/how-amp-works.html:86
 msgid "When AMP downloads resources, it optimizes downloads so that the currently most important resources are downloaded first. Images and ads are only downloaded if they are likely to be seen by the user, above the fold, or if the user is likely to quickly scroll to them."
-msgstr ""
+msgstr "Cuando AMP descarga recursos, optimiza las descargas para que los recursos más importantes se descarguen primero. Las imágenes y los anuncios solo se descargan si es probable que el usuario los vea, en la mitad superior de la página, o si es probable que el usuario lo haga rápidamente desplazarse hacia ellos ".
 
 #: pages/content/amp-dev/about/how-amp-works.html:87
 msgid "AMP also prefetches lazy-loaded resources. Resources are loaded as late as possible, but prefetched as early as possible. That way things load very fast but CPU is only used when resources are actually shown to users."
-msgstr ""
+msgstr "AMP también recupera recursos con carga lenta. Los recursos se cargan lo más tarde posible, pero se recuperan lo antes posible. De esta forma, las cosas se cargan muy rápido, pero la CPU solo se usa cuando los recursos se muestran a los usuarios".
 
 #: pages/content/amp-dev/about/how-amp-works.html:91
 msgid "Load pages in an instant"
-msgstr ""
+msgstr "Cargar páginas en un instante"
 
 #: pages/content/amp-dev/about/how-amp-works.html:92
 msgid "The new <a href=\"http://www.w3.org/TR/resource-hints/#dfn-preconnect\">preconnect API</a> is used heavily to ensure HTTP requests are as fast as possible when they are made. With this, a page can be rendered before the user explicitly states they’d like to navigate to it; the page might already be available by the time the user actually selects it, leading to instant loading."
-msgstr ""
+msgstr "La nueva <a href=\"http://www.w3.org/TR/resource-hints/#dfn-preconnect\"> preconnect API </a> se utiliza mucho para garantizar que las solicitudes HTTP sean tan rápidas posible cuando se hacen. Con esto, se puede representar una página antes de que el usuario declare explícitamente que le gustaría navegar a ella; la página ya podría estar disponible para cuando el usuario realmente la seleccione, lo que lleva a una carga instantánea ".
 
 #: pages/content/amp-dev/about/how-amp-works.html:93
 msgid "While prerendering can be applied to all web content, it can also use up a lot of bandwidth and CPU. AMP is optimized to reduce both of these factors. Prerendering only downloads resources above the fold and prerendering doesn’t render things that might be expensive in terms of CPU."
-msgstr ""
+msgstr "Si bien el procesamiento previo se puede aplicar a todo el contenido web, también puede utilizar una gran cantidad de ancho de banda y CPU. AMP está optimizado para reducir ambos factores. El procesamiento previo solo descarga recursos por encima del pliegue y el procesamiento previo no genera elementos que puedan ser costoso en términos de CPU ".
 
 #: pages/content/amp-dev/about/how-amp-works.html:95
 msgid "Learn more about <a href=\"https://medium.com/@cramforce/why-amp-html-does-not-take-full-advantage-of-the-preload-scanner-7e7f788aa94e\">why AMP HTML doesn’t take full advantage of the preload scanner</a>."
-msgstr ""
+msgstr "Más información sobre <a href=\"https://medium.com/@cramforce/why-amp-html-does-not-take-full-advantage-of-the-preload-scanner-7e7f788aa94e\"> por qué AMP HTML no aprovecha al máximo el escáner de precarga </a> ".
 
 #: pages/content/amp-dev/index.html:370
 msgid "Developer Benefits"
-msgstr ""
+msgstr "Beneficios para desarrolladores"
 
 #: pages/content/amp-dev/about/ads.html:250
 msgid "Regular Ad"
-msgstr ""
+msgstr "Anuncio normal"
 
 msgid "JavaScript is powerful, it can modify just about every aspect of the page, but it can also block DOM construction and delay page rendering (see also <a href=\"https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript\">Adding interactivity with JavaScript</a>). To keep JavaScript from delaying page rendering, AMP allows only asynchronous JavaScript."
-msgstr ""
+msgstr "JavaScript es potente, puede modificar casi todos los aspectos de la página, pero también puede bloquear la construcción del DOM y retrasar la representación de la página (consulte también <a href = \" https://developers.google.com/web/fundamentals / performance / critical-rendering-path / agregar-interactividad-con-javascript \ "> Agregar interactividad con JavaScript </a>). Para evitar que JavaScript demore la representación de la página, AMP solo permite JavaScript asíncrono".
 
 msgid "AMP uncouples document layout from resource layout. Only one HTTP request is needed to layout the entire doc (<a href=\"#font-triggering-must-be-efficient\">+fonts</a>). Since AMP is optimized to avoid expensive style recalculations and layouts in the browser, there won’t be any re-layout when resources load."
-msgstr ""
+msgstr "AMP desacopla el diseño de documentos del diseño de recursos. Solo se necesita una solicitud HTTP para diseñar todo el documento (<a href=\"#font-triggering-must-be-efficient\"> + fonts </a>). AMP está optimizado para evitar nuevos cálculos de estilo y diseños caros en el navegador, no habrá ningún cambio de diseño cuando se carguen los recursos ".
 
 msgid "Any page that uses a custom script must tell the AMP system that it will eventually have a custom tag. For example, the <a href=\"../documentation/components/reference/amp-iframe.md\"><code>amp-iframe</code></a> script tells the system that there will be an <code>amp-iframe</code> tag. AMP creates the iframe box before it even knows what it will include:"
-msgstr ""
+msgstr "Cualquier página que use un script personalizado debe decirle al sistema AMP que eventualmente tendrá una etiqueta personalizada. Por ejemplo, el <a href=\"../documentation/components/reference/amp-iframe.md\"> El script <code> amp-iframe </code> </a> le dice al sistema que habrá una etiqueta <code> amp-iframe </code>. AMP crea el cuadro de iframe antes de que sepa lo que incluirá: "
 
 msgid "AMP controls all resource downloads: it prioritizes resource loading, loading only what’s needed, and prefetches lazy-loaded resources."
-msgstr ""
+msgstr "AMP controla todas las descargas de recursos: prioriza la carga de recursos, carga solo lo que se necesita y captura recursos con carga lenta".
 
 msgid "When AMP documents get prerendered for instant loading, only resources above the fold are actually downloaded. When AMP documents get prerendered for instant loading, resources that might use a lot of CPU (like third-party iframes) do not get downloaded."
-msgstr ""
+msgstr "Cuando los documentos AMP se procesan previamente para la carga instantánea, solo se descargan los recursos que se encuentran en la mitad superior de la página. Cuando los documentos AMP se procesan previamente para la carga instantánea, los recursos que pueden usar mucha CPU (como iframes de terceros) no se descargan".
 
 msgid "Vision & Mission"
-msgstr ""
+msgstr "Visión y misión"
 
 msgid "Our vision is our north star we use to orient ourselves, and our mission describes the way we move into the direction of it."
-msgstr ""
+msgstr "Nuestra visión es nuestra estrella del norte que utilizamos para orientarnos, y nuestra misión describe la forma en que nos movemos hacia ella".
 
 msgid "Vision"
-msgstr ""
+msgstr "Visión"
 
 msgid "Mission"
-msgstr ""
+msgstr "Misión"
 
 msgid "A strong, user-first open web forever."
-msgstr ""
+msgstr "Una web fuerte, abierta por primera vez por el usuario para siempre".
 
 msgid "Provide a user-first format for web content, supporting the long-term success of every web publisher, merchant, and advertiser."
-msgstr ""
+msgstr "Proporcione un primer formato de usuario para el contenido web, que respalde el éxito a largo plazo de cada editor web, comerciante y anunciante".
 
 msgid "Design Principles"
-msgstr ""
+msgstr "Principios de diseño"
 
 msgid "These design principles are meant to guide the ongoing design and development of AMP. They should help us make internally consistent decisions."
-msgstr ""
+msgstr "Estos principios de diseño están destinados a guiar el diseño y desarrollo continuos de AMP. Deberían ayudarnos a tomar decisiones coherentes internamente".
 
 msgid "User Experience > Developer Experience > Ease of Implementation."
-msgstr ""
+msgstr "Experiencia del usuario> Experiencia del desarrollador> Facilidad de implementación".
 
 msgid "When in doubt, do what’s best for the end user experience, even if it means that it’s harder for the page creator to build or for the library developer to implement."
-msgstr ""
+msgstr "En caso de duda, haga lo que sea mejor para la experiencia del usuario final, incluso si eso significa que es más difícil para el creador de la página construir o para el desarrollador de la biblioteca implementar".
 
 msgid "Don’t design for a hypothetical faster future browser."
-msgstr ""
+msgstr "No diseñe para un futuro navegador hipotético más rápido".
 
 msgid "We’ve chosen to build AMP as a library in the spirit of the <a href=\"https://github.com/extensibleweb/manifesto/blob/master/README.md\">EXTENSIBLE WEB MANIFESTO</a> to be able to fix the web of today, not the web of tomorrow. AMP should be fast in today’s browsers. When certain optimizations aren’t possible with today’s platform, AMP developers should participate in standards development to get these added to the web platform.</span>"
-msgstr ""
+msgstr "Hemos elegido construir AMP como una biblioteca en el espíritu del <a href=\"https://github.com/extensibleweb/manifesto/blob/master/README.md\"> MANIFIESTO WEB EXTENSIBLE </ a> para poder arreglar la web de hoy, no la web del mañana. AMP debe ser rápido en los navegadores de hoy. Cuando ciertas optimizaciones no son posibles con la plataforma de hoy, los desarrolladores de AMP deben participar en el desarrollo de estándares para agregarlas al plataforma web. </span> "
 
 msgid "Don’t break the web."
-msgstr ""
+msgstr "No rompas la web".
 
 msgid "Ensure that if AMP has outages or problems it doesn’t hurt the rest of the web. That means if the Google AMP Cache, the URL API or the library fails it should be possible for websites and consumption apps to gracefully degrade. If something works with an AMP cache it should also work without a cache."
-msgstr ""
+msgstr "Asegúrese de que si AMP tiene interrupciones o problemas, no perjudique al resto de la web. Eso significa que si Google AMP Cache, la API de URL o la biblioteca falla, debería ser posible que los sitios web y las aplicaciones de consumo se degraden con gracia. Si algo funciona con un caché AMP, también debería funcionar sin un caché ".
 
 msgid "Solve problems on the right layer."
-msgstr ""
+msgstr "Resuelve problemas en la capa correcta".
 
 msgid "E.g. don’t integrate things on the client side, just because that is easier, when the user experience would be better with a server side integration."
-msgstr ""
+msgstr "Por ejemplo, no integre cosas en el lado del cliente, solo porque eso es más fácil, cuando la experiencia del usuario sería mejor con una integración del lado del servidor".
 
 msgid "Only do things if they can be made fast."
-msgstr ""
+msgstr "Solo haga cosas si se pueden hacer rápido".
 
 msgid "Don’t introduce components or features to AMP that can’t reliably run at 60fps or hinder the instant load experience on today’s most common mobile devices."
-msgstr ""
+msgstr "No introduzca componentes o funciones en AMP que no puedan ejecutarse de manera confiable a 60 fps ni dificulten la experiencia de carga instantánea en los dispositivos móviles más comunes de la actualidad".
 
 msgid "Prioritise things that improve the user experience – but compromise when needed."
-msgstr ""
+msgstr "Priorice las cosas que mejoran la experiencia del usuario, pero comprométase cuando sea necesario".
 
 msgid "Some things can be made fast and are still a terrible user experience. AMPs should deliver a fantastic user experience and speed is just one part of that. Only compromise when lack of support for something would stop AMP from being widely used and deployed."
-msgstr ""
+msgstr "Algunas cosas se pueden hacer rápido y siguen siendo una experiencia de usuario terrible. Los AMP deberían ofrecer una experiencia de usuario fantástica y la velocidad es solo una parte de eso. Solo comprometerse cuando la falta de soporte para algo evitaría que AMP sea ampliamente utilizado e implementado. "
 
 msgid "No whitelists."
-msgstr ""
+msgstr "No hay listas blancas".
 
 msgid "We won’t give any special treatment to specific sites, domains or origins except where needed for security or performance reasons."
-msgstr ""
+msgstr "No daremos ningún tratamiento especial a sitios, dominios u orígenes específicos, excepto cuando sea necesario por razones de seguridad o rendimiento".
 
 msgid "Discover more..."
-msgstr ""
+msgstr "Descubre más ..."
 
 msgid "Create your first AMP page"
-msgstr ""
+msgstr "Crea tu primera página AMP"
 
 msgid "Not sure how to get started? In this tutorial, you’ll learn how to create a basic AMP HTML page, how to stage it and validate that it’s AMP compliant, and finally ..."
-msgstr ""
+msgstr "¿No está seguro de cómo comenzar? En este tutorial, aprenderá cómo crear una página HTML básica de AMP, cómo organizarla y validar que es compatible con AMP, y finalmente ..."
 
 msgid "In this tutorial, you'll learn how to use data binding and expressions to build awesome, interactive AMP pages with amp-bind ..."
-msgstr ""
+msgstr "En este tutorial, aprenderá a usar el enlace de datos y las expresiones para crear páginas AMP increíbles e interactivas con amp-bind ..."
 
 msgid "Styling and layout on AMP HTML pages is very similar to normal HTML pages – in both cases, you'll use CSS."
-msgstr ""
+msgstr "El estilo y el diseño en las páginas HTML de AMP son muy similares a las páginas HTML normales; en ambos casos, utilizará CSS".
 
 msgid "Get Started with Tutorials"
-msgstr ""
+msgstr "Comenzar con los tutoriales"
 
 msgid "AMP Websites"
-msgstr ""
+msgstr "Sitios web de AMP"
 
 msgid "AMP Email"
-msgstr ""
+msgstr "Correo electrónico de AMP"
 
 msgid "advertisers"
-msgstr ""
+msgstr "anunciantes"
 
 msgid "publishers"
-msgstr ""
+msgstr "editores"
 
 msgid "e-commerce"
-msgstr ""
+msgstr "comercio electrónico"
 
 msgid "nonprofit"
-msgstr ""
+msgstr "sin fines de lucro"
 
 msgid "social-media"
-msgstr ""
+msgstr "redes sociales"
 
 msgid "Magazine article"
-msgstr ""
+msgstr "Artículo de revista"
 
 msgid "Breaking the status quo"
-msgstr ""
+msgstr "Romper el status quo"
 
 msgid "This example of magazine article demonstrates how to build an immersive reading experience by adding animations that enhance the written content on the page."
-msgstr ""
+msgstr "Este ejemplo de artículo de revista muestra cómo construir una experiencia de lectura inmersiva al agregar animaciones que mejoran el contenido escrito en la página".
 
 msgid "<code>amp-position-observer</code> in combination with <code>amp-animation</code> allows a smooth \"scrolly-telling\" experience with minimal effort and without any custom JavaScript."
-msgstr ""
+msgstr "<code> amp-position-observer </code> en combinación con <code> amp-animation </code> permite una experiencia fluida \" reveladora \ "con un esfuerzo mínimo y sin ningún JavaScript personalizado".
 
 msgid "Experience Demo"
-msgstr ""
+msgstr "Experiencia de demostración"
 
 msgid "Band page"
-msgstr ""
+msgstr "Página de banda"
 
 msgid "Always thought that all AMP pages look the same? Checkout this incredible band website featuring various AMP components to create a vivid and enjoyable experience."
-msgstr ""
+msgstr "¿Siempre pensaste que todas las páginas de AMP tienen el mismo aspecto? Mira este increíble sitio web de la banda con varios componentes de AMP para crear una experiencia vívida y agradable".
 
 msgid "The use of <code>amp-sidebar</code> gives you the same feeling as if you are in a single page app."
-msgstr ""
+msgstr "El uso de <code> amp-sidebar </code> te da la misma sensación que si estuvieras en una aplicación de una sola página".
 
 msgid "E-Commerce"
-msgstr ""
+msgstr "Comercio electrónico"
 
 msgid "AMP shines for content pages. But it can also power e-commerce experiences."
-msgstr ""
+msgstr "AMP brilla para las páginas de contenido. Pero también puede potenciar las experiencias de comercio electrónico".
 
 msgid "To learn more, we built a simple yet fully functional e-commerce site of our very own! Check out the site, and look at the code to learn about the best practices we discovered to build a great interactive experience on your domain and on AMP caches alike."
-msgstr ""
+msgstr "¡Para obtener más información, creamos un sitio de comercio electrónico simple pero totalmente funcional! Consulta el sitio y mira el código para conocer las mejores prácticas que descubrimos para crear una gran experiencia interactiva en tu dominio y en cachés AMP por igual ".
 
 msgid "See on GitHub"
-msgstr ""
+msgstr "Ver en GitHub"
 
 msgid "Here we feature interesting and outstanding pages that have been published using AMP. We kindly invite you to look through them to see what AMP is capable of."
-msgstr ""
+msgstr "Aquí presentamos páginas interesantes y destacadas que han sido publicadas usando AMP. Le invitamos amablemente a revisarlas para ver de qué es capaz AMP".
 
 msgid "Musement’s mobile-first design helps users navigate 70% faster"
-msgstr ""
+msgstr "El diseño móvil primero de Musement ayuda a los usuarios a navegar un 70% más rápido"
 
 msgid "To provide their blog content in a more attractive format, Ameba launched their article landing pages as AMP Stories"
-msgstr ""
+msgstr "Para proporcionar el contenido de su blog en un formato más atractivo, Ameba lanzó sus páginas de inicio de artículos como Historias AMP"
 
 msgid "Complex Networks drives a 3x revenue increase with AMP"
-msgstr ""
+msgstr "Las redes complejas generan un aumento de ingresos 3x con AMP"
 
 msgid "AARP increases mobile conversion rate by 15% with AMP"
-msgstr ""
+msgstr "AARP aumenta la tasa de conversión móvil en un 15% con AMP"
 
 msgid "KG Media’s AMP optimizations results"
-msgstr ""
+msgstr "Resultados de optimizaciones AMP de KG Media"
 
 msgid "Asahi.com uses a paired AMP approach for their free articles"
-msgstr ""
+msgstr "Asahi.com utiliza un enfoque AMP emparejado para sus artículos gratuitos"
 
 msgid "RCS MediaGroup reports good news with AMP and PWA"
-msgstr ""
+msgstr "RCS MediaGroup informa buenas noticias con AMP y PWA"
 
 msgid "Advance Create boosting ads landing pages with AMP"
-msgstr ""
+msgstr "Creación avanzada de páginas de destino de anuncios de refuerzo con AMP"
 
 msgid "Times of India reports 1.5X more revenue yields, 3.6X faster load time with AMP"
-msgstr ""
+msgstr "Times of India informa 1.5 veces más ingresos, 3.6 veces más rápido con AMP"
 
 msgid "greenslips.com.au boosts conversions by 12-15%, mobile speed by 15% with AMP"
-msgstr ""
+msgstr "greenslips.com.au aumenta las conversiones en un 12-15%, la velocidad móvil en un 15% con AMP"
 
 msgid "Tokopedia boosts mobile performance with AMP and PWA"
-msgstr ""
+msgstr "Tokopedia aumenta el rendimiento móvil con AMP y PWA"
 
 msgid "Readwhere provides seamless mobile content via AMP and PWA"
-msgstr ""
+msgstr "Readwhere proporciona contenido móvil sin interrupciones a través de AMP y PWA"
 
 msgid "DiscoverCarHire.com drives conversions with faster mobile page load times via AMP"
-msgstr ""
+msgstr "DiscoverCarHire.com genera conversiones con tiempos de carga de páginas móviles más rápidos a través de AMP"
 
 msgid "Jagran New Media boosts traffic by 115% and revenue by 4.5X by expanding AMP strategy"
-msgstr ""
+msgstr "Jagran New Media aumenta el tráfico en un 115% y los ingresos en 4.5X al expandir la estrategia AMP"
 
 msgid "Renovation Brands improves speed and site duration with AMP"
-msgstr ""
+msgstr "Las marcas de renovación mejoran la velocidad y la duración del sitio con AMP"
 
 msgid "Metromile lowers costs, reaches more potential customers with AMP"
-msgstr ""
+msgstr "Metromile reduce los costos, llega a más clientes potenciales con AMP"
 
 msgid "Carved increases conversion rate by 75% with AMP and PWA"
-msgstr ""
+msgstr "Tallado aumenta la tasa de conversión en un 75% con AMP y PWA"
 
 msgid "TransUnion scores more conversions with faster page loads via AMP"
-msgstr ""
+msgstr "TransUnion obtiene más conversiones con cargas de página más rápidas a través de AMP"
 
 msgid "The story of the all-new BMW.com"
-msgstr ""
+msgstr "La historia del nuevo BMW.com"
 
 msgid "Innkeeper’s Advantage helps B&Bs book guests quicker with AMP"
-msgstr ""
+msgstr "La ventaja del posadero ayuda a los B & B a reservar huéspedes más rápido con AMP"
 
 msgid "Grupo Expansión boosts monetization with AMP"
-msgstr ""
+msgstr "Grupo Expansión impulsa la monetización con AMP"
 
 msgid "Merchology increases conversions, lowers load times with AMP"
-msgstr ""
+msgstr "Merchology aumenta las conversiones, reduce los tiempos de carga con AMP"
 
 msgid "Eski.mobi serves businesses going mobile with AMP"
-msgstr ""
+msgstr "Eski.mobi sirve a las empresas que se vuelven móviles con AMP"
 
 msgid "Faster page loads with AMP deliver truckloads of new drivers to U.S. Xpress"
-msgstr ""
+msgstr "Las cargas de página más rápidas con AMP entregan cargas de camiones de nuevos controladores a U.S. Xpress"
 
 msgid "Event Tickets Center significantly boosts conversions with AMP"
-msgstr ""
+msgstr "El Centro de tickets de eventos aumenta significativamente las conversiones con AMP"
 
 msgid "ConsumersAdvocate.org boosts site performance with AMP"
-msgstr ""
+msgstr "ConsumersAdvocate.org aumenta el rendimiento del sitio con AMP"
 
 msgid "Fastcommerce drives conversions for clients by building AMP-first"
-msgstr ""
+msgstr "Fastcommerce impulsa las conversiones para los clientes creando AMP-first"
 
 msgid "Leading French organic retailer doubles mobile conversions with AMP"
-msgstr ""
+msgstr "El minorista orgánico líder en Francia duplica las conversiones móviles con AMP"
 
 msgid "CNBC sees mobile speed and engagement gains with AMP"
-msgstr ""
+msgstr "CNBC ve velocidad móvil y ganancias de compromiso con AMP"
 
 msgid "Wego.com increases mobile conversion rates 95% with AMP"
-msgstr ""
+msgstr "Wego.com aumenta las tasas de conversión móvil en un 95% con AMP"
 
 msgid "India’s leading rental site improved owner-to-renter connections by 77% with AMP"
-msgstr ""
+msgstr "El sitio de alquiler líder de la India mejoró las conexiones de propietario a inquilino en un 77% con AMP"
 
 msgid "WompMobile consistently improves e-commerce clients’ conversion rates with AMP sites"
-msgstr ""
+msgstr "WompMobile mejora constantemente las tasas de conversión de los clientes de comercio electrónico con sitios AMP"
 
 msgid "Terra drives mobile viewership up with AMP"
-msgstr ""
+msgstr "Terra aumenta la audiencia móvil con AMP"
 
 msgid "Milestone drives conversions with AMP pages for local hospitality site"
-msgstr ""
+msgstr "Milestone impulsa las conversiones con páginas AMP para el sitio de hospitalidad local"
 
 msgid "Hearst integrates key partner and product solutions on AMP"
-msgstr ""
+msgstr "Hearst integra soluciones clave de socios y productos en AMP"
 
 msgid "Wired AMP’s its 20+ year archive to meet audiences online"
-msgstr ""
+msgstr "Wired AMP tiene más de 20 años de archivo para conocer audiencias en línea"
 
 msgid "Slate gets efficient with AMP"
-msgstr ""
+msgstr "Slate se vuelve eficiente con AMP"
 
 msgid "Relay Media helps publishers get AMP’d"
-msgstr ""
+msgstr "Relay Media ayuda a los editores a obtener AMP"
 
 msgid "plista grows publisher revenue & user engagement with AMP"
-msgstr ""
+msgstr "plista aumenta los ingresos del editor y el compromiso del usuario con AMP"
 
 msgid "Create flawless web experiences"
-msgstr ""
+msgstr "Crear experiencias web perfectas"
 
 msgid "Snackable formats for everyone"
-msgstr ""
+msgstr "Formatos Snackable para todos"
 
 msgid "Super fast ads on the web"
-msgstr ""
+msgstr "Anuncios súper rápidos en la web"
 
 msgid "Next gen email"
-msgstr ""
+msgstr "Correo electrónico de próxima generación"
 
 msgid "Use cases"
-msgstr ""
+msgstr "Casos de uso"
 
 msgid "Guides & Tutorials"
-msgstr ""
+msgstr "Guías y tutoriales"
 
 msgid "The complete AMP library"
-msgstr ""
+msgstr "La biblioteca AMP completa"
 
 msgid "Hands on Introduction to AMP"
-msgstr ""
+msgstr "Introducción práctica a AMP"
 
 msgid "Learn AMP with free courses"
-msgstr ""
+msgstr "Aprende AMP con cursos gratuitos"
 
 msgid "Templates"
-msgstr ""
+msgstr "Plantillas"
 
 msgid "Begin building"
-msgstr ""
+msgstr "Comenzar a construir"
 
 msgid "Ready to use"
-msgstr ""
+msgstr "Listo para usar"
 
 msgid "Courses"
-msgstr ""
+msgstr "Cursos"
 
 msgid "Governance"
-msgstr ""
+msgstr "Gobierno"
 
 msgid "AMP Roadshow"
-msgstr ""
+msgstr "AMP Roadshow"
 
 msgid "Help"
-msgstr ""
+msgstr "Ayuda"
 
 msgid "Encouraging More Voices in AMP"
-msgstr ""
+msgstr "Alentar más voces en AMP"
 
 msgid "An AMP Working Group is a segment of the community with knowledge/interest in specific area of AMP. Working Groups are created by AMP’s Technical Steering Committee."
-msgstr ""
+msgstr "Un grupo de trabajo de AMP es un segmento de la comunidad con conocimiento / interés en un área específica de AMP. Los grupos de trabajo son creados por el Comité de Dirección Técnica de AMP".
 
 msgid "Most Working Groups provide bi-weekly status updates and present quarterly high-level updates in round-robin fashion at Design Reviews."
-msgstr ""
+msgstr "La mayoría de los grupos de trabajo proporcionan actualizaciones de estado quincenales y presentan actualizaciones trimestrales de alto nivel en forma de turnos en Design Reviews".
 
 msgid "Current Issues"
-msgstr ""
+msgstr "Problemas actuales"
 
 msgid "The facilitator of {name} is: "
-msgstr ""
+msgstr "El facilitador de {name} es:"
 
 msgid "Members"
-msgstr ""
+msgstr "Miembros"
 
 msgid "Communication Channels"
-msgstr ""
+msgstr "Canales de comunicación"
 
 msgid "<a href={{ doc.html_url }} target=\"_blank\" rel=\"noopener\">The GitHub Team</a> also includes { name } WG members."
-msgstr ""
+msgstr "<a href={{ doc.html_url }} target=\"_blank\" rel=\"noopener\"> El equipo de GitHub </a> también incluye miembros de {name} WG".
 
 msgid "Other ways to get involved with AMP"
-msgstr ""
+msgstr "Otras formas de involucrarse con AMP"
 
 msgid "Contribute to AMP"
-msgstr ""
+msgstr "Contribuir a AMP"
 
 msgid "The AMP Project would not be possible without help from all members of the community whether you are a developer, content creator or provider of services relevant to AMP There are many ways for you to contribute."
-msgstr ""
+msgstr "El Proyecto AMP no sería posible sin la ayuda de todos los miembros de la comunidad si usted es un desarrollador, creador de contenido o proveedor de servicios relevantes para AMP. Hay muchas maneras de contribuir".
 
 msgid "Governance Body"
-msgstr ""
+msgstr "Órgano de gobierno"
 
 msgid "Learn more about the Advisory Committee and Technical Steering Committee."
-msgstr ""
+msgstr "Obtenga más información sobre el Comité Asesor y el Comité de Dirección Técnica".
 
 msgid "Working Group"
-msgstr ""
+msgstr "Grupo de trabajo"
 
 msgid "AMP for Email"
-msgstr ""
+msgstr "AMP para correo electrónico"
 
 msgid "wg-amp4email Working Group is responsible for the development and maintenance of the AMP for Email specification and related features."
-msgstr ""
+msgstr "El grupo de trabajo wg-amp4email es responsable del desarrollo y mantenimiento de la especificación de AMP para correo electrónico y características relacionadas".
 
 msgid "View all"
-msgstr ""
+msgstr "Ver todo"
 
 msgid "Come join us in your city for a free, inclusive dev workshop with the AMP team."
-msgstr ""
+msgstr "Únase a nosotros en su ciudad para un taller de desarrollo gratuito e inclusivo con el equipo de AMP".
 
 msgid "Where we’ve been"
-msgstr ""
+msgstr "Dónde hemos estado"
 
 msgid "Where we’re going next"
-msgstr ""
+msgstr "A dónde iremos después"
 
 msgid "Your city isn’t on the list? Check back soon for additional dates and cities. Or..."
-msgstr ""
+msgstr "¿Tu ciudad no está en la lista? Vuelve pronto para conocer fechas y ciudades adicionales. O ..."
 
 msgid "That’s very kind. Fill out <a href=\"https://docs.google.com/forms/d/14B75eV89S1KaceNTG46ranAOPCj3wCLzgD3mxuGeUtU/viewform\" target=\"_blank\">this form</a> and we’ll see what we can do!"
-msgstr ""
+msgstr "Eso es muy amable. Complete <a href=\"https://docs.google.com/forms/d/14B75eV89S1KaceNTG46ranAOPCj3wCLzgD3mxuGeUtU/viewform\" target=\"_blank\"> este formulario </a> y nosotros ' ¡veré qué podemos hacer! "
 
 msgid "Want to host your own AMP Roadshow?"
-msgstr ""
+msgstr "¿Quieres alojar tu propio AMP Roadshow?"
 
 msgid "Why not? Fill out <a href=\"https://docs.google.com/forms/d/1PMWCq1MTqg-AslvBMvMlU_ozjyZK7WZ-4fUVs0UlheE/viewform\" target=\"_blank\">this form</a>, and we’ll share with you our talks and all the materials you need to do it yourself!"
-msgstr ""
+msgstr "¿Por qué no? Rellene <a href=\"https://docs.google.com/forms/d/1PMWCq1MTqg-AslvBMvMlU_ozjyZK7WZ-4fUVs0UlheE/viewform\" target=\"_blank\"> este formulario </a> , y compartiremos con usted nuestras charlas y todos los materiales que necesita para hacerlo usted mismo ".
 
 msgid "Agenda"
-msgstr ""
+msgstr "Agenda"
 
 msgid "The agenda is designed to enable you to build even more beautiful, interactive and canonical AMP pages. We welcome both newcomers to AMP and those who already ship AMP pages. <span>This is a sample agenda – schedule varies based on the city.</span>"
-msgstr ""
+msgstr "La agenda está diseñada para permitirle construir páginas AMP aún más bellas, interactivas y canónicas. Damos la bienvenida tanto a los recién llegados a AMP como a aquellos que ya envían páginas AMP. <span> Esta es una agenda de muestra: el horario varía según la ciudad . </span> "
 
 msgid "We’ll cover a lot of ground in the few hours we have together. To enable you to build full-fledged AMP sites, the roadshow will deep dive into four big pillars:"
-msgstr ""
+msgstr "Cubriremos mucho terreno en las pocas horas que tenemos juntos. Para permitirle construir sitios AMP completos, el roadshow se sumergirá en cuatro grandes pilares:"
 
 msgid "Content"
-msgstr ""
+msgstr "Contenido"
 
 msgid "Amplify Live!"
-msgstr ""
+msgstr "Amplificar en vivo!"
 
 msgid "During \"Amplify live!\", we’ll be on stage exploring the most interesting AMP challenges, allowing you to either follow along or do your own thing, like one of the many AMP codelabs. Bring your laptop!"
-msgstr ""
+msgstr "Durante \" Amplify live! \ ", estaremos en el escenario explorando los desafíos AMP más interesantes, permitiéndole seguir o hacer lo suyo, como uno de los muchos codelabs de AMP. ¡Traiga su computadora portátil!"
 
 msgid "Frequently Asked Questions"
-msgstr ""
+msgstr "Preguntas frecuentes"
 
 msgid "Does it cost anything?"
-msgstr ""
+msgstr "¿Cuesta algo?"
 
 msgid "No - tickets are free of charge."
-msgstr ""
+msgstr "No, los tickets son gratuitos".
 
 msgid "Who is the event for?"
-msgstr ""
+msgstr "¿Para quién es el evento?"
 
 msgid "Web developers and designers with an interest in AMP--whether you’ve had experience using AMP and want to create better experiences, you’re curious about how you can use AMP to improve your site, or you want to contribute to AMP to make it better for everyone."
-msgstr ""
+msgstr "Desarrolladores web y diseñadores interesados en AMP: si ha tenido experiencia en el uso de AMP y desea crear mejores experiencias, tiene curiosidad acerca de cómo puede usar AMP para mejorar su sitio o si desea contribuir a AMP para hacerlo mejor para todos ".
 
 msgid "Am I all set after registering?"
-msgstr ""
+msgstr "¿Estoy listo después de registrarme?"
 
 msgid "We expect that in some cities more people will be interested in attending than we can accommodate, so we will be confirming attendees on a case-by-case basis."
-msgstr ""
+msgstr "Esperamos que en algunas ciudades más personas estén interesadas en asistir de las que podamos acomodar, por lo que confirmaremos a los asistentes caso por caso".
 
 msgid "Want the AMP Roadshow to visit your area?"
-msgstr ""
+msgstr "¿Quiere que el AMP Roadshow visite su área?"
 
 msgid "Design"
-msgstr ""
+msgstr "Diseño"
 
 msgid "AMP as canonical site"
-msgstr ""
+msgstr "AMP como sitio canónico"
 
 msgid "Responsive design"
-msgstr ""
+msgstr "Diseño receptivo"
 
 msgid "New AMP Effects"
-msgstr ""
+msgstr "Nuevos efectos AMP"
 
 msgid "New AMP UI components"
-msgstr ""
+msgstr "Nuevos componentes de la interfaz de usuario de AMP"
 
 msgid "Interactivity"
-msgstr ""
+msgstr "Interactividad"
 
 msgid "State management (amp-bind)"
-msgstr ""
+msgstr "Gestión de estado (amp-bind)"
 
 msgid "Live data"
-msgstr ""
+msgstr "Datos en vivo"
 
 msgid "Forms & autocomplete"
-msgstr ""
+msgstr "Formularios y autocompletar"
 
 msgid "Selections"
-msgstr ""
+msgstr "Selecciones"
 
 msgid "DevOps"
-msgstr ""
+msgstr "DevOps"
 
 msgid "Deploying AMP"
-msgstr ""
+msgstr "Implementación de AMP"
 
 msgid "AMP in your favorite CMS"
-msgstr ""
+msgstr "AMP en tu CMS favorito"
 
 msgid "SEO & Discovery"
-msgstr ""
+msgstr "SEO y descubrimiento"
 
 msgid "AMP & PWA"
-msgstr ""
+msgstr "AMP y PWA"
 
 msgid "Monetization"
-msgstr ""
+msgstr "Monetización"
 
 msgid "AMP for Landing Pages"
-msgstr ""
+msgstr "AMP para páginas de destino"
 
 msgid "Integrating ads"
-msgstr ""
+msgstr "Integrar anuncios"
 
 msgid "Analytics"
-msgstr ""
+msgstr "Analytics"
 
 msgid "Paywalls & Payments"
-msgstr ""
+msgstr "Pagos y Pagos"
 
 msgid "Cities"
-msgstr ""
+msgstr "Ciudades"
 
 msgid "Sign Up"
-msgstr ""
+msgstr "Registrarse"
 
 msgid "Learn more"
-msgstr ""
+msgstr "Más información"
 
 msgid "Intro + Keynote"
-msgstr ""
+msgstr "Introducción + Keynote"
 
 msgid "AMP: A library for rich content experiences"
-msgstr ""
+msgstr "AMP: una biblioteca para experiencias de contenido enriquecido"
 
 msgid "Advanced interactivity with AMP"
-msgstr ""
+msgstr "Interactividad avanzada con AMP"
 
 msgid "Tutorial: Your first AMP site!"
-msgstr ""
+msgstr "Tutorial: ¡Tu primer sitio AMP!"
 
 msgid "Creating an excellent AMP"
-msgstr ""
+msgstr "Creando un excelente AMP"
 
 msgid "Letting your AMP into the world"
-msgstr ""
+msgstr "Dejando que tu AMP entre al mundo"
 
 msgid "Lunch"
-msgstr ""
+msgstr "Almuerzo"
 
 msgid "Mystery talk"
-msgstr ""
+msgstr "Charla misteriosa"
 
 msgid "AMP everywhere"
-msgstr ""
+msgstr "AMP en todas partes"
 
 msgid "What’s next in AMP"
-msgstr ""
+msgstr "¿Qué sigue en AMP"
 
 msgid "Coffee break"
-msgstr ""
+msgstr "Pausa para el café"
 
 msgid "Q&A with AMP team"
-msgstr ""
+msgstr "Preguntas y respuestas con el equipo de AMP"
 
 msgid "Tutorial: Do more with AMP"
-msgstr ""
+msgstr "Tutorial: hacer más con AMP"
 
 msgid "Happy hour"
-msgstr ""
+msgstr "Hora feliz"
 
 msgid "Choose your destination"
-msgstr ""
+msgstr "Elige tu destino"
 
 msgid "Throughout the AMP documentation you will find a switch on the upper left side to quickly change the AMP format you’re working on."
-msgstr ""
+msgstr "En toda la documentación de AMP encontrará un interruptor en la parte superior izquierda para cambiar rápidamente el formato de AMP en el que está trabajando".
 
 msgid "CMS User?"
-msgstr ""
+msgstr "¿Usuario de CMS?"
 
 msgid "AMP integrates with many publishing platforms and content management systems! Find the full list under <a href=\"../support/faq/platform-and-vendor-partners.md\">Platform and Vendor Partners.</a>"
-msgstr ""
+msgstr "¡AMP se integra con muchas plataformas de publicación y sistemas de gestión de contenido! Encuentre la lista completa en <a href=\"../support/faq/platform-and-vendor-partners.md\"> Platform and Vendor Partners. </ a> "
 
 msgid "Featured Videos"
-msgstr ""
+msgstr "Videos destacados"
 
 msgid "Get Involved"
-msgstr ""
+msgstr "Participe"
 
 msgid "AMP is proudly an open source project with an active community of contributors. We welcome and appreciate documentation and translation contributions! Check out our community section to join our mission."
-msgstr ""
+msgstr "AMP es orgullosamente un proyecto de código abierto con una comunidad activa de contribuyentes. ¡Agradecemos y agradecemos las contribuciones de documentación y traducción! Visite nuestra sección de comunidad para unirse a nuestra misión".
 
 msgid "AMP<br> Ads"
-msgstr ""
+msgstr "Anuncios de AMP <br>"
 
 #: /content/amp-dev/about/websites.html:243
 msgid "AMP Caches"
-msgstr ""
+msgstr "Cachés AMP"
 
 msgid "AMP for Email Working Group members will use <code>#wg-amp4email</code> channel on AMP's Slack (<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZZriU7Qu6Tg/viewform?fbzx=4406980310789882877\">signup</a>) for real-time discussion. The channel is open to anyone, regardless of membership in AMP for Email working group."
-msgstr ""
+msgstr "AMP para los miembros del grupo de trabajo de correo electrónico utilizará el canal <code> # wg-amp4email </code> en Slack de AMP (<a href = \" https://docs.google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZ6 viewform? fbzx = 4406980310789882877 \ "> registro </a>) para discusión en tiempo real. El canal está abierto a cualquier persona, independientemente de la membresía en AMP para el grupo de trabajo por correo electrónico".
 
 msgid "AMP for Email Working Group will post <strong>Announcements and Notices</strong> regarding events as an issue labeled with <code>Type: Event</code> in this repository."
-msgstr ""
+msgstr "El grupo de trabajo de AMP for Email publicará <strong> anuncios y avisos </strong> sobre eventos como un problema etiquetado con <code> Tipo: Evento </code> en este repositorio".
 
 msgid "AMP for Email Working Group will post <strong>Quarterly Roadmap</strong> as an issue labeled with <code>Type: Roadmap</code> in this repository"
-msgstr ""
+msgstr "El grupo de trabajo AMP for Email publicará <strong> Hoja de ruta trimestral </strong> como un problema etiquetado con <code> Tipo: Hoja de ruta </code> en este repositorio"
 
 #: /content/amp-dev/index.html:289
 msgid "AMP is an open-source HTML framework that provides a straightforward way to create web pages that are fast, smooth-loading and prioritize the user-experience above all else. Can't believe it? Try it out for yourself in the playground below:"
-msgstr ""
+msgstr "AMP es un marco HTML de código abierto que proporciona una manera sencilla de crear páginas web que son rápidas, fáciles de cargar y priorizan la experiencia del usuario por encima de todo. ¿No lo puede creer? Pruébelo usted mismo en el patio de recreo abajo:"
 
 #: /content/amp-dev/about/ads.html:59
 msgid "AMP is fundamentally changing the way ads are built, delivered and measured on the web, making them faster and minimizing disruptions for users. This increases viewability and click-through rates to improve monetization, making everyone happy: users, publishers and advertisers alike."
-msgstr ""
+msgstr "AMP está cambiando fundamentalmente la forma en que se crean, entregan y miden los anuncios en la web, haciéndolos más rápidos y minimizando las interrupciones para los usuarios. Esto aumenta la visibilidad y las tasas de clics para mejorar la monetización, haciendo felices a todos: usuarios, editores y anunciantes por igual ".
 
 msgid "AMP’s Working Groups are:"
-msgstr ""
+msgstr "Los grupos de trabajo de AMP son:"
 
 msgid "Style & layout"
-msgstr ""
+msgstr "Estilo y diseño"
 
 msgid "UI Working Group will post <strong>Status Updates</strong> every two weeks as an issue labeled with <code>Type: Status Update</code> in this repository."
-msgstr ""
+msgstr "El grupo de trabajo de IU publicará <strong> Actualizaciones de estado </strong> cada dos semanas como un problema etiquetado con <code> Tipo: Actualización de estado </code> en este repositorio".
 
 msgid "offline"
-msgstr ""
+msgstr "fuera de línea"
 
 msgid "Learn Web Development with AMP"
-msgstr ""
+msgstr "Aprenda desarrollo web con AMP"
 
 msgid "AMP can help you create fast websites more quickly!"
-msgstr ""
+msgstr "¡AMP puede ayudarlo a crear sitios web rápidos más rápido!"
 
 msgid "If you’re <b>an experienced web developer</b>, you can create rich, fast sites with less code."
-msgstr ""
+msgstr "Si usted es <b> un desarrollador web experimentado </b>, puede crear sitios ricos y rápidos con menos código".
 
 msgid "If you’re <b>a new web developer</b>, AMP helps you learn web development. If you know some HTML and CSS, you can use AMP to make an interactive website!"
-msgstr ""
+msgstr "Si eres <b> un nuevo desarrollador web </b>, AMP te ayuda a aprender el desarrollo web. ¡Si conoces algo de HTML y CSS, puedes usar AMP para crear un sitio web interactivo!"
 
 msgid "About the courses"
-msgstr ""
+msgstr "Acerca de los cursos"
 
 msgid "These three free courses are in use in schools and training programs around the world. Now you can take them here, online, on our site. Suitable for beginners and experienced web developers alike, they will take you from zero to AMP!"
-msgstr ""
+msgstr "Estos tres cursos gratuitos se usan en escuelas y programas de capacitación en todo el mundo. Ahora puede tomarlos aquí, en línea, en nuestro sitio. Aptos para principiantes y desarrolladores web experimentados, ¡lo llevarán de cero a AMP!"
 
 msgid "During this course, you’ll build a sample site for Chico’s famous, and fictional, Cheese Bicycles."
-msgstr ""
+msgstr "Durante este curso, creará un sitio de muestra para las famosas y ficticias bicicletas de queso de Chico".
 
 msgid "Requirements"
-msgstr ""
+msgstr "Requisitos"
 
 msgid "Internet connection"
-msgstr ""
+msgstr "conexión a Internet"
 
 msgid "<a href=\"https://www.google.com/chrome/\" target=\"_blank\">Chrome browser</a>, ideally, to use the <a href=\"https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc\" target=\"_blank\">AMP Validator extension</a>"
-msgstr ""
+msgstr "<a href=\"https://www.google.com/chrome/\" target=\"_blank\"> navegador Chrome </a>, idealmente, para usar el <a href = \" https: //chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc \ "target = \" _ blank \ "> AMP Validator extension </a>"
 
 msgid "We use the online editor <a href=\"https://glitch.com/\" target=\"_blank\">Glitch</a>. No IDE or local web server needed!"
-msgstr ""
+msgstr "Utilizamos el editor en línea <a href=\"https://glitch.com/\" target=\"_blank\"> Glitch </a>. ¡No se necesita IDE ni servidor web local!"
 
 msgid "Prerequisites"
-msgstr ""
+msgstr "Requisitos previos"
 
 msgid "basic knowledge of HTML and CSS"
-msgstr ""
+msgstr "conocimiento básico de HTML y CSS"
 
 msgid "for the advanced course, JavaScript expressions and simple JSON"
-msgstr ""
+msgstr "para el curso avanzado, expresiones JavaScript y JSON simple"
 
 msgid "Take the Video Courses"
-msgstr ""
+msgstr "Tome los cursos de video"
 
 msgid "All three courses can be now be taken by video on <a href=\"https://www.youtube.com/playlist?list=PLXTOW_XMsIDS45GB-eBV5s_M9EGIXMjI_\" target=\"_blank\">our YouTube channel!</a>"
-msgstr ""
+msgstr "Ahora se pueden tomar los tres cursos en video en <a href=\"https://www.youtube.com/playlist?list=PLXTOW_XMsIDS45GB-eBV5s_M9EGIXMjI_\" target=\"_blank\"> nuestro canal de YouTube. </a> "
 
 msgid "AMP Websites Examples"
-msgstr ""
+msgstr "Ejemplos de sitios web de AMP"
 
 msgid "AMP Playground"
-msgstr ""
+msgstr "Zona de juegos AMP"
 
 msgid "Try it yourself with the AMP Playground. Test your ideas directly in the browser and get instant feedback."
-msgstr ""
+msgstr "Pruébelo usted mismo con AMP Playground. Pruebe sus ideas directamente en el navegador y obtenga comentarios instantáneos".
 
 msgid "Filter by category"
-msgstr ""
+msgstr "Filtrar por categoría"
 
 msgid "<h1 class=\"ap-o-stage-content-headline\">Tools</h1> <h2 class=\"ap-o-stage-content-subline\">for creation, design and development</h2>"
-msgstr ""
+msgstr "<h1 class = \" ap-o-stage-content-headline \ "> Herramientas </h1> <h2 class = \" ap-o-stage-content-subline \ "> para creación, diseño y desarrollo < / h2> "
 
 msgid "Creation &amp; Design"
-msgstr ""
+msgstr "Creación y diseño"
 
 msgid "CMS &amp; Platforms"
-msgstr ""
+msgstr "CMS y plataformas"
 
 msgid "Developer Tools"
-msgstr ""
+msgstr "Herramientas para desarrolladores"
 
 msgid "Service providers"
-msgstr ""
+msgstr "Proveedores de servicios"
 
 msgid "Here you can find everything you need to build AMP experiences."
-msgstr ""
+msgstr "Aquí puede encontrar todo lo que necesita para crear experiencias AMP".
 
 msgid "The complete documented AMP library and its references."
-msgstr ""
+msgstr "La biblioteca AMP documentada completa y sus referencias".
 
 msgid "The fastest way to learn is to peak over the tangible examples."
-msgstr ""
+msgstr "La forma más rápida de aprender es alcanzar los ejemplos tangibles".
 
 msgid "Don't want to start from scratch? Start with a ready-made design."
-msgstr ""
+msgstr "¿No quiere comenzar desde cero? Comience con un diseño listo para usar".
 
 msgid "Begin building for creation, design and development."
-msgstr ""
+msgstr "Comience a construir para la creación, el diseño y el desarrollo".
 
 msgid "Build your first AMP Website"
-msgstr ""
+msgstr "Crea tu primer sitio web de AMP"
 
 msgid "Build your first AMP Story"
-msgstr ""
+msgstr "Construye tu primera historia de AMP"
 
 msgid "Build your first AMP Ad"
-msgstr ""
+msgstr "Cree su primer anuncio AMP"
 
 msgid "Build your first AMP Email"
-msgstr ""
+msgstr "Cree su primer correo electrónico de AMP"
 
 msgid "Create compelling, silky smooth and instant loading websites."
-msgstr ""
+msgstr "Cree sitios web atractivos, suaves como la seda y de carga instantánea".
 
 msgid "Create snackable, immersive and tappable stories on your website."
-msgstr ""
+msgstr "Cree historias deliciosas, inmersivas y aprovechables en su sitio web".
 
 msgid "Extend your website with fast and lightweight ad experience."
-msgstr ""
+msgstr "Amplíe su sitio web con una experiencia publicitaria rápida y liviana".
 
 msgid "Create emails that encourage readers to interact dynamically with content."
-msgstr ""
+msgstr "Cree correos electrónicos que alienten a los lectores a interactuar dinámicamente con el contenido".
 
 msgid "See the latest videos about AMP and find out more on our <a href=\"https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw\">YouTube Channel.</a>"
-msgstr ""
+msgstr "Vea los últimos videos sobre AMP y obtenga más información en nuestro <a href=\"https://www.youtube.com/channel/UCXPBsjgKKG2HqsKBhWA4uQw\"> Canal de YouTube. </a>"
 
 msgid "CMS"
-msgstr ""
+msgstr "CMS"
 
 msgid "Content Platform"
-msgstr ""
+msgstr "Plataforma de contenido"
 
 msgid "Debugging"
-msgstr ""
+msgstr "Depuración"
 
 msgid "Development"
-msgstr ""
+msgstr "Desarrollo"
 
 msgid "Email Service"
-msgstr ""
+msgstr "Servicio de correo electrónico"
 
 msgid "Email Templates Editor"
-msgstr ""
+msgstr "Editor de plantillas de correo electrónico"
 
 msgid "Essential"
-msgstr ""
+msgstr "Esencial"
 
 msgid "Landing pages"
-msgstr ""
+msgstr "Páginas de destino"
 
 msgid "Optimization"
-msgstr ""
+msgstr "Optimización"
 
 msgid "Testing"
-msgstr ""
+msgstr "Pruebas"
 
 msgid "Allows the creation of rich, eye-catching marketing content with Adobe Animate."
 msgstr ""
 
 msgid "Create interactive email templates fast with Drag-n-Drop & HTML editor. Try free library of ready-to-use modules and templates."
-msgstr ""
+msgstr "Cree plantillas de correo electrónico interactivas rápidamente con el editor de arrastrar y soltar y HTML. Pruebe la biblioteca gratuita de módulos y plantillas listos para usar".
 
 msgid "Create AMPHTML-valid and ready to be published individual designs or full sets of static or animated marketing visuals, within minutes."
 msgstr ""
@@ -2725,7 +2725,7 @@ msgid "Create engaging, interactive AMPHTML Ad compliant designs and motion grap
 msgstr ""
 
 msgid "Instapage automates the creation, optimization, and personalization of post-click experiences at scale."
-msgstr ""
+msgstr "Instapage automatiza la creación, optimización y personalización de experiencias post-clic a escala".
 
 msgid "WYSIWYG drag and drop editor with templates, illustrations, icons, and the ability to upload your own images and videos."
 msgstr ""
@@ -2734,277 +2734,277 @@ msgid "Newsroom Studio helps you create engaging, instant loading mobile experie
 msgstr ""
 
 msgid "Unbounce is a platform to create landing pages, website popups, and sticky bars."
-msgstr ""
+msgstr "Unbounce es una plataforma para crear páginas de destino, ventanas emergentes de sitios web y barras adhesivas".
 
 msgid "AMP-first content creation with the power and flexibility of WordPress."
-msgstr ""
+msgstr "Creación de contenido AMP-first con el poder y la flexibilidad de WordPress".
 
 msgid "Bold by Quintype is a headless CMS built for enterprise publishers with built-in support for AMP."
-msgstr ""
+msgstr "Bold by Quintype es un CMS sin cabeza creado para editores empresariales con soporte integrado para AMP".
 
 msgid "Helps you measure your site's Search traffic and performance, fix issues, and make your site shine in Google Search results."
-msgstr ""
+msgstr "Le ayuda a medir el tráfico y el rendimiento de la Búsqueda de su sitio, solucionar problemas y hacer que su sitio brille en los resultados de la Búsqueda de Google".
 
 msgid "Test if and how your AMP page appears in Google Search."
-msgstr ""
+msgstr "Pruebe si su página AMP aparece y cómo aparece en la Búsqueda de Google".
 
 msgid "Platform to share and discover how-to stories that includes a creation tool on your phone to help you create how-to stories."
-msgstr ""
+msgstr "Plataforma para compartir y descubrir historias prácticas que incluye una herramienta de creación en su teléfono para ayudarlo a crear historias prácticas".
 
 msgid "Build AMP sites, posts, and stories. Win search, social, and email. Fast. Flexible. Secure. Modern."
-msgstr ""
+msgstr "Cree sitios, publicaciones e historias de AMP. Obtenga búsquedas, redes sociales y correo electrónico. Rápido. Flexible. Seguro. Moderno".
 
 msgid "Platform to share and discover how-to stories that includes a creation tool on your phone to help you create how-to stories."
 msgstr ""
 
 msgid "Essential component for AMP development and available in a variety of versions."
-msgstr ""
+msgstr "Componente esencial para el desarrollo de AMP y disponible en una variedad de versiones".
 
 msgid "Beta-test new features of AMP before they're available for everyone."
-msgstr ""
+msgstr "Pruebe beta nuevas funciones de AMP antes de que estén disponibles para todos".
 
 msgid "Helps you find out whether your Google Analytics and AdWords tracking is correctly set up."
-msgstr ""
+msgstr "Le ayuda a averiguar si su seguimiento de Google Analytics y AdWords está configurado correctamente".
 
 msgid "A collection of AMP tools making it easier to publish and host AMP pages."
-msgstr ""
+msgstr "Una colección de herramientas de AMP que hace que sea más fácil publicar y alojar páginas de AMP".
 
 msgid "Validation tool that offers additional debug information on top of the AMP validator."
-msgstr ""
+msgstr "Herramienta de validación que ofrece información de depuración adicional sobre el validador AMP".
 
 msgid "Pre-built Google Analytics dashboard template that helps you get to your analytics insights faster."
-msgstr ""
+msgstr "Plantilla de panel de Google Analytics preconstruida que lo ayuda a obtener sus estadísticas analíticas más rápido".
 
 msgid "Chrome extension that helps you understand the feasibility of converting your site to AMP."
-msgstr ""
+msgstr "Extensión de Chrome que lo ayuda a comprender la viabilidad de convertir su sitio a AMP".
 
 msgid "Generate custom templates for your AMP websites, stories, emails or ads."
-msgstr ""
+msgstr "Genere plantillas personalizadas para sus sitios web, historias, correos electrónicos o anuncios de AMP".
 
 msgid "Start prototyping in an interactive online editor with the ability to use templates and our examples."
-msgstr ""
+msgstr "Comience a crear prototipos en un editor interactivo en línea con la capacidad de usar plantillas y nuestros ejemplos".
 
 msgid "A prototyping tool that automatically converts a HTML page to AMP for demonstrating performance gains with AMP."
-msgstr ""
+msgstr "Una herramienta de creación de prototipos que convierte automáticamente una página HTML a AMP para demostrar mejoras de rendimiento con AMP".
 
 msgid "Litmus makes it easy to build, test, and monitor every email for the best results."
-msgstr ""
+msgstr "Litmus facilita la creación, prueba y monitoreo de cada correo electrónico para obtener los mejores resultados".
 
 msgid "Makes authoring AMP easy by validating for errors/warnings as you type within VS Code."
-msgstr ""
+msgstr "Facilita la creación de AMP al validar los errores / advertencias a medida que escribe dentro del Código VS".
 
 msgid "React framework that generates AMP and PWA pages from a single codebase."
-msgstr ""
+msgstr "React framework que genera páginas AMP y PWA desde una única base de código".
 
 msgid "A tool to help for prototyping ads to be served in AMP Stories. Choose from pre-existing templates to get started."
-msgstr ""
+msgstr "Una herramienta para ayudar a crear prototipos de anuncios que se publicarán en AMP Stories. Elija entre plantillas preexistentes para comenzar".
 
 msgid "NodemailerApp is an email debugging app that includes a local SMTP server and renders AMP for Email emails."
-msgstr ""
+msgstr "NodemailerApp es una aplicación de depuración de correo electrónico que incluye un servidor SMTP local y representa AMP para correos electrónicos de correo electrónico".
 
 msgid "Cloud-based email sending service designed to help digital marketers and application developers send emails."
-msgstr ""
+msgstr "Servicio de envío de correo electrónico basado en la nube diseñado para ayudar a los vendedores digitales y desarrolladores de aplicaciones a enviar correos electrónicos".
 
 msgid "Aweber's platform and API allows you to create and send emails your customers will love."
-msgstr ""
+msgstr "La plataforma y API de Aweber le permite crear y enviar correos electrónicos que les encantarán a sus clientes".
 
 msgid "Pepipost is an innovative transactional email solution that offers you with a streamlined user experience that you only get from high-end premium software. The software is designed to ensure that your emails are sent to your recipients' inbox and not get mixed and lost in spam and other folders."
-msgstr ""
+msgstr "Pepipost es una innovadora solución de correo electrónico transaccional que le ofrece una experiencia de usuario optimizada que solo obtiene del software premium de alta gama. El software está diseñado para garantizar que sus correos electrónicos se envíen a la bandeja de entrada de sus destinatarios y no se mezclen y pierdan en spam y otras carpetas ".
 
 msgid "Delivery and Analytics for Better Email Performance."
-msgstr ""
+msgstr "Entrega y análisis para un mejor rendimiento del correo electrónico".
 
 msgid "Reach customers using a flexible email API and marketing tools to increase customer engagement."
-msgstr ""
+msgstr "Llegue a los clientes utilizando una API de correo electrónico flexible y herramientas de marketing para aumentar la participación del cliente".
 
 msgid "Mailgun's leading API-based email delivery service allows you to send dynamic email effortlessly."
-msgstr ""
+msgstr "El servicio de entrega de correo electrónico basado en API líder de Mailgun le permite enviar correos electrónicos dinámicos sin esfuerzo".
 
 msgid "Clang is a complete omnichannel marketing platform for email marketing and marketing automation."
-msgstr ""
+msgstr "Clang es una plataforma de marketing omnicanal completa para marketing por correo electrónico y automatización de marketing".
 
 msgid "Effective Newsletter Software for more conversions and revenue"
-msgstr ""
+msgstr "Software eficaz de boletines para obtener más conversiones e ingresos"
 
 msgid "Send interactive emails using SendPulse email editor or API."
-msgstr ""
+msgstr "Enviar correos electrónicos interactivos utilizando el editor de correo electrónico SendPulse o API".
 
 msgid "Supercharge conversions of your bulk and triggered campaigns with real-time recommendations in AMP powered emails"
-msgstr ""
+msgstr "Supercarga las conversiones de tus campañas masivas y activadas con recomendaciones en tiempo real en correos electrónicos con tecnología AMP"
 
 msgid "Adobe Campaign Classic brings email to life with AMP"
-msgstr ""
+msgstr "Adobe Campaign Classic da vida al correo electrónico con AMP"
 
 msgid "Copernica is a tool to create automated email campaigns with an powerful drag & drop editor."
-msgstr ""
+msgstr "Copernica es una herramienta para crear campañas automáticas de correo electrónico con un potente editor de arrastrar y soltar".
 
 msgid "WompMobile is an Accelerator Platform to develop, validate, launch and manage AMP experiences. Built-in tools monitor for errors, ensure validation, purge the AMP cache, and create Signed-Exchange and Server-Side-Rendered AMPs."
-msgstr ""
+msgstr "WompMobile es una plataforma aceleradora para desarrollar, validar, lanzar y administrar experiencias AMP. Las herramientas integradas monitorean los errores, aseguran la validación, purgan el caché AMP y crean AMP firmados de Exchange y del lado del servidor".
 
 msgid "The AMP Project Roadmap"
-msgstr ""
+msgstr "La hoja de ruta del proyecto AMP"
 
 msgid "This is a high level overview suitable for all audiences. For a more detailed developer view, <a href=\"https://github.com/ampproject/amphtml/projects/43\">head to GitHub.</a>"
-msgstr ""
+msgstr "Esta es una descripción general de alto nivel adecuada para todos los públicos. Para una vista más detallada del desarrollador, <a href=\"https://github.com/ampproject/amphtml/projects/43\"> diríjase a GitHub. </ a> "
 
 msgid "AMP Story"
-msgstr ""
+msgstr "Historia de AMP"
 
 msgid "Ads"
-msgstr ""
+msgstr "Anuncios"
 
 msgid "Audio&Video"
-msgstr ""
+msgstr "Audio y video"
 
 msgid "Dynamic/Personalized Content"
-msgstr ""
+msgstr "Contenido dinámico / personalizado"
 
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 msgid "In Development"
-msgstr ""
+msgstr "En desarrollo"
 
 msgid "Next Up"
-msgstr ""
+msgstr "Siguiente"
 
 msgid "PWA"
-msgstr ""
+msgstr "PWA"
 
 msgid "Runtime"
-msgstr ""
+msgstr "Tiempo de ejecución"
 
 msgid "Shipped"
-msgstr ""
+msgstr "Enviado"
 
 msgid "Tooling"
-msgstr ""
+msgstr "Herramientas"
 
 msgid "User Input"
-msgstr ""
+msgstr "Entrada del usuario"
 
 msgid "Validator"
-msgstr ""
+msgstr "Validador"
 
 msgid "You can often convert your entire archive in days – especially when using common CMS like Wordpress or Drupal."
-msgstr ""
+msgstr "A menudo puedes convertir todo tu archivo en días, especialmente cuando usas CMS comunes como Wordpress o Drupal".
 
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 msgid "Learn AMP"
-msgstr ""
+msgstr "Aprender AMP"
 
 msgid "Teach AMP"
-msgstr ""
+msgstr "Enseñar AMP"
 
 msgid "Websites"
-msgstr ""
+msgstr "Sitios web"
 
 msgid "Stories"
-msgstr ""
+msgstr "Historias"
 
 msgid "Art & Design"
-msgstr ""
+msgstr "Arte y diseño"
 
 msgid "Food & Drink"
-msgstr ""
+msgstr "Comida y bebida"
 
 msgid "News & Blog"
-msgstr ""
+msgstr "Noticias y Blog"
 
 msgid "Story Ads"
-msgstr ""
+msgstr "Anuncios de historia"
 
 msgid "AMP for WordPress"
-msgstr ""
+msgstr "AMP para WordPress"
 
 msgid "Bold by Quintype"
-msgstr ""
+msgstr "Negrita por Quintype"
 
 msgid "Google Search Console"
-msgstr ""
+msgstr "Consola de búsqueda de Google"
 
 msgid "Google AMP Test"
-msgstr ""
+msgstr "Prueba de Google AMP"
 
 msgid "AMP Validator"
-msgstr ""
+msgstr "Validador de AMP"
 
 msgid "Experiment Configurator"
-msgstr ""
+msgstr "Configurador de experimentos"
 
 msgid "AMP Tag Test"
-msgstr ""
+msgstr "Prueba de etiqueta AMP"
 
 msgid "AMP Toolbox"
-msgstr ""
+msgstr "Caja de herramientas de AMP"
 
 msgid "AMP Bench"
-msgstr ""
+msgstr "Banco de AMP"
 
 msgid "AMP Insights"
-msgstr ""
+msgstr "AMP Insights"
 
 msgid "AMP REadiness"
-msgstr ""
+msgstr "Disponibilidad de AMP"
 
 msgid "AMP Boilerplate Generator"
-msgstr ""
+msgstr "AMP Boilerplate Generator"
 
 msgid "AMP Prototyper"
-msgstr ""
+msgstr "Prototipo AMP"
 
 msgid "VS Code Extension"
-msgstr ""
+msgstr "Extensión de código VS"
 
 msgid "React Storefront"
-msgstr ""
+msgstr "Reaccionar tienda"
 
 msgid "Access & Subscriptions"
-msgstr ""
+msgstr "Acceso y suscripciones"
 
 msgid "Outreach"
-msgstr ""
+msgstr "Alcance"
 
 msgid "Caching"
-msgstr ""
+msgstr "Almacenamiento en caché"
 
 msgid "Gallery"
-msgstr ""
+msgstr "Galería"
 
 msgid "Bike Shop"
-msgstr ""
+msgstr "Tienda de bicicletas"
 
 msgid "Travel"
-msgstr ""
+msgstr "Viajes"
 
 msgid "Simple Blog"
-msgstr ""
+msgstr "Blog simple"
 
 msgid "Simple Article"
-msgstr ""
+msgstr "Artículo simple"
 
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 msgid "Text Only"
-msgstr ""
+msgstr "Solo texto"
 
 msgid "Select your format for a more streamlined experience"
-msgstr ""
+msgstr "Seleccione su formato para una experiencia más optimizada"
 
 msgid "Presentation"
-msgstr ""
+msgstr "Presentación"
 
 msgid "Code of Conduct"
-msgstr ""
+msgstr "Código de conducta"
 
 msgid "Performance"
-msgstr ""
+msgstr "Rendimiento"
 
 msgid "User Interface"
-msgstr ""
+msgstr "Interfaz de usuario"
 
 msgid "Viewers"
-msgstr ""
+msgstr "Visores"
