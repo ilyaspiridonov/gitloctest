@@ -1,0 +1,65 @@
+# passport locdoc-passport_whitelist Migrating2fa en vi
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Dialect: smartcat\n"
+"Files: MDS\n"
+"Tracker: https://st.yandex-team.ru/TRANSLATE-26060\n"
+
+# https://jing.yandex-team.ru/files/malyamar/Upravlenie_dostupom_2016-01-25_17-58-53.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.change-device"
+msgid "Device replacement"
+msgstr "Reemplazo de dispositivo"
+
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.finish-btn"
+msgid "Finish"
+msgstr "Terminar"
+
+# https://jing.yandex-team.ru/files/malyamar/Dvuhfaktornaya_autentifikatsiya_podklyuchenie_novogo_ustroistva_2016-01-25_17-59-43.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.last-step"
+msgid ""
+"To finish the settings, enter the PIN code you chose when first setting up two-factor authentification in Yandex.Key, and enter the one-time password in "
+"the field below."
+msgstr ""
+"Para finalizar la configuración, ingrese el código PIN que eligió la primera vez que configuró la autenticación de dos factores en Yandex.Key e ingrese la contraseña de un solo uso en"
+"El campo de abajo."
+
+# https://jing.yandex-team.ru/files/malyamar/Dvuhfaktornaya_autentifikatsiya_podklyuchenie_novogo_ustroistva_2016-01-25_18-00-45.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.main-text"
+msgid "Install Yandex.Key on the new device and use it to read the QR-code to add an account. To create one-time passwords, use your previous PIN code."
+msgstr "Instale Yandex.Key en el nuevo dispositivo y úselo para leer el código QR y agregar una cuenta. Para crear contraseñas de un solo uso, use su código PIN anterior."
+
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.page-title"
+msgid "Two-factor authentification: connecting a new device"
+msgstr "Autenticación de dos factores: conectar un nuevo dispositivo"
+
+# https://jing.yandex-team.ru/files/malyamar/Upravlenie_dostupom_2016-01-25_18-06-20.png
+#, fuzzy
+msgctxt ""
+"https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.promo.success.description"
+msgid "Yandex.Key has been installed on the new device. Passwords created on previously configured devices will no longer be valid. "
+msgstr "Yandex.Key se ha instalado en el nuevo dispositivo. Las contraseñas creadas en dispositivos configurados previamente ya no serán válidas."
+
+# https://jing.yandex-team.ru/files/malyamar/Dvuhfaktornaya_autentifikatsiya_podklyuchenie_novogo_ustroistva_2016-01-25_18-02-45.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.restoration-link"
+msgid "I forgot my PIN code"
+msgstr "Olvidé mi código PIN"
+
+# https://jing.yandex-team.ru/files/malyamar/Dvuhfaktornaya_autentifikatsiya_podklyuchenie_novogo_ustroistva_2016-01-25_18-03-21.png
+#, fuzzy
+msgctxt "https://tanker.yandex-team.ru/?project=passport&branch=locdoc-passport_whitelist&keyset=Migrating2fa&key=profile.migrate2fa.warning"
+msgid ""
+"<strong>Please note:</strong> After configuring your settings, passwords received on previously-configured devices will no longer be valid. If you want to"
+" receive one-time passwords on several devices, install and open Yandex.Key on them, and use them all to read the QR code below before continuing to the "
+"next step."
+msgstr ""
+"<strong> Tenga en cuenta: </strong> después de configurar sus ajustes, las contraseñas recibidas en dispositivos configurados previamente ya no serán válidas. Si quieres"
+" reciba contraseñas de un solo uso en varios dispositivos, instale y abra Yandex.Key en ellas, y úselas todas para leer el código QR a continuación antes de continuar"
+"próximo paso."
