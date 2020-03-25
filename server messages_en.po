@@ -1,0 +1,408 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: server-messages-ru-source\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-13 17:26+0300\n"
+"PO-Revision-Date: 2018-08-13 10:31-0400\n"
+"Last-Translator: loveplanet <lina.bulaxova@gmail.com>\n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: lms.alconost.com\n"
+"X-Crowdin-Project: server-messages-ru-source\n"
+"X-Crowdin-Language: en\n"
+"X-Crowdin-File: server messages_ru.po\n"
+"X-Crowdin-SourceKey: msgstr\n"
+
+#: tmp/messfields.txt:1
+msgid "Все упало!!!"
+msgstr "Everything's down!!!"
+
+#: tmp/messfields.txt:1
+msgid "Ведутся технические работы. Приносим свои извинения."
+msgstr "Maintenance is in progress. We apologize for the inconvenience."
+
+#: tmp/messfields.txt:1
+msgid "В данный момент на сервере ведутся технические работы. Пожалуйста, повторите операцию через 5 минут."
+msgstr "Website maintenance is in progress. Please try again in 5 minutes."
+
+#: tmp/messfields.txt:1
+msgid "Данный раздел не поддерживается."
+msgstr "This section is not supported."
+
+#: tmp/messfields.txt:1
+msgid "Ошибка загрузки workprofile."
+msgstr "Error loading work profile."
+
+#: tmp/messfields.txt:1
+msgid "Изменения приняты."
+msgstr "Changes accepted."
+
+#: tmp/messfields.txt:1
+msgid "Данные не найдены."
+msgstr "No data found."
+
+#: tmp/messfields.txt:1
+msgid "Ошибка при изменении."
+msgstr "Change error."
+
+#: tmp/messfields.txt:1
+msgid "Нет доступа к указанному разделу."
+msgstr "You do not have access to this section."
+
+#: tmp/messfields.txt:1
+msgid "Предупреждение пользователю вынесено."
+msgstr "User warned."
+
+#: tmp/messfields.txt:1
+msgid "Предупреждение с пользователя снято."
+msgstr "User warning removed."
+
+#: tmp/messfields.txt:1
+msgid "У пользователя максимальное количество предупреждений, может проще его удалить?"
+msgstr "User has maximum number of warnings; it might be easier just to delete him/her?"
+
+#: tmp/messfields.txt:1
+msgid "Достигнуто максимальное количество элементов."
+msgstr "Maximum number of elements reached."
+
+#: tmp/messfields.txt:1
+msgid "Ошибка добавления в базу данных."
+msgstr "Error adding to database."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Пользователь с логином <strong>\"%s\"</strong> уже существует."
+msgstr "User with username <strong>\"%s\"</strong> already exists."
+
+#: tmp/messfields.txt:1
+msgid "Регистрация с данным аккаунтом социальной сети невозможна."
+msgstr "Signing up with such social network account is impossible."
+
+#: tmp/messfields.txt:1
+msgid "Ошибка получения данных от социальной сети."
+msgstr "Error receiving data from social network."
+
+#: tmp/messfields.txt:1
+msgid "Авторизация с данного устройства невозможна."
+msgstr "You cannot sign in using this device."
+
+#: tmp/messfields.txt:1
+msgid "Регистрация с данного устройства невозможна."
+msgstr "You cannot register using this device."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Поле <strong>«%s»</strong> является обязательным к заполнению."
+msgstr "<strong>«%s»</strong> is a required field."
+
+#: tmp/messfields.txt:1
+msgid "Неверно указан возраст. Вам должно быть полных 18 лет."
+msgstr "Age is invalid. You must be at least 18."
+
+#: tmp/messfields.txt:1
+msgid "Возраст должен быть от 18 до 99 лет."
+msgstr "Age must be between 18 and 99."
+
+#: tmp/messfields.txt:1
+msgid "Недопустимая дата рождения."
+msgstr "Date of birth is invalid"
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Поле <strong>«%s»</strong> содержит недопустимый символ <strong>%s</strong>."
+msgstr "<strong>«%s»</strong> field contains an invalid character <strong>%s</strong>."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Поле <strong>«%s»</strong> содержит значение вне допустимого диапазона."
+msgstr "<strong>«%s»</strong> field contains value outside valid range."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Поле <strong>«%s»</strong> превышает допустимую длину %i."
+msgstr "<strong>«%s»</strong> field exceeds the maximum value %i."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Поле <strong>«%s»</strong> меньше минимальной длины %i."
+msgstr "<strong>«%s»</strong> field is shorter than minimum length %i."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Поле <strong>«%s»</strong> превышает максимальное значение %i."
+msgstr "<strong>«%s»</strong> field exceeds maximum length %i."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Поле <strong>«%s»</strong> меньше минимального значения %i."
+msgstr "<strong>«%s»</strong> field is less than the minimum value %i."
+
+#: tmp/messfields.txt:1
+msgid "Неизвестный формат фотографии."
+msgstr "Unknown photo format."
+
+#: tmp/messfields.txt:1
+msgid "Ошибка при обработке фотографии."
+msgstr "Error processing your photo."
+
+#: tmp/messfields.txt:1
+msgid "Данная фотография уже присутствует на сайте."
+msgstr "This photo is already posted on the website."
+
+#: tmp/messfields.txt:1
+msgid "Выбранная фотография не может быть использована."
+msgstr "Selected photo cannot be used."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Поле <strong>«%s»</strong> не совпало с полем <strong>«%s»</strong>."
+msgstr "The <strong>«%s»</strong> field does not match the <strong>«%s»</strong> field."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Пользователь с e-mail <strong>«%s»</strong> уже существует."
+msgstr "User with e-mail <strong>«%s»</strong> already exists."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Неверное значение e-mail <strong>«%s»</strong>"
+msgstr "Invalid email <strong>«%s»</strong>"
+
+#: tmp/messfields.txt:1
+msgid "Неверное значение параметра."
+msgstr "Incorrect parameter."
+
+#: tmp/messfields.txt:1
+msgid "Отсутствует параметр."
+msgstr "Parameter is missing."
+
+#: tmp/messfields.txt:1
+msgid "Проверьте пароль и введите код подтверждения."
+msgstr "Verify your password and enter confirmation code."
+
+#: tmp/messfields.txt:1
+msgid "Страница, привязанная к данному аккаунту, уже существует."
+msgstr "The page associated with this account already exists."
+
+#: tmp/messfields.txt:1
+msgid "Пользователь уже зарегистрирован."
+msgstr "User is already registered."
+
+#: tmp/messfields.txt:1
+msgid "Повторите ввод регистрационных данных."
+msgstr "The page associated with this account already exists."
+
+#: tmp/messfields.txt:1
+msgid "Повторите ввод цифрового кода."
+msgstr "Please re-enter numeric code."
+
+#: tmp/messfields.txt:1
+msgid "Неверный <strong>«Пароль»</strong>."
+msgstr "Invalid <strong>Password</strong>."
+
+#: tmp/messfields.txt:1
+msgid "Неверное <strong>«Подтверждение пароля»</strong>."
+msgstr "Invalid <strong>Password confirmation</strong>."
+
+#: tmp/messfields.txt:1
+msgid "Новый пароль должен отличаться от старого."
+msgstr "New password must be different from the old password."
+
+#: tmp/messfields.txt:1
+msgid "Пароль был успешно изменён."
+msgstr "Password changed successfully."
+
+#: tmp/messfields.txt:1
+msgid "Превышен лимит на количество фотографий и аватар в портфолио (максимальное количество 64)."
+msgstr "You have exceeded the limit of photos and avatars on the account (maximum 64)."
+
+#: tmp/messfields.txt:1
+msgid "Ошибка при загрузки изображения."
+msgstr "Error loading image."
+
+#: tmp/messfields.txt:1
+msgid "Слишком маленькая фотография."
+msgstr "Photo is too small."
+
+#: tmp/messfields.txt:1
+msgid "Неизвестный формат изображения."
+msgstr "Unknown image format."
+
+#: tmp/messfields.txt:1
+msgid "Ваше сообщение содержит фразы, которые могут являться ссылками рекламного характера."
+msgstr "Your message contains phrases that might be advertising content."
+
+#: tmp/messfields.txt:1
+msgid "Вы не можете заполнять это поле. Чтобы заполнять все поля анкеты, подключите <a href=\"/a-livestatus\">Live-статус</a>."
+msgstr "You may not fill out this field. To fill out all Profile fields, connect <a href=\"/a-livestatus\">Live Status</a>."
+
+#: tmp/messfields.txt:1
+msgid "Вы не можете оставлять здесь записи. Чтобы пользоваться сайтом без ограничений, подключите <a href=\"/a-livestatus\">Live-статус</a>."
+msgstr "You cannot post here. For unlimited access to the website, enable <a href=\"/a-livestatus\">Live Status</a>."
+
+#: tmp/messfields.txt:1
+msgid "Вы не можете заполнять это поле. Чтобы заполнять все поля анкеты, <a href=\"/a-confirm_reg\">подтвердите регистрацию</a>."
+msgstr "You cannot edit this field. To edit all the fields of your profile, <a href=\"/a-confirm_reg\">you should confirm registration</a>."
+
+#: tmp/messfields.txt:1
+msgid "Вы не можете оставлять здесь записи. Чтобы пользоваться сайтом без ограничений, <a href=\"/a-confirm_reg\">подтвердите регистрацию</a>."
+msgstr "You cannot post here. For unlimited access to the website, <a href=\"/a-confirm_reg\">confirm registration</a>."
+
+#: tmp/messfields.txt:1
+msgid "Пользователь запретил прием подарков от не <a href=\"/a-livestatus\">Live-пользователей</a>."
+msgstr "The user does not accept gifts from non-<a href=\"/a-livestatus\">Live users</a>."
+
+#: tmp/messfields.txt:1
+msgid "Аккаунт удален. Вход на сайт под прежним логином и паролем невозможен. Вся контактная информация удалена."
+msgstr "Account is deleted. It is not possible to sign in with previous username and password. All contact information is deleted."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Ваш логин и пароль были отосланы на почтовый адрес: %s"
+msgstr "Your username and password were sent to the following e-mail address: %s"
+
+#: tmp/messfields.txt:1
+msgid "Данные не найдены"
+msgstr "Information not found"
+
+#: tmp/messfields.txt:1
+msgid "Данные о выбранном пользователе не существуют, удалены или недоступны."
+msgstr "Information on selected user does not exist, is deleted or is unavailable."
+
+#: tmp/messfields.txt:1
+msgid "Спасибо за сообщение. Меры скоро будут приняты."
+msgstr "Thank you for your message. We will take care of it soon."
+
+#: tmp/messfields.txt:1
+msgid "Меры скоро будут приняты. Спасибо за сообщение."
+msgstr "We will take care of it soon. Thank you for your message."
+
+#: tmp/messfields.txt:1
+msgid "Удаление анкеты временно отключено. Пожалуйста, повторите попытку через 2 дня. Приносим извинение за некоторые технические трудности."
+msgstr "Deleting profiles is temporarily turned off. Please try again in 2 days. We apologize for the technical difficulties."
+
+#: tmp/messfields.txt:1
+msgid "Вы проголосовали за все фото с выбранными параметрами. Вы можете изменить параметры поиска или подождать, пока появятся новые фотографии."
+msgstr "You voted for all photos with selected parameters. You can change Search criteria or wait until new photos are posted."
+
+#: tmp/messfields.txt:1
+msgid "Вы проголосовали за все фотографии в конкурсе. Вы можете подождать, пока появятся новые фотографии или повторно проголосовать завтра."
+msgstr "You voted for all photos in the Contest. You can wait until new photos are posted or vote again tomorrow."
+
+#: tmp/messfields.txt:1
+msgid "Ошибка при обработке вашего запроса."
+msgstr "Error processing your request."
+
+#: tmp/messfields.txt:1
+msgid "Неверный логин или пароль."
+msgstr "Invalid username or password."
+
+#: tmp/messfields.txt:1
+msgid "Не указана причина удаления."
+msgstr "Please specify reason for deleting."
+
+#: tmp/messfields.txt:1
+msgid "Слишком длинное описание причины удаления."
+msgstr "Description of reason for deleting is too long."
+
+#: tmp/messfields.txt:1
+msgid "Ваш аккаунт был полностью удалён вами. Вход на сайт под вашим логином и паролем более невозможен."
+msgstr "You account is deleted. You cannot sign in with your previous username and password. All contact information is deleted."
+
+#: tmp/messfields.txt:1
+msgid "По присланному коду не найден пользователь."
+msgstr "No user found for code sent."
+
+#: tmp/messfields.txt:1
+msgid "Внимание! Вы пока не можете отправлять сообщения, потому что не подтвердили свою анкету. На Ваш e-mail, указанный при регистрации, было выслано письмо содержащее ссылку подтверждения.<br/><br/>Для повторной отправки письма нажмите <a href=\"/a-blocked_account/\">сюда</a>."
+msgstr "Note! You cannot send messages yet because you have not confirmed your profile. A message with a confirmation link was sent to the email address you entered during registration.<br/><br/>To receive the letter again please click <a href=\"/a-blocked_account/\">here</a>."
+
+#: tmp/messfields.txt:1
+msgid "Вы ввели неверный код. Запросите код еще раз через 3 минуты."
+msgstr "The code you have entered is incorrect. Request the code once again in 3 minutes."
+
+#: tmp/messfields.txt:1
+msgid "У Вас слишком простой пароль, его могут подобрать, введите, пожалуйста, новый."
+msgstr "Your password can be easily hacked, please enter a new one."
+
+#: tmp/messfields.txt:1
+msgid "В целях защиты от взлома, следующая попытка войти будет возможна через 3 минуты.<br><br><a href=\"/a-e_reminder/\" class=\"js_add\">Забыли пароль?</a>"
+msgstr "For security purposes, you can try to login again in 3 minutes.<br><br><a href=\"/a-e_reminder/\" class=\"js_add\">Forgot your password?</a>"
+
+#: tmp/messfields.txt:1
+msgid "В целях защиты от взлома, следующая попытка войти будет возможна через 3 минуты."
+msgstr "For security purposes, you can try to login again in 3 minutes."
+
+#: tmp/messfields.txt:1
+msgid "Не удалось авторизоваться. Пожалуйста обновите приложение."
+msgstr "Could not sign in. Please update the application."
+
+#: tmp/messfields.txt:1
+msgid "Не удалось авторизоваться. Аккаунт заблокирован."
+msgstr "Could not sign in. Account is blocked."
+
+#: tmp/messfields.txt:1
+msgid "Ошибка при обработке вашей фотографии. Попытайтесь загрузить снова или обратитесь в службу поддержки."
+msgstr "Error processing your photo. Please try to upload it again or contact Customer Support Service."
+
+#: tmp/messfields.txt:1
+msgid "Вы достигли максимального количества фотографий в альбоме."
+msgstr "You have reached the limit of photos in an album."
+
+#: tmp/messfields.txt:1
+msgid "Основная фотография будет отображаться, когда пройдет проверку."
+msgstr "The default photo will be displayed once it passes moderation."
+
+#: tmp/messfields.txt:1
+msgid "Основная фотография не прошла проверку и не отображается"
+msgstr "The default photo did not pass moderation and is not displayed"
+
+#: tmp/messfields.txt:1
+msgid "Отклоненная фотография не может быть выбрана основной."
+msgstr "Declined photo cannot be selected as default."
+
+#: tmp/messfields.txt:1
+msgid "Некоторые фотографии были перенесены в Закрытый Альбом."
+msgstr "Some photos were moved to the Closed Album."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "Фотография \"%s\" перенесена в другой <a href=\"/a-slide/num-%u/\" class=\"js_add\" target=\"_blank\">альбом</a>. Причина <a href=\"/a-fotorules/\" class=\"js_add\" target=\"_blank\">%s</a>"
+msgstr "Photo \"%s\" was moved to another <a href=\"/a-slide/num-%u/\" class=\"js_add\" target=\"_blank\">album</a>. Reason <a href=\"/a-fotorules/\" class=\"js_add\" target=\"_blank\">%s</a>"
+
+#: tmp/messfields.txt:1
+msgid "Некоторые фотографии не прошли проверку и были удалены."
+msgstr "Some photos did not pass moderation and were deleted."
+
+#: tmp/messfields.txt:1
+msgid "Ваша фотография была отклонена модераторами за несоответствие правилам сервиса. Пожалуйста, ознакомьтесь со списком <a href=\"/a-fotorules/\" class=\"js_add\" target=\"_blank\">причин отклонения</a> и загрузите другой снимок."
+msgstr "Your photograph was rejected by the moderators because it did not conform to the service's rules. Please consult the list of <a href=\"/a-fotorules/\" class=\"js_add\" target=\"_blank\">reasons for rejection</a> and upload another photo."
+
+#: tmp/messfields.txt:1
+msgid "Модератор счел вашу фотографию слишком откровенной для публикации в открытом доступе. Фотография была помещена в закрытый альбом."
+msgstr "The moderator found your photograph to be too explicit to be posted in open access. The photograph will be placed in a private album."
+
+#: tmp/messfields.txt:1
+msgid "Ваша фотография не прошла проверку и была удалена за несоответствие правилам сервиса. Пожалуйста, ознакомьтесь со списком <a href=\"/a-fotorules/\" class=\"js_add\" target=\"_blank\">причин отклонения</a> и загрузите другой снимок."
+msgstr "Your photograph did not pass moderation and has been deleted for failure to comply with the service's rules. Please consult the list of <a href=\"/a-fotorules/\" class=\"js_add\" target=\"_blank\">reasons for rejection</a> and upload another photo."
+
+#: tmp/messfields.txt:1
+msgid "Модератор пометил вашу фотографию как эротическую. Фотография была перемещена в интим-альбом. Больше информации вы найдете в <a href=\"/a-fotorules/\" class=\"js_add\" target=\"_blank\">правилах модерации</a> фотографий."
+msgstr "The moderator has marked your photograph as erotic. The photograph has been moved to an intimate album. You can find more information in the <a href=\"/a-fotorules/\" class=\"js_add\" target=\"_blank\">moderation rules</a> for photographs."
+
+#: tmp/messfields.txt:1
+#, python-format
+msgid "В целях защиты от взлома пароль от вашей анкеты был изменен. Новые данные были высланы на ваш email: %s и телефон, указанный при регистрации. Приносим извинения за неудобства."
+msgstr "For security purposes, your profile password was changed. New information was sent to your e-mail: %s and phone number entered during registration. We apologize for the inconvenience."
+
+#: tmp/messfields.txt:1
+msgid "В целях защиты от взлома пароль от вашей анкеты был изменен. Получить новый вы можете, перейдя на <a href=\"/a-reminder/\" data-recur=\"true\" data-target=\"modal\" data-type=\"window\" data-href=\"/a-reminder/popup-1\">страницу восстановления пароля</a>."
+msgstr "For security purposes, your profile password was changed. You can get a new one by going to the <a href=\"/a-reminder/\" data-recur=\"true\" data-target=\"modal\" data-type=\"window\" data-href=\"/a-reminder/popup-1\">Password Restore page</a>."
+
+#: tmp/messfields.txt:1
+msgid "Подождите, сообщения будут загружены через <span id=\"etimer\">10</span> секунд. <script type=\"text/javascript\">error_message(\"etimer\",10);</script>"
+msgstr "Please wait, the messages will be loaded in <span id=\"etimer\">10</span> seconds. <script type=\"text/javascript\">error_message(\"etimer\",10);</script>"
