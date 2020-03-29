@@ -2,7 +2,7 @@
 description: Grundlegende Informationen zu GitLocalize
 ---
 
-# Über GitLocalize
+# Über GitLocalize - Was ist das?
 
 ## Was ist GitLocalize? <a id="what-is-gitlocalize"></a>
 
