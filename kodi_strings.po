@@ -2,7 +2,6 @@
 # Addon Name: SponsorBlock
 # Addon id: script.service.sponsorblock
 # Addon Provider: siku2
-
 msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
