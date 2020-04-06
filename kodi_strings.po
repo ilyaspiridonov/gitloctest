@@ -1,6 +1,6 @@
 
 msgid "General"
-msgstr ""
+msgstr "General"
 
 
 msgid "Show dialog after ad skip"
