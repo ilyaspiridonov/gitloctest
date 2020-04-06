@@ -28,8 +28,6 @@ msgctxt "#32012"
 msgid "Auto Upvote"
 msgstr ""
 
-
-
 msgctxt "#32007"
 msgid "API"
 msgstr ""
@@ -42,8 +40,6 @@ msgctxt "#32003"
 msgid "User ID"
 msgstr ""
 
-
-
 msgctxt "#32004"
 msgid "Failed to submit vote"
 msgstr ""
@@ -51,8 +47,6 @@ msgstr ""
 msgctxt "#32005"
 msgid "Submitted vote"
 msgstr ""
-
-
 
 msgctxt "#32008"
 msgid "Skipped sponsor segment"
