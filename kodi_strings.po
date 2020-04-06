@@ -1,3 +1,8 @@
+# Kodi Media Center language file
+# Addon Name: SponsorBlock
+# Addon id: script.service.sponsorblock
+# Addon Provider: siku2
+
 msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
@@ -6,6 +11,9 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+# next number: 32013
+# SETTINGS
+#   general category
 msgctxt "#32001"
 msgid "General"
 msgstr ""
@@ -22,6 +30,7 @@ msgctxt "#32012"
 msgid "Auto Upvote"
 msgstr ""
 
+#   api category
 msgctxt "#32007"
 msgid "API"
 msgstr ""
@@ -34,6 +43,7 @@ msgctxt "#32003"
 msgid "User ID"
 msgstr ""
 
+# NOTIFICATIONS
 msgctxt "#32004"
 msgid "Failed to submit vote"
 msgstr ""
@@ -42,6 +52,7 @@ msgctxt "#32005"
 msgid "Submitted vote"
 msgstr ""
 
+# SPONSOR SKIPPED DIALOG
 msgctxt "#32008"
 msgid "Skipped sponsor segment"
 msgstr ""
