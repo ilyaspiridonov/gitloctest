@@ -18,34 +18,3 @@ msgstr ""
 msgid "API"
 msgstr ""
 
-
-msgid "Server Domain"
-msgstr ""
-
-msgid "User ID"
-msgstr ""
-
-
-# NOTIFICATIONS
-
-
-msgid "Failed to submit vote"
-msgstr ""
-
-
-msgid "Submitted vote"
-msgstr ""
-
-
-# SPONSOR SKIPPED DIALOG
-
-msgid "Skipped sponsor segment"
-msgstr ""
-
-
-msgid "unskip"
-msgstr ""
-
-
-msgid "report"
-msgstr ""
