@@ -1,0 +1,11 @@
+{
+  "notificationsOverview_title": "Notifications",
+  "@notificationsOverview_title": {
+    "description": "Der Titel in der AppBar",
+    "type": "Text"
+  },
+  "notificationsOverview_notificationsZero": "Sie haben noch keine Benachrichtigungen.",
+  "@notificationsOverview_notificationsZero": {
+    "description": "Nachricht wird angezeigt, wenn Sie keine Benachrichtigungen haben"
+  }
+}
