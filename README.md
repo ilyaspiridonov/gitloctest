@@ -12,5 +12,7 @@ Projects are always changing, and keeping them localized can be a daunting \(and
 
 ### How It Works <a id="how-it-works"></a>
 
+Туц ыупьуте
+
 You can immediately get started with your GitHub account. All you have to do is choose your repository to integrate with GitLocalize and localization will become easier than ever before!
 
