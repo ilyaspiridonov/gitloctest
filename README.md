@@ -8,11 +8,7 @@ description: Basic information about GitLocalize
 
 [GitLocalize](https://gitlocalize.com/) is a continuous and automated localization platform that simplifies the translation workflow for developers.
 
-### What the hell is this heading about?
-
 Projects are always changing, and keeping them localized can be a daunting \(and annoying\) challenge. We realized this and decided that there should be a way to streamline this. GitLocalize connects to your GitHub repository and seamlessly integrates with your development workflow in just a few clicks
-
-Yo yo
 
 ### How It Works <a id="how-it-works"></a>
 
