@@ -12,6 +12,4 @@ Los proyectos siempre están cambiando, y mantenerlos localizados puede ser un d
 
 ### Cómo funciona <a id="how-it-works"></a>
 
-Туц ыупьуте
-
 Puede comenzar de inmediato con su cuenta de GitHub. ¡Todo lo que tiene que hacer es elegir su repositorio para integrarse con GitLocalize y la localización será más fácil que nunca!
