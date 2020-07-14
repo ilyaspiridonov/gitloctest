@@ -12,6 +12,8 @@ description: Informações básicas sobre o GitLocalize
 
 Снова здрасте
 
+rere
+
 Os projetos estão sempre mudando e mantê-los localizados pode ser um desafio assustador (e irritante). Percebemos isso e decidimos que deveria haver uma maneira de simplificar isso. O GitLocalize se conecta ao seu repositório GitHub e se integra perfeitamente ao seu fluxo de trabalho de desenvolvimento em apenas alguns cliques
 
 Привет мир
