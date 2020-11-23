@@ -1,0 +1,7 @@
+{
+  "notificationsOverview_title": "Notifications",
+  "@notificationsOverview_title": {
+    "description": "Der Titel in der AppBar",
+    "type": "text"
+  }
+}
