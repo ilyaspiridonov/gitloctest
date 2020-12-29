@@ -8,6 +8,16 @@ description: Basic information about GitLocalize
 
 [GitLocalize](https://gitlocalize.com/) is a continuous and automated localization platform that simplifies the translation workflow for developers.
 
+{% tabs %}
+{% tab title="First Tab" %}
+asdf
+{% endtab %}
+
+{% tab title="Second Tab" %}
+fsd
+{% endtab %}
+{% endtabs %}
+
 ### Hello world
 
 Снова здрасте
