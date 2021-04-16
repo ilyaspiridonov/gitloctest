@@ -1,0 +1,28 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020 P529Garage
+# This file is distributed under the same license as the P529Garage package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: P529Garage 1.0\n"
+"Report-Msgid-Bugs-To: contact@translation.io\n"
+"POT-Creation-Date: 2020-08-18 14:21-0300\n"
+"PO-Revision-Date: 2020-08-18 14:21-0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../../../app/controllers/bikes_controller.rb:2161
+msgid ""
+"Your account does not have a text number. Please contact support@project529.co"
+"m to set one up with us in order to send text messages to bike owners."
+msgstr "Su cuenta no tiene un número de texto. Póngase en contacto con support@project
+529.com para configurar uno con nosotros para enviar mensajes de texto a los p
+ropietarios de bicicletas.
+"
